@@ -1,0 +1,139 @@
+% ===============================
+%           PAQUETES
+% ===============================
+
+\documentclass[8pt]{article}
+
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{multicol}
+\tcbuselibrary{breakable}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{colortbl}
+\usetikzlibrary{arrows.meta, shapes, positioning, calc, patterns}
+
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+% ===============================
+%           COLORES
+% ===============================
+
+\definecolor{azuloscuro}{RGB}{0, 51, 102}
+\definecolor{azulmedio}{RGB}{42, 82, 152}
+\definecolor{verdecorrecto}{RGB}{40, 167, 69}
+\definecolor{fondogris}{RGB}{248, 249, 250}
+\definecolor{fondoverde}{RGB}{235, 247, 238}
+\definecolor{amarillonota}{RGB}{255, 250, 205}
+\definecolor{fondorojo}{RGB}{248, 215, 218}
+
+% ===============================
+%     ESTILO DE ENCABEZADO
+% ===============================
+
+\newcommand{\materia}{Área 1: Físico-Matemáticas}
+\newcommand{\tema}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\tema}
+\rhead{\materia}
+\cfoot{\thepage}
+
+% ===============================
+%     ESTILO DE SECCIONES
+% ===============================
+
+\newtcolorbox{seccion}{
+    colback=fondogris,
+    colframe=azulmedio,
+    boxrule=0pt,
+    leftrule=4pt,
+    arc=3pt,
+    breakable
+}
+
+% ===============================
+%     CAJA PARA DEFINICIONES
+% ===============================
+
+\newtcolorbox{definicion}{
+colback=fondogris,
+colframe=azuloscuro,
+arc=4pt,
+boxrule=1pt
+}
+
+% ===============================
+%     CAJA PARA ECUACIONES
+% ===============================
+
+\newtcolorbox{ecuacion}{
+    colback=fondoverde,
+    colframe=verdecorrecto,
+    boxrule=0pt,
+    leftrule=3pt,
+    arc=3pt,
+    breakable
+}
+
+% ===========================
+%     NOTAS IMPORTANTES
+% ===========================
+
+\newtcolorbox{nota}{
+    colback=amarillonota,
+    colframe=azuloscuro,
+    boxrule=1pt,
+    arc=3pt,
+    breakable
+}
+
+% ======================
+%     INSTRUCCIONES
+% ======================
+
+\newtcolorbox{instruccionbox}{
+    colback=amarillonota,
+    colframe=azuloscuro,
+    boxrule=1pt,
+    arc=3pt,
+    breakable
+}
+
+% ==================
+%     PREGUNTAS
+% ==================
+
+\newtcolorbox{preguntabox}{
+    colback=fondogris,
+    colframe=azulmedio,
+    boxrule=0pt,
+    leftrule=3pt,
+    arc=3pt,
+    breakable
+}
+
+% ===================
+%     RESPUESTAS
+% ===================
+
+\newtcolorbox{respuestabox}{
+    colback=fondoverde,
+    colframe=verdecorrecto,
+    boxrule=0pt,
+    leftrule=4pt,
+    arc=3pt,
+    breakable
+}
+
+

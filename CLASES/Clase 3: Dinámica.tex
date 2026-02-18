@@ -1,0 +1,963 @@
+\renewcommand{\tema}{Lección: Dinámica}
+
+\section{Repaso de vectores}
+
+\begin{seccion}
+Antes de estudiar las fuerzas, es fundamental comprender las herramientas matemáticas que utilizaremos. Las fuerzas son magnitudes vectoriales, por lo que necesitamos dominar operaciones con vectores y trigonometría básica.
+\end{seccion}
+
+\subsection{Vectores: Concepto y Representación}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Vector:} Magnitud que posee tanto cantidad (módulo o magnitud) como dirección y sentido.
+\end{definicion}
+
+\textbf{Ejemplos de magnitudes vectoriales:}
+\begin{itemize}
+    \item Fuerza: 20 N hacia el norte
+    \item Velocidad: 30 m/s a 45$^\circ$ sobre la horizontal
+    \item Desplazamiento: 10 m hacia arriba
+\end{itemize}
+
+\textbf{Magnitudes escalares} (solo tienen magnitud):
+\begin{itemize}
+    \item Masa: 5 kg
+    \item Tiempo: 10 s
+    \item Temperatura: 25 $^\circ$C
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Representación gráfica:} Un vector se representa como una flecha donde:
+\begin{itemize}
+    \item La longitud representa la magnitud
+    \item La dirección de la flecha indica la dirección y sentido
+    \item El punto de aplicación indica dónde actúa
+\end{itemize}
+\end{seccion}
+
+\subsubsection{Componentes Rectangulares de un Vector}
+
+\begin{seccion}
+Todo vector en el plano puede descomponerse en dos componentes perpendiculares (horizontal y vertical):
+
+\vspace{0.3cm}
+
+\begin{ecuacion}
+\textbf{Componentes de un vector:}
+
+Para un vector $\vec{F}$ con magnitud $F$ y ángulo $\theta$ respecto al eje horizontal:
+
+$$F_x = F \cos\theta \quad \text{(componente horizontal)}$$
+$$F_y = F \sin\theta \quad \text{(componente vertical)}$$
+
+La magnitud se calcula con:
+$$F = \sqrt{F_x^2 + F_y^2}$$
+
+El ángulo se obtiene con:
+$$\theta = \arctan\left(\frac{F_y}{F_x}\right)$$
+\end{ecuacion}
+
+\begin{nota}
+    \textbf{Nota importante:} El ángulo $\theta$ se mide desde el eje $x$ positivo (horizontal hacia la derecha) en sentido antihorario.
+\end{nota}
+
+\end{seccion}
+
+\subsubsection{Diagrama: Descomposición Vectorial}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1.2]
+    % Ejes
+    \draw[thick, ->] (0,0) -- (5,0) node[right] {$x$};
+    \draw[thick, ->] (0,0) -- (0,4) node[above] {$y$};
+    
+    % Vector principal
+    \draw[very thick, ->, color=azuloscuro] (0,0) -- (4,3) node[midway, above left] {$\vec{F}$};
+    
+    % Componentes
+    \draw[thick, ->, color=verdecorrecto, dashed] (0,0) -- (4,0) node[midway, below] {$F_x = F\cos\theta$};
+    \draw[thick, ->, color=verdecorrecto, dashed] (4,0) -- (4,3) node[midway, right] {$F_y = F\sin\theta$};
+    
+    % Ángulo
+    \draw[color=azulmedio] (1,0) arc (0:36.87:1);
+    \node[color=azulmedio] at (1.3,0.3) {$\theta$};
+    
+    % Líneas punteadas auxiliares
+    \draw[dotted] (0,3) -- (4,3);
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+\end{center}
+
+\subsection{Tabla Trigonométrica de Valores Frecuentes}
+
+\begin{seccion}
+En problemas de mecánica, ciertos ángulos aparecen con frecuencia. Es útil memorizar sus valores:
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{azulmedio!30}
+\textbf{Ángulo} & \textbf{sen $\theta$} & \textbf{cos $\theta$} & \textbf{tan $\theta$} \\
+\hline
+0$^\circ$ & 0 & 1 & 0 \\
+\hline
+30$^\circ$ & $\frac{1}{2}$ = 0.5 & $\frac{\sqrt{3}}{2}$ $\approx$ 0.866 & $\frac{\sqrt{3}}{3}$ $\approx$ 0.577 \\
+\hline
+45$^\circ$ & $\frac{\sqrt{2}}{2}$ $\approx$ 0.707 & $\frac{\sqrt{2}}{2}$ $\approx$ 0.707 & 1 \\
+\hline
+60$^\circ$ & $\frac{\sqrt{3}}{2}$ $\approx$ 0.866 & $\frac{1}{2}$ = 0.5 & $\sqrt{3}$ $\approx$ 1.732 \\
+\hline
+90$^\circ$ & 1 & 0 & $\infty$ (indefinido) \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{Observaciones importantes:}
+\begin{itemize}
+    \item sen 0$^\circ$ = 0, cos 0$^\circ$ = 1 (vector completamente horizontal)
+    \item sen 90$^\circ$ = 1, cos 90$^\circ$ = 0 (vector completamente vertical)
+    \item sen 30$^\circ$ = cos 60$^\circ$ y sen 60$^\circ$ = cos 30$^\circ$ (ángulos complementarios)
+    \item A 45$^\circ$, las componentes horizontal y vertical son iguales
+\end{itemize}
+\end{seccion}
+\newpage
+
+\subsection{Suma Vectorial}
+
+\begin{seccion}
+\textbf{Método de componentes:} Para sumar varios vectores:
+
+\textbf{Paso 1:} Descomponer cada vector en sus componentes $x$ y $y$
+
+\textbf{Paso 2:} Sumar todas las componentes $x$ entre sí:
+$$R_x = F_{1x} + F_{2x} + F_{3x} + ...$$
+
+\textbf{Paso 3:} Sumar todas las componentes $y$ entre sí:
+$$R_y = F_{1y} + F_{2y} + F_{3y} + ...$$
+
+\textbf{Paso 4:} El vector resultante tiene componentes $(R_x, R_y)$ y magnitud:
+$$R = \sqrt{R_x^2 + R_y^2}$$
+
+\vspace{0.3cm}
+
+\textbf{Ejemplo:} Si $\vec{F}_1 = 30$ N a 0$^\circ$ y $\vec{F}_2 = 40$ N a 90$^\circ$:
+\begin{itemize}
+    \item $F_{1x} = 30$ N, $F_{1y} = 0$ N
+    \item $F_{2x} = 0$ N, $F_{2y} = 40$ N
+    \item $R_x = 30$ N, $R_y = 40$ N
+    \item $R = \sqrt{30^2 + 40^2} = \sqrt{900 + 1600} = \sqrt{2500} = 50$ N
+\end{itemize}
+\end{seccion}
+
+\section{Concepto de Fuerza}
+
+\begin{seccion}
+
+\begin{definicion}
+    \textbf{Fuerza:} Interacción capaz de cambiar el estado de movimiento o la forma de un cuerpo.
+\end{definicion}
+
+\textbf{Características fundamentales de la fuerza:}
+\begin{enumerate}
+    \item Es una magnitud vectorial (tiene magnitud, dirección y sentido)
+    \item Puede producir aceleración (cambio en la velocidad)
+    \item Puede deformar objetos
+    \item Siempre involucra la interacción entre dos cuerpos
+\end{enumerate}
+
+\textbf{Unidad de fuerza en el SI:} Newton (N)
+
+$$1 \text{ N} = 1 \text{ kg} \cdot \text{m/s}^2$$
+
+\begin{definicion}
+    \textit{Un Newton es la fuerza necesaria para acelerar un kilogramo a razón de un metro por segundo cada segundo.}
+\end{definicion}
+
+\end{seccion}
+\newpage
+\subsection{Tipos de Fuerzas}
+
+\begin{seccion}
+
+\begin{definicion}
+    \textbf{Fuerzas de contacto:} Requieren contacto físico directo
+\end{definicion}
+
+\begin{itemize}
+    \item \textbf{Fuerza normal ($N$):} Perpendicular a la superficie de contacto
+    \item \textbf{Fuerza de fricción ($f$):} Paralela a la superficie, se opone al movimiento
+    \item \textbf{Tensión ($T$):} Fuerza ejercida por cuerdas o cables
+    \item \textbf{Fuerza elástica ($F_e$):} Ejercida por resortes deformados
+\end{itemize}
+
+\begin{definicion}
+    \textbf{Fuerzas de campo:} Actúan a distancia sin contacto físico
+\end{definicion}
+
+\begin{itemize}
+    \item \textbf{Peso ($W$):} Fuerza gravitacional terrestre sobre objetos
+    \item \textbf{Fuerza gravitacional ($F_g$):} Atracción entre masas
+    \item \textbf{Fuerza eléctrica:} Entre cargas eléctricas
+    \item \textbf{Fuerza magnética:} Entre imanes o corrientes
+\end{itemize}
+\end{seccion}
+
+\subsection{Carácter Vectorial y Superposición de Fuerzas}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Principio de superposición:} Cuando varias fuerzas actúan simultáneamente sobre un objeto, el efecto total es equivalente a una sola fuerza igual a la suma vectorial de todas ellas.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Fuerza neta o resultante:}
+$$\vec{F}_{neta} = \vec{F}_1 + \vec{F}_2 + \vec{F}_3 + ... = \sum \vec{F}$$
+\end{ecuacion}
+
+\textbf{Método para calcular la fuerza neta:}
+\begin{enumerate}
+    \item Identificar todas las fuerzas que actúan sobre el objeto
+    \item Descomponer cada fuerza en componentes $x$ y $y$
+    \item Sumar las componentes: $F_{neta,x} = \sum F_x$ y $F_{neta,y} = \sum F_y$
+    \item Calcular magnitud y dirección de la resultante
+\end{enumerate}
+\end{seccion}
+
+\subsection{Diagrama de Cuerpo Libre}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Diagrama de cuerpo libre (DCL):} Representación esquemática que muestra todas las fuerzas que actúan sobre un objeto, representado como un punto.
+\end{definicion}
+
+\textbf{Pasos para construir un DCL:}
+\begin{enumerate}
+    \item Aislar el objeto de interés
+    \item Representarlo como un punto
+    \item Dibujar todas las fuerzas que actúan sobre él como vectores
+    \item Etiquetar cada fuerza claramente
+    \item No incluir fuerzas que el objeto ejerce sobre otros cuerpos
+\end{enumerate}
+\end{seccion}
+
+\subsubsection{Ejemplo de Diagrama de Cuerpo Libre}
+
+\begin{center}
+\shorthandoff{>}\shorthandoff{<}
+\begin{tikzpicture}[scale=1]
+    % Objeto (bloque sobre superficie)
+    \draw[fill=fondogris] (0,0) rectangle (2,1.5);
+    \node at (1,0.75) {$m$};
+    
+    % Superficie
+    \draw[thick] (-1,-0.1) -- (4,-0.1);
+    \draw[pattern=north east lines] (-1,-0.1) rectangle (4,-0.3);
+    
+    % Fuerza aplicada
+    \draw[very thick, ->, color=azuloscuro] (2,0.75) -- (4,0.75) node[above, midway] {$\vec{F}$};
+    
+    \node at (1, -1) {Situación física};
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+
+\vspace{1cm}
+
+\shorthandoff{>}\shorthandoff{<}
+\begin{tikzpicture}[scale=1.5]
+    % Punto (objeto aislado)
+    \filldraw[color=azulmedio] (0,0) circle (0.1);
+    
+    % Peso
+    \draw[very thick, ->, color=azuloscuro] (0,0) -- (0,-2) node[right, midway] {$\vec{W} = m\vec{g}$};
+    
+    % Normal
+    \draw[very thick, ->, color=verdecorrecto] (0,0) -- (0,1.5) node[right, midway] {$\vec{N}$};
+    
+    % Fuerza aplicada
+    \draw[very thick, ->, color=azuloscuro] (0,0) -- (2,0) node[above, midway] {$\vec{F}$};
+    
+    % Fricción
+    \draw[very thick, ->, color=red] (0,0) -- (-1.2,0) node[above, midway] {$\vec{f}$};
+    
+    \node at (0, -2.5) {Diagrama de Cuerpo Libre};
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+\end{center}
+
+
+\section{Leyes de Newton del Movimiento}
+
+\subsection{Primera Ley de Newton: Ley de Inercia}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Enunciado:} Un objeto permanece en reposo o en movimiento rectilíneo uniforme (velocidad constante) a menos que una fuerza neta actúe sobre él.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Condición matemática:}
+$$\sum \vec{F} = 0 \quad \Rightarrow \quad \vec{v} = \text{constante}$$
+\end{ecuacion}
+
+\begin{definicion}
+    \textbf{Concepto de inercia:} Tendencia de un objeto a mantener su estado de movimiento. La inercia es directamente proporcional a la masa.
+\end{definicion}
+
+\textbf{Implicaciones:}
+\begin{itemize}
+    \item Si $\sum \vec{F} = 0$ y el objeto está en reposo ($v = 0$), permanecerá en reposo
+    \item Si $\sum \vec{F} = 0$ y el objeto se mueve, continuará con velocidad constante
+    \item Se requiere una fuerza neta para cambiar la velocidad (acelerar o frenar)
+\end{itemize}
+
+\textbf{Ejemplos cotidianos:}
+\begin{itemize}
+    \item Un libro sobre una mesa permanece en reposo
+    \item Un disco de hockey sobre hielo continúa deslizándose con poca fricción
+\end{itemize}
+\end{seccion}
+
+\subsection{Segunda Ley de Newton: Ley de Fuerza y Aceleración}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Aceleración:} La aceleración de un objeto es directamente proporcional a la fuerza neta que actúa sobre él e inversamente proporcional a su masa.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Ecuación fundamental:}
+$$\vec{F}_{neta} = m\vec{a}$$
+
+o en forma de componentes:
+$$F_x = ma_x \quad , \quad F_y = ma_y$$
+
+donde:
+\begin{itemize}
+    \item $\vec{F}_{neta}$ = suma vectorial de todas las fuerzas (N)
+    \item $m$ = masa del objeto (kg)
+    \item $\vec{a}$ = aceleración resultante (m/s$^2$)
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Consecuencias importantes:}
+\begin{enumerate}
+    \item La aceleración tiene la misma dirección que la fuerza neta
+    \item Si $F$ aumenta, $a$ aumenta proporcionalmente (con $m$ constante)
+    \item Si $m$ aumenta, $a$ disminuye (con $F$ constante)
+    \item Sin fuerza neta ($F = 0$), no hay aceleración ($a = 0$)
+\end{enumerate}
+\end{seccion}
+
+\subsubsection{Masa: Medida de la Inercia}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Masa ($m$):} Cantidad de materia en un objeto y medida de su inercia.
+\end{definicion}
+
+\textbf{Características:}
+\begin{itemize}
+    \item Unidad SI: kilogramo (kg)
+    \item Mayor masa implica mayor resistencia al cambio de movimiento
+\end{itemize}
+
+\textbf{Diferencia masa vs peso:}
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\rowcolor{azulmedio!30}
+\textbf{Propiedad} & \textbf{Masa} & \textbf{Peso} \\
+\hline
+Naturaleza & Cantidad de materia & Fuerza gravitacional \\
+\hline
+Tipo & Escalar & Vector \\
+\hline
+Unidad & kg & N \\
+\hline
+Depende de ubicación & No & Sí \\
+\hline
+\end{tabular}
+\end{center}
+\end{seccion}
+
+\newpage
+
+\subsubsection{Peso: Fuerza Gravitacional}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Peso ($W$):} Fuerza con la que un planeta atrae a un objeto hacia su centro.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Fórmula del peso:}
+$$\vec{W} = m\vec{g}$$
+
+En magnitud:
+$$W = mg$$
+
+donde:
+\begin{itemize}
+    \item $W$ = peso (N)
+    \item $m$ = masa (kg)
+    \item $g$ = aceleración gravitacional (m/s$^2$)
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Valores de $g$ en diferentes ubicaciones:}
+\begin{itemize}
+    \item Tierra (superficie): $g = 9.8$ m/s$^2$ $\approx 10$ m/s$^2$
+    \item Luna: $g = 1.6$ m/s$^2$ $\approx g_{Tierra}/6$
+    \item Marte: $g = 3.7$ m/s$^2$ $\approx g_{Tierra}/3$
+    \item Júpiter: $g = 24.8$ m/s$^2$ $\approx 2.5 g_{Tierra}$
+\end{itemize}
+
+\begin{definicion}
+    \textbf{Dirección del peso:} Siempre apunta hacia el centro del planeta (verticalmente hacia abajo en la superficie).
+\end{definicion}
+
+\end{seccion}
+
+\subsection{Tercera Ley de Newton: Acción y Reacción}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Definición:} Cuando un cuerpo A ejerce una fuerza sobre un cuerpo B, el cuerpo B ejerce simultáneamente una fuerza sobre A de igual magnitud, misma dirección pero sentido opuesto.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Expresión matemática:}
+$$\vec{F}_{AB} = -\vec{F}_{BA}$$
+
+donde:
+\begin{itemize}
+    \item $\vec{F}_{AB}$ = fuerza que A ejerce sobre B (acción)
+    \item $\vec{F}_{BA}$ = fuerza que B ejerce sobre A (reacción)
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Características de los pares acción-reacción:}
+\begin{enumerate}
+    \item Tienen la misma magnitud
+    \item Tienen direcciones opuestas
+    \item Actúan sobre cuerpos diferentes
+    \item Son simultáneas (ocurren al mismo tiempo)
+    \item Son de la misma naturaleza (ambas gravitacionales, ambas de contacto, etc.)
+    \item NO se anulan entre sí (actúan sobre objetos distintos)
+\end{enumerate}
+\newpage
+\textbf{Ejemplos de pares acción-reacción:}
+\begin{itemize}
+    \item Libro sobre mesa: libro empuja mesa hacia abajo $\leftrightarrow$ mesa empuja libro hacia arriba
+    \item Caminar: pie empuja suelo hacia atrás $\leftrightarrow$ suelo empuja pie hacia adelante
+    \item Cohete: gases expulsados hacia abajo $\leftrightarrow$ cohete empujado hacia arriba
+    \item Gravitación: Tierra atrae Luna $\leftrightarrow$ Luna atrae Tierra
+\end{itemize}
+\end{seccion}
+
+\subsubsection{Diagrama: Tercera Ley de Newton}
+
+\begin{center}
+\shorthandoff{>}\shorthandoff{<}
+\begin{tikzpicture}[scale=1.2]
+    % Libro
+    \draw[fill=azulmedio!20, thick] (0,1.5) rectangle (2,2.5);
+    \node at (1,2) {\textbf{Libro}};
+    
+    % Mesa
+    \draw[fill=fondogris, thick] (-1,0) rectangle (4,1.5);
+    \node at (1.5,0.75) {\textbf{Mesa}};
+    
+    % Fuerza del libro sobre la mesa (acción)
+    \draw[very thick, ->, color=azuloscuro] (1,1.5) -- (1,1.0) node[right, midway] {$\vec{F}_{LM}$};
+    
+    % Fuerza de la mesa sobre el libro (reacción)
+    \draw[very thick, ->, color=verdecorrecto] (1,1.5) -- (1,2.0) node[right, midway] {$\vec{F}_{ML}$};
+    
+    % Etiquetas
+    \node[color=azuloscuro] at (3.5,1.2) {Acción};
+    \node[color=verdecorrecto] at (3.5,1.8) {Reacción};
+    
+    % Relación
+    \node at (2, -0.5) {$\vec{F}_{LM} = -\vec{F}_{ML}$};
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+\end{center}
+
+\section*{Equilibrio Mecánico}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Equilibrio mecánico:} Condición en la que un cuerpo no experimenta cambios en su estado de movimiento (traslacional) ni de rotación.
+\end{definicion}
+
+Existen dos tipos de equilibrio:
+\begin{enumerate}
+    \item \textbf{Equilibrio traslacional:} No hay movimiento de traslación (aceleración lineal = 0)
+    \item \textbf{Equilibrio rotacional:} No hay rotación (aceleración angular = 0)
+\end{enumerate}
+\end{seccion}
+
+\subsection{Primera Condición de Equilibrio: Equilibrio Traslacional}
+
+\begin{seccion}
+\textbf{Condición:} Un cuerpo está en equilibrio traslacional cuando la suma vectorial de todas las fuerzas que actúan sobre él es cero.
+
+\begin{ecuacion}
+\textbf{Primera condición de equilibrio:}
+$$\sum \vec{F} = 0$$
+
+En componentes:
+$$\sum F_x = 0 \quad \text{y} \quad \sum F_y = 0$$
+\end{ecuacion}
+
+
+\textbf{Método de resolución de problemas:}
+\begin{enumerate}
+    \item Dibujar el diagrama de cuerpo libre
+    \item Establecer un sistema de coordenadas
+    \item Descomponer fuerzas en componentes $x$ y $y$
+    \item Aplicar $\sum F_x = 0$ y $\sum F_y = 0$
+    \item Resolver el sistema de ecuaciones
+\end{enumerate}
+\end{seccion}
+
+\subsubsection{Concepto de Torca o Momento de Fuerza}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Torca ($\tau$):} Medida de la efectividad de una fuerza para producir rotación alrededor de un eje o punto.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Definición de torca:}
+$$\tau = r F \sin\theta$$
+
+o cuando la fuerza es perpendicular al brazo:
+$$\tau = r_\perp F = r F$$
+
+donde:
+\begin{itemize}
+    \item $\tau$ = torca o momento (N$\cdot$m)
+    \item $r$ = distancia del eje de rotación al punto de aplicación (m)
+    \item $F$ = magnitud de la fuerza (N)
+    \item $\theta$ = ángulo entre $\vec{r}$ y $\vec{F}$
+    \item $r_\perp$ = brazo de palanca (distancia perpendicular)
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Convención de signos (Regla de la mano derecha):}
+\begin{itemize}
+    \item Torca positiva (+): produce rotación antihoraria 
+    \item Torca negativa (-): produce rotación horaria 
+\end{itemize}
+
+\textbf{Factores que afectan la torca:}
+\begin{enumerate}
+    \item \textbf{Magnitud de la fuerza:} Mayor fuerza, mayor torca
+    \item \textbf{Brazo de palanca:} Mayor distancia, mayor torca
+    \item \textbf{Ángulo de aplicación:} Máxima torca cuando $F \perp r$ ($\theta = 90^\circ$)
+\end{enumerate}
+\end{seccion}
+
+\subsubsection{Diagrama: Concepto de Torca}
+
+\begin{center}
+\shorthandoff{>}\shorthandoff{<}
+\begin{tikzpicture}[scale=1.2]
+    % Eje de rotación
+    \filldraw[color=azuloscuro] (0,0) circle (0.1);
+    \draw[thick] (0,-0.3) -- (0,0.3);
+    \node[below] at (0,-0.3) {Eje};
+    
+    % Brazo
+    \draw[very thick] (0,0) -- (4,0);
+    
+    % Punto de aplicación
+    \filldraw[color=azulmedio] (4,0) circle (0.08);
+    
+    % Fuerza perpendicular
+    \draw[very thick, ->, color=verdecorrecto] (4,0) -- (4,2.5) node[right, midway] {$\vec{F}$};
+    
+    % Distancia r
+    \draw[<->, thick, color=azuloscuro] (0,-0.5) -- (4,-0.5) node[midway, below] {$r$ (brazo de palanca)};
+    
+    % Flecha de rotación
+    \draw[->, very thick, color=azulmedio] (1,0.3) arc (0:90:1) node[midway, above right] {$\tau = rF$};
+    
+    \node at (2, -1.5) {Torca máxima: $F$ perpendicular al brazo};
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+\end{center}
+
+\newpage
+\subsection{Segunda Condición de Equilibrio: Equilibrio Rotacional}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Condición:} Un cuerpo está en equilibrio rotacional cuando la suma de todas las torcas que actúan sobre él, respecto a cualquier eje, es cero.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Segunda condición de equilibrio:}
+$$\sum \tau = 0$$
+
+o detalladamente:
+$$\tau_1 + \tau_2 + \tau_3 + ... = 0$$
+\end{ecuacion}
+
+\textbf{Consecuencia:} Si $\sum \tau = 0$, no hay aceleración angular y el cuerpo no rota o rota con velocidad angular constante.
+
+\begin{definicion}
+    \textbf{Equilibrio completo:} Un cuerpo está en equilibrio mecánico completo cuando:
+$$\sum \vec{F} = 0 \quad \text{y} \quad \sum \tau = 0$$
+\end{definicion}
+
+\end{seccion}
+
+\subsection{Aplicación: Balancín y Palancas}
+
+\begin{seccion}
+\textbf{Problema típico:} Una barra rígida horizontal está apoyada en un pivote. Diferentes fuerzas actúan a diferentes distancias. ¿Cuál es la condición de equilibrio?
+
+\textbf{Solución:}
+\begin{enumerate}
+    \item Elegir el eje de rotación (generalmente el pivote)
+    \item Calcular la torca de cada fuerza: $\tau_i = r_i F_i$
+    \item Asignar signos según la rotación que producirían
+    \item Aplicar $\sum \tau = 0$
+\end{enumerate}
+
+\textbf{Ventaja mecánica de palancas:} Una fuerza pequeña aplicada a gran distancia puede equilibrar una fuerza grande aplicada a corta distancia:
+$$F_1 r_1 = F_2 r_2$$
+\end{seccion}
+
+\subsection{Ejemplo de Equilibrio Rotacional}
+
+\begin{center}
+\shorthandoff{>}\shorthandoff{<}
+\begin{tikzpicture}[scale=1]
+    % Barra
+    \draw[very thick, fill=fondogris] (-3,0) rectangle (3,0.3);
+    
+    % Pivote (triángulo)
+    \draw[fill=azulmedio, thick] (0,-0.5) -- (-0.3,0) -- (0.3,0) -- cycle;
+    
+    % Pesos
+    \draw[very thick, ->, color=azuloscuro] (-2,0) -- (-2,-1.5) node[right] {$F_1$};
+    \draw[very thick, ->, color=azuloscuro] (2,0) -- (2,-1) node[right] {$F_2$};
+    
+    % Distancias
+    \draw[<->, thick] (0,-1.8) -- (-2,-1.8) node[midway, below] {$r_1$};
+    \draw[<->, thick] (0,-1.8) -- (2,-1.8) node[midway, below] {$r_2$};
+    
+    % Condición
+    \node at (0, -2.8) {Equilibrio: $F_1 r_1 = F_2 r_2$};
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+\end{center}
+
+\newpage
+\section{Fuerza Elástica: Ley de Hooke}
+
+\begin{seccion}
+
+\begin{defincion}
+    \textbf{Ley de Hooke:} Describe la fuerza ejercida por un resorte ideal cuando se estira o comprime desde su posición de equilibrio.
+\end{defincion}
+
+\begin{ecuacion}
+\textbf{Ecuación de la Ley de Hooke:}
+$$F = -kx$$
+
+En magnitud (sin considerar dirección):
+$$F = kx$$
+
+donde:
+\begin{itemize}
+    \item $F$ = fuerza elástica restauradora (N)
+    \item $k$ = constante elástica del resorte (N/m)
+    \item $x$ = elongación o compresión respecto a la posición natural (m)
+    \item El signo negativo indica que la fuerza se opone a la deformación
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Interpretación física:}
+\begin{itemize}
+    \item La fuerza es proporcional a la deformación
+    \item La fuerza siempre apunta hacia la posición de equilibrio
+    \item Mayor $k$ significa resorte más rígido (más difícil de deformar)
+    \item Menor $k$ significa resorte más flexible (fácil de deformar)
+\end{itemize}
+\end{seccion}
+
+\subsection{Constante Elástica}
+
+\begin{seccion}
+
+\begin{defincion}
+    \textbf{Constante elástica ($k$):} Característica propia de cada resorte que mide su rigidez.
+\end{defincion}
+
+\textbf{Unidad:} N/m (Newton por metro)
+
+\textbf{Significado:}
+\begin{itemize}
+    \item $k$ grande $\Rightarrow$ resorte rígido (difícil de estirar)
+    \item $k$ pequeña $\Rightarrow$ resorte flexible (fácil de estirar)
+\end{itemize}
+
+\textbf{Determinación experimental:} Se mide aplicando diferentes fuerzas y midiendo las elongaciones correspondientes:
+$$k = \frac{F}{x}$$
+\end{seccion}
+
+\newpage
+\section{Ley de Gravitación Universal}
+
+\begin{seccion}
+\begin{defincion}
+    \textbf{Ley de Gravitación Universal de Newton:} Toda partícula en el universo atrae a cualquier otra partícula con una fuerza que es directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa.
+\end{defincion}
+
+\begin{ecuacion}
+\textbf{Ecuación de la fuerza gravitacional:}
+$$F_g = G\frac{m_1 m_2}{r^2}$$
+
+donde:
+\begin{itemize}
+    \item $F_g$ = fuerza gravitacional (N)
+    \item $G$ = constante de gravitación universal = $6.67 \times 10^{-11}$ N$\cdot$m$^2$/kg$^2$
+    \item $m_1, m_2$ = masas de los objetos (kg)
+    \item $r$ = distancia entre los centros de masa (m)
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Características de la fuerza gravitacional:}
+\begin{enumerate}
+    \item Actúa a distancia (no requiere contacto)
+    \item Es una fuerza mutua (par acción-reacción)
+    \item Es muy débil comparada con otras fuerzas fundamentales
+\end{enumerate}
+\end{seccion}
+
+\subsection{Relación entre Peso y Gravitación Universal}
+
+\begin{seccion}
+El peso de un objeto en la superficie de un planeta es un caso particular de la ley de gravitación universal.
+
+Para un objeto de masa $m$ en la superficie de la Tierra (masa $M_T$, radio $R_T$):
+
+\begin{ecuacion}
+$$W = G\frac{M_T m}{R_T^2} = m \left(G\frac{M_T}{R_T^2}\right) = mg$$
+
+donde:
+$$g = G\frac{M_T}{R_T^2} \approx 9.8 \text{ m/s}^2$$
+\end{ecuacion}
+
+
+\end{seccion}
+
+\subsection{Variación de la Fuerza Gravitacional con la Distancia}
+
+\begin{seccion}
+\textbf{Dependencia cuadrática inversa:} La fuerza disminuye rápidamente al aumentar la distancia.
+
+\textbf{Ejemplos:}
+\begin{itemize}
+    \item Si la distancia se duplica ($r' = 2r$): $F' = F/4$ (se reduce a la cuarta parte)
+    \item Si la distancia se triplica ($r' = 3r$): $F' = F/9$ (se reduce a la novena parte)
+    \item Si la distancia se reduce a la mitad ($r' = r/2$): $F' = 4F$ (se cuadruplica)
+\end{itemize}
+
+\end{seccion}
+
+\subsubsection*{Gráfica: Fuerza Gravitacional vs Distancia}
+
+\begin{center}
+\shorthandoff{>}\shorthandoff{<}
+\begin{tikzpicture}
+\begin{axis}[
+    width=11cm,
+    height=7cm,
+    axis lines=middle,
+    xlabel={Distancia $r$ (unidades arbitrarias)},
+    ylabel={Fuerza $F_g$ (unidades arbitrarias)},
+    xmin=0, xmax=5,
+    ymin=0, ymax=10,
+    grid=major,
+    thick,
+    every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+    every axis y label/.style={at={(current axis.above origin)},anchor=south},
+    domain=0.5:5,
+    samples=100
+]
+
+% Curva 1/r²
+\addplot[color=azuloscuro, very thick] {4/x^2};
+
+% Puntos de referencia
+\addplot[only marks, mark=*, color=verdecorrecto, mark size=3pt] coordinates {(1, 4) (2, 1) (4, 0.25)};
+
+% Etiquetas
+\node[color=azuloscuro] at (axis cs: 3.5, 6) {$F_g \propto \frac{1}{r^2}$};
+
+\end{axis}
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+\end{center}
+
+\section{Movimiento Planetario: Leyes de Kepler}
+
+\begin{seccion}
+Johannes Kepler (1571-1630) formuló tres leyes empíricas que describen el movimiento de los planetas alrededor del Sol. Posteriormente, Newton demostró que estas leyes se derivan de su Ley de Gravitación Universal.
+\end{seccion}
+
+\subsection{Primera Ley de Kepler: Ley de las Órbitas}
+
+\begin{seccion}
+\textbf{1ra Ley de Kepler:} Los planetas describen órbitas elípticas alrededor del Sol, con el Sol en uno de los focos de la elipse.
+
+\begin{ecuacion}
+\textbf{Elementos de la órbita elíptica:}
+\begin{itemize}
+    \item \textbf{Afelio:} Punto más alejado del Sol
+    \item \textbf{Perihelio:} Punto más cercano al Sol
+    \item \textbf{Semieje mayor ($a$):} Mitad de la distancia entre afelio y perihelio
+\end{itemize}
+\end{ecuacion}
+
+\begin{nota}
+    \textbf{Observación importante:} Aunque las órbitas son elípticas, la mayoría de los planetas tienen órbitas casi circulares (baja excentricidad).
+\end{nota}
+
+\end{seccion}
+
+\subsubsection{Diagrama: Órbita Elíptica}
+
+\begin{center}
+\shorthandoff{>}\shorthandoff{<}
+\begin{tikzpicture}[scale=1.2]
+    % Elipse (órbita)
+    \draw[very thick, color=azulmedio] (0,0) ellipse (4 and 2.5);
+    
+    % Focos
+    \filldraw[color=azuloscuro] (-2.65,0) circle (0.12);
+    \node[below, color=azuloscuro] at (-2.65,-0.2) {Sol (foco)};
+    \filldraw[color=fondogris] (2.65,0) circle (0.08);
+    
+    % Planeta
+    \filldraw[color=verdecorrecto] (4,0) circle (0.1);
+    \node[right] at (4,0) {Planeta};
+    
+    % Perihelio y Afelio
+    \draw[<->, thick] (-4,0) -- (4,0);
+    \node[below] at (-4,-0.2) {Perihelio};
+    \node[below] at (4,-0.2) {Afelio};
+    
+    % Semieje mayor
+    \draw[<->, color=azuloscuro, thick] (0,-3) -- (4,-3);
+    \node[below, color=azuloscuro] at (2,-3) {$a$ (semieje mayor)};
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+\end{center}
+
+\subsection{Segunda Ley de Kepler: Ley de las Áreas}
+
+\begin{seccion}
+\begin{defincion}
+    \textbf{2da Ley de Kepler::} El vector posición que une el Sol con un planeta barre áreas iguales en tiempos iguales.
+\end{defincion}
+
+\textbf{Consecuencia:} Los planetas se mueven más rápido cuando están cerca del Sol (perihelio) y más lento cuando están lejos (afelio).
+
+\textbf{Principio físico:} Esta ley refleja la conservación del momento angular del sistema.
+
+\begin{ecuacion}
+\textbf{Velocidad areolar constante:}
+$$\frac{dA}{dt} = \text{constante}$$
+
+donde $A$ es el área barrida y $t$ es el tiempo.
+\end{ecuacion}
+\end{seccion}
+\newpage
+\subsection{Tercera Ley de Kepler: Ley de los Períodos}
+
+\begin{seccion}
+
+\textbf{3ra Ley de Kepler:} El cuadrado del período orbital de un planeta es directamente proporcional al cubo del semieje mayor de su órbita.
+
+\begin{ecuacion}
+\textbf{Tercera Ley de Kepler:}
+$$T^2 = k a^3$$
+
+o en forma de proporción:
+$$\frac{T^2}{a^3} = \text{constante (para todos los planetas)}$$
+
+Para dos planetas diferentes:
+$$\frac{T_1^2}{T_2^2} = \frac{a_1^3}{a_2^3}$$
+
+donde:
+\begin{itemize}
+    \item $T$ = período orbital (tiempo para dar una vuelta completa)
+    \item $a$ = semieje mayor de la órbita
+    \item $k$ = constante que depende de la masa del Sol
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Aplicación práctica:} Permite calcular el período de un planeta conociendo su distancia al Sol, o viceversa.
+\end{seccion}
+
+
+\newpage
+\section{Formulario}
+
+\begin{nota}
+\textbf{Componentes Vectoriales:}
+$$F_x = F\cos\theta \quad , \quad F_y = F\sin\theta$$
+$$F = \sqrt{F_x^2 + F_y^2}$$
+
+\vspace{0.3cm}
+
+\textbf{Leyes de Newton:}
+\begin{itemize}
+    \item \textbf{Primera Ley:} $\sum \vec{F} = 0 \Rightarrow \vec{v} = \text{constante}$
+    \item \textbf{Segunda Ley:} $\vec{F}_{neta} = m\vec{a}$
+    \item \textbf{Tercera Ley:} $\vec{F}_{AB} = -\vec{F}_{BA}$
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Peso:}
+$$W = mg$$
+
+\vspace{0.3cm}
+
+\textbf{Equilibrio:}
+\begin{itemize}
+    \item \textbf{Traslacional:} $\sum \vec{F} = 0$
+    \item \textbf{Rotacional:} $\sum \tau = 0$, donde $\tau = rF\sin\theta$
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Ley de Hooke:}
+$$F = kx$$
+
+\vspace{0.3cm}
+
+\textbf{Gravitación Universal:}
+$$F_g = G\frac{m_1 m_2}{r^2}$$
+
+\vspace{0.3cm}
+
+\textbf{Tercera Ley de Kepler:}
+$$\frac{T_1^2}{T_2^2} = \frac{a_1^3}{a_2^3}$$
+\end{nota}
+
