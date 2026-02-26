@@ -1,0 +1,733 @@
+\renewcommand{\tema}{Lección: Trabajo y Leyes de la Conservación}
+
+% ============================================================
+\section{Trabajo Mecánico}
+% ============================================================
+
+\begin{seccion}
+Antes de estudiar la energía, es fundamental comprender el concepto de trabajo mecánico. El trabajo es el mecanismo por el cual las fuerzas transfieren energía a los objetos. No todo esfuerzo físico constituye trabajo en el sentido físico del término.
+\end{seccion}
+
+\subsection{Definición de Trabajo Mecánico}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Trabajo mecánico:} Transferencia de energía que ocurre cuando una fuerza produce un desplazamiento en un objeto. Para que haya trabajo, el objeto \textit{debe moverse}.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Fórmula del trabajo:}
+$$W = F \cdot d \cdot \cos\theta$$
+
+donde:
+\begin{itemize}
+    \item $W$ = trabajo (J, joules)
+    \item $F$ = magnitud de la fuerza aplicada (N)
+    \item $d$ = desplazamiento del objeto (m)
+    \item $\theta$ = ángulo entre la dirección de la fuerza y el desplazamiento
+\end{itemize}
+\end{ecuacion}
+
+\textbf{El joule como unidad:}
+$$1 \text{ J} = 1 \text{ N} \cdot \text{m} = 1 \text{ kg} \cdot \text{m}^2/\text{s}^2$$
+
+\begin{nota}
+    \textbf{Punto clave:} El trabajo es una magnitud \textit{escalar} (no vectorial), aunque depende de vectores (fuerza y desplazamiento). El ángulo $\theta$ determina si el trabajo es positivo, nulo o negativo.
+\end{nota}
+\end{seccion}
+
+\subsection{Tipos de Trabajo según el Ángulo}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Trabajo positivo} ($0^\circ \leq \theta < 90^\circ$): La fuerza tiene una componente en el mismo sentido del movimiento. La fuerza \textit{impulsa} al objeto.
+\end{definicion}
+
+\begin{definicion}
+    \textbf{Trabajo nulo} ($\theta = 90^\circ$): La fuerza es perpendicular al desplazamiento. No hay transferencia de energía al movimiento.
+\end{definicion}
+
+\begin{definicion}
+    \textbf{Trabajo negativo} ($90^\circ < \theta \leq 180^\circ$): La fuerza se opone al movimiento. La fuerza \textit{extrae} energía del objeto (lo frena).
+\end{definicion}
+
+\textbf{Ejemplos:}
+\begin{itemize}
+    \item \textbf{Positivo:} Un motor empuja un auto hacia adelante ($\theta = 0^\circ$, $\cos 0^\circ = 1$).
+    \item \textbf{Nulo:} Cargar una caja caminando horizontalmente. La fuerza es vertical, el movimiento es horizontal ($\theta = 90^\circ$, $\cos 90^\circ = 0$).
+    \item \textbf{Negativo:} La fricción actúa en sentido contrario al movimiento ($\theta = 180^\circ$, $\cos 180^\circ = -1$).
+\end{itemize}
+\end{seccion}
+
+\subsubsection{Diagrama: Tipos de trabajo según el ángulo}
+
+\begin{center}
+\shorthandoff{>}\shorthandoff{<}
+\begin{tikzpicture}[scale=1.0]
+
+  % --- CASO 1: Trabajo positivo ---
+  \node[font=\small\bfseries, color=azuloscuro] at (2.5, 4.2) {Trabajo positivo ($W > 0$)};
+  \draw[thick, ->, >=Stealth] (0,3.0) -- (5,3.0) node[right, font=\small] {$d$};
+  \draw[very thick, ->, >=Stealth, color=azuloscuro] (0.5,3.0) -- (3.0,4.3) node[above, font=\small] {$\vec{F}$};
+  \draw[color=azulmedio, thin] (1.1,3.0) arc[start angle=0, end angle=27, radius=0.6cm];
+  \node[color=azulmedio, font=\small] at (1.55, 3.18) {$\theta$};
+  \fill[black] (0.5,3.0) circle (2.5pt);
+
+  % --- CASO 2: Trabajo nulo ---
+  \node[font=\small\bfseries, color=azuloscuro] at (2.5, 2.1) {Trabajo nulo ($W = 0$)};
+  \draw[thick, ->, >=Stealth] (0,1.0) -- (5,1.0) node[right, font=\small] {$d$};
+  \draw[very thick, ->, >=Stealth, color=orange] (0.5,1.0) -- (0.5,2.3) node[left, font=\small] {$\vec{F}$};
+  \draw[color=orange, thin] (0.9,1.0) arc[start angle=0, end angle=90, radius=0.4cm];
+  \node[color=orange, font=\small] at (1.05, 1.25) {$90^\circ$};
+  \fill[black] (0.5,1.0) circle (2.5pt);
+
+  % --- CASO 3: Trabajo negativo ---
+  \node[font=\small\bfseries, color=azuloscuro] at (2.5, 0.1) {Trabajo negativo ($W < 0$)};
+  \draw[thick, ->, >=Stealth] (0,-1.0) -- (5,-1.0) node[right, font=\small] {$d$};
+  \draw[very thick, ->, >=Stealth, color=red!70!black] (4.5,-1.0) -- (2.0,-1.0) node[above, font=\small] {$\vec{F}$};
+  \fill[black] (0.5,-1.0) circle (2.5pt);
+  \node[color=red!70!black, font=\small] at (3.7,-0.65) {$\theta = 180^\circ$};
+
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+\end{center}
+
+\subsection{Ejemplo Numérico de Trabajo}
+
+\begin{seccion}
+\textbf{Problema:} Una persona jala una caja con una fuerza de 100 N formando un ángulo de 60$^\circ$ con la horizontal, desplazándola 5 m. ¿Cuánto trabajo realizó?
+
+\textbf{Datos:} $F = 100$ N, $d = 5$ m, $\theta = 60^\circ$, $\cos 60^\circ = 0.5$
+
+\textbf{Solución:}
+$$W = F \cdot d \cdot \cos\theta = 100 \times 5 \times 0.5 = 250 \text{ J}$$
+
+\textbf{Interpretación:} De los 100 N aplicados, solo la componente horizontal ($F_x = F\cos\theta = 50$ N) realiza trabajo. La componente vertical simplemente levanta parcialmente la caja sin contribuir al avance.
+\end{seccion}
+
+\newpage
+
+% ============================================================
+\section{Potencia}
+% ============================================================
+
+\begin{seccion}
+Dos trabajadores pueden levantar la misma caja al mismo piso, realizando el mismo trabajo. Sin embargo, si uno lo hace en 10 s y el otro en 60 s, su \textit{potencia} es diferente. La potencia mide qué tan rápido se realiza un trabajo.
+\end{seccion}
+
+\subsection{Definición de Potencia}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Potencia:} Razón a la que se realiza trabajo. Mide la rapidez con la que se transfiere energía.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Fórmulas de potencia:}
+$$P = \frac{W}{t} \qquad \text{(cuando se conocen trabajo y tiempo)}$$
+
+$$P = F \cdot v \qquad \text{(cuando la fuerza y velocidad son constantes)}$$
+
+donde:
+\begin{itemize}
+    \item $P$ = potencia (W, watts)
+    \item $W$ = trabajo realizado (J)
+    \item $t$ = tiempo transcurrido (s)
+    \item $F$ = fuerza aplicada (N)
+    \item $v$ = velocidad del objeto (m/s)
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Unidades de potencia:}
+$$[P] = \frac{\text{J}}{\text{s}} = \text{W (watt)} \qquad 1 \text{ HP (caballo de fuerza)} = 746 \text{ W}$$
+
+\begin{nota}
+    \textbf{¿Cuándo usar cada fórmula?} Usa $P = W/t$ cuando te dan trabajo y tiempo directamente. Usa $P = Fv$ cuando el objeto se mueve a velocidad constante y te dan fuerza y velocidad. Ambas son equivalentes.
+\end{nota}
+\end{seccion}
+
+\subsection{Ejemplos de Potencia}
+
+\begin{seccion}
+\textbf{Ejemplo 1 --- Motor eléctrico:} Un motor realiza 12\,000 J de trabajo en 60 s. ¿Cuál es su potencia?
+$$P = \frac{W}{t} = \frac{12\,000 \text{ J}}{60 \text{ s}} = 200 \text{ W}$$
+
+\textbf{Ejemplo 2 --- Automóvil a velocidad constante:} Un auto mantiene velocidad constante de 20 m/s venciendo una fricción de 400 N. ¿Cuál es la potencia del motor?
+
+A velocidad constante, la fuerza del motor iguala exactamente la fricción:
+$$P = F \cdot v = 400 \text{ N} \times 20 \text{ m/s} = 8\,000 \text{ W} = 8 \text{ kW}$$
+
+\textbf{Ejemplo 3 --- Despeje de velocidad:} Un motor de 500 W aplica una fuerza constante de 250 N. ¿Con qué velocidad se mueve el vehículo?
+$$P = Fv \quad \Rightarrow \quad v = \frac{P}{F} = \frac{500}{250} = 2 \text{ m/s}$$
+\end{seccion}
+
+\newpage
+
+% ============================================================
+\section{Energía Cinética}
+% ============================================================
+
+\begin{seccion}
+La energía cinética es la forma más intuitiva de energía: la energía que tiene un objeto \textit{por el hecho de estar en movimiento}. Un auto en movimiento, una pelota lanzada al aire, el viento: todos poseen energía cinética.
+\end{seccion}
+
+\subsection{Definición y Fórmula}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Energía cinética ($E_c$):} Energía que posee un objeto debido a su movimiento. Depende de la masa y del \textit{cuadrado} de la velocidad.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Fórmula de energía cinética:}
+$$E_c = \frac{1}{2}mv^2$$
+
+donde:
+\begin{itemize}
+    \item $E_c$ = energía cinética (J)
+    \item $m$ = masa del objeto (kg)
+    \item $v$ = velocidad del objeto (m/s)
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Consecuencia importante:} Dado que $v$ aparece al cuadrado:
+\begin{itemize}
+    \item Si la velocidad se \textbf{duplica}, la energía cinética se \textbf{cuadruplica}.
+    \item Si la velocidad se \textbf{triplica}, la energía cinética se \textbf{multiplica por nueve}.
+\end{itemize}
+
+Esto explica por qué los accidentes de tránsito a 100 km/h son mucho más devastadores que a 50 km/h: la energía involucrada es cuatro veces mayor, no el doble.
+\end{seccion}
+
+\subsection{Teorema Trabajo--Energía}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Teorema Trabajo--Energía:} El trabajo neto realizado sobre un objeto es igual al cambio en su energía cinética.
+\end{definicion}
+
+\begin{ecuacion}
+$$W_{\text{neto}} = \Delta E_c = E_{c,f} - E_{c,i} = \frac{1}{2}mv_f^2 - \frac{1}{2}mv_i^2$$
+\end{ecuacion}
+
+\textbf{Interpretación:}
+\begin{itemize}
+    \item Si $W_{\text{neto}} > 0$: el objeto acelera (gana energía cinética).
+    \item Si $W_{\text{neto}} < 0$: el objeto desacelera (pierde energía cinética).
+    \item Si $W_{\text{neto}} = 0$: la velocidad no cambia.
+\end{itemize}
+
+\textbf{Ejemplo:} Un auto de 1\,000 kg pasa de 10 m/s a 20 m/s. ¿Cuánto trabajo realizó el motor?
+$$W = \frac{1}{2}(1000)(20)^2 - \frac{1}{2}(1000)(10)^2 = 200\,000 - 50\,000 = 150\,000 \text{ J}$$
+\end{seccion}
+
+\subsubsection{Gráfica: Energía cinética vs velocidad}
+
+\begin{center}
+\shorthandoff{>}\shorthandoff{<}
+\begin{tikzpicture}
+\begin{axis}[
+    width=11cm, height=7cm,
+    axis lines=middle,
+    xlabel={$v$ (m/s)},
+    ylabel={$E_c$ (J)},
+    xmin=0, xmax=5,
+    ymin=0, ymax=130,
+    grid=major,
+    thick,
+    xtick={0,1,2,3,4,5},
+    ytick={0,25,50,75,100,125},
+    every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+    every axis y label/.style={at={(current axis.above origin)},anchor=south},
+    legend pos=north west
+]
+\addplot[color=azuloscuro, very thick, domain=0:5, samples=80] {0.5*10*x^2};
+\addlegendentry{$m = 10$ kg}
+\addplot[color=verdecorrecto, very thick, dashed, domain=0:5, samples=80] {0.5*5*x^2};
+\addlegendentry{$m = 5$ kg}
+\node[color=red!70!black, font=\small, align=center] at (axis cs:3.5,45)
+    {$v \times 2 \Rightarrow E_c \times 4$};
+\draw[->, >=Stealth, red!70!black, thin] (axis cs:2,20) -- (axis cs:4,80);
+\end{axis}
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+\end{center}
+
+\newpage
+
+% ============================================================
+\section{Energía Potencial}
+% ============================================================
+
+\begin{seccion}
+La energía potencial es energía \textit{almacenada} que un objeto posee en virtud de su posición o configuración, y que puede convertirse en energía cinética. Existen varios tipos; en este curso estudiaremos los dos principales.
+\end{seccion}
+
+\subsection{Energía Potencial Gravitatoria}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Energía potencial gravitatoria ($E_p$):} Energía almacenada en un objeto debido a su altura respecto a un nivel de referencia. Al caer, esta energía se convierte en energía cinética.
+\end{definicion}
+
+\begin{ecuacion}
+$$E_p = mgh$$
+
+donde:
+\begin{itemize}
+    \item $E_p$ = energía potencial gravitatoria (J)
+    \item $m$ = masa (kg)
+    \item $g$ = aceleración gravitacional ($10 \text{ m/s}^2$)
+    \item $h$ = altura sobre el nivel de referencia (m)
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Punto clave:} $E_p$ solo depende de la \textbf{altura final}, no de la trayectoria seguida para llegar ahí. Un objeto que sube por escaleras, por una rampa o en elevador llega a la misma $E_p$ si alcanza la misma altura.
+
+\vspace{0.3cm}
+
+\textbf{Ejemplo:} Una roca de 5 kg a 20 m de altura.
+$$E_p = mgh = 5 \times 10 \times 20 = 1\,000 \text{ J}$$
+\end{seccion}
+
+\subsubsection{Diagrama: La energía potencial no depende de la trayectoria}
+
+\begin{center}
+\shorthandoff{>}\shorthandoff{<}
+\begin{tikzpicture}[scale=0.9]
+  % Suelo
+  \fill[black!15] (0,-0.35) rectangle (10,0);
+  \draw[thick] (0,0) -- (10,0);
+  \node[font=\small] at (5,-0.6) {Nivel de referencia ($h = 0$, $E_p = 0$)};
+
+  % Cota h
+  \draw[<->, >=Stealth, thin, azuloscuro] (-0.4,0) -- (-0.4,3.0)
+      node[midway, left, font=\small] {$h$};
+
+  % Trayectoria 1: vertical directa
+  \draw[very thick, azuloscuro, ->, >=Stealth] (1.5,0) -- (1.5,3.0);
+  \node[font=\small, azuloscuro, below] at (1.5,-0.15) {Tray. 1};
+
+  % Trayectoria 2: rampa inclinada
+  \draw[very thick, azulmedio, ->, >=Stealth] (3.5,0) -- (5.5,3.0);
+  \node[font=\small, azulmedio, below] at (4.5,-0.15) {Tray. 2};
+
+  % Trayectoria 3: curva sinuosa
+  \draw[very thick, verdecorrecto, ->, >=Stealth]
+      (7.0,0) .. controls (8.5,1.0) and (6.5,2.0) .. (8.0,3.0);
+  \node[font=\small, verdecorrecto, below] at (7.5,-0.15) {Tray. 3};
+
+  % Bloques en la cima
+  \foreach \x in {1.5, 5.5, 8.0}{
+      \fill[gray!60] (\x-0.3, 3.0) rectangle (\x+0.3, 3.5);
+  }
+
+  % Etiqueta
+  \node[font=\small\bfseries, azuloscuro] at (5.0, 4.2)
+      {$E_p = mgh$ es \textbf{igual} en los tres casos};
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+\end{center}
+
+\subsection{Energía Potencial Elástica}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Energía potencial elástica ($E_e$):} Energía almacenada en un resorte (u objeto elástico) cuando se deforma respecto a su posición natural.
+\end{definicion}
+
+\begin{ecuacion}
+$$E_e = \frac{1}{2}kx^2$$
+
+donde:
+\begin{itemize}
+    \item $E_e$ = energía potencial elástica (J)
+    \item $k$ = constante del resorte (N/m). Mayor $k$ = resorte más rígido.
+    \item $x$ = deformación respecto a la posición natural (m)
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Observación:} Al igual que $E_c$, la deformación aparece al cuadrado. Duplicar la deformación cuadruplica la energía almacenada. Esta es la razón por la que los resortes de ballestas de vehículos pesados deben diseñarse cuidadosamente.
+\end{seccion}
+
+\newpage
+
+% ============================================================
+\section{Conservación de la Energía Mecánica}
+% ============================================================
+
+\begin{seccion}
+Uno de los principios más poderosos de la física es la conservación de la energía. En ausencia de fuerzas disipativas (fricción, resistencia del aire), la energía mecánica total de un sistema permanece constante a lo largo del movimiento.
+\end{seccion}
+
+\subsection{Energía Mecánica Total}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Energía mecánica total ($E_m$):} Suma de la energía cinética y la energía potencial de un sistema.
+\end{definicion}
+
+\begin{ecuacion}
+$$E_m = E_c + E_p = \frac{1}{2}mv^2 + mgh$$
+\end{ecuacion}
+
+\begin{definicion}
+    \textbf{Ley de Conservación de la Energía Mecánica:} En ausencia de fricción, la energía mecánica total se conserva.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Condición de conservación:}
+$$E_{m,i} = E_{m,f}$$
+$$\frac{1}{2}mv_i^2 + mgh_i = \frac{1}{2}mv_f^2 + mgh_f$$
+\end{ecuacion}
+
+\textbf{Interpretación física:}
+\begin{itemize}
+    \item Al \textit{descender}: $h$ disminuye $\Rightarrow$ $E_p$ disminuye $\Rightarrow$ $E_c$ aumenta (el objeto acelera).
+    \item Al \textit{ascender}: $h$ aumenta $\Rightarrow$ $E_p$ aumenta $\Rightarrow$ $E_c$ disminuye (el objeto frena).
+    \item La suma $E_c + E_p$ siempre vale lo mismo.
+\end{itemize}
+\end{seccion}
+
+\subsection{Ejemplo: Caída Libre con Conservación de Energía}
+
+\begin{seccion}
+\textbf{Problema:} Una pelota de 2 kg cae desde 20 m de altura (parte del reposo). ¿Con qué velocidad llega al suelo? \textit{(Usar conservación de energía, no cinemática.)}
+
+\textbf{Datos:} $m = 2$ kg, $h_i = 20$ m, $v_i = 0$, $h_f = 0$, $g = 10$ m/s$^2$
+
+\textbf{Planteamiento:}
+$$mgh_i + \frac{1}{2}mv_i^2 = mgh_f + \frac{1}{2}mv_f^2$$
+$$mgh_i + 0 = 0 + \frac{1}{2}mv_f^2$$
+
+La masa $m$ se cancela en ambos lados:
+$$gh_i = \frac{1}{2}v_f^2 \quad \Rightarrow \quad v_f = \sqrt{2gh_i} = \sqrt{2(10)(20)} = \sqrt{400} = 20 \text{ m/s}$$
+
+\begin{nota}
+    \textbf{Resultado importante:} La velocidad de caída no depende de la masa. Una pluma y una roca (sin fricción del aire) alcanzan la misma velocidad al caer desde la misma altura.
+\end{nota}
+\end{seccion}
+
+\subsubsection{Diagrama: Conservación de energía en un péndulo}
+
+\begin{center}
+\shorthandoff{>}\shorthandoff{<}
+\begin{tikzpicture}[scale=1.05]
+
+  % Punto de suspensión
+  \fill[black] (4.5,5.2) circle (3.5pt);
+  \draw[thick] (3.8,5.2) -- (5.2,5.2);
+
+  % Cuerda izquierda
+  \draw[thick, gray!70] (4.5,5.2) -- (2.2,3.0);
+  \fill[azuloscuro] (2.2,3.0) circle (11pt);
+  \node[white, font=\tiny\bfseries] at (2.2,3.0) {$m$};
+  \node[azuloscuro, font=\small, left=8pt] at (2.2,3.0) {$E_p$ máx\\$E_c = 0$};
+
+  % Cuerda central (fondo)
+  \draw[thick, gray!70] (4.5,5.2) -- (4.5,2.2);
+  \fill[verdecorrecto] (4.5,2.2) circle (11pt);
+  \node[white, font=\tiny\bfseries] at (4.5,2.2) {$m$};
+  \node[verdecorrecto, font=\small, right=8pt] at (4.5,2.2) {$E_c$ máx\\$E_p = 0$};
+
+  % Cuerda derecha
+  \draw[thick, gray!70] (4.5,5.2) -- (6.8,3.0);
+  \fill[azuloscuro] (6.8,3.0) circle (11pt);
+  \node[white, font=\tiny\bfseries] at (6.8,3.0) {$m$};
+  \node[azuloscuro, font=\small, right=8pt] at (6.8,3.0) {$E_p$ máx\\$E_c = 0$};
+
+  % Flechas de movimiento
+  \draw[->, >=Stealth, azulmedio, thick]
+      (2.6,2.85) .. controls (3.5,2.1) .. (4.3,2.2);
+  \draw[->, >=Stealth, azulmedio, thick]
+      (4.7,2.2) .. controls (5.5,2.1) .. (6.4,2.85);
+
+  % Altura h
+  \draw[<->, >=Stealth, thin] (1.3,3.0) -- (1.3,2.2)
+      node[midway, left, font=\small] {$h$};
+
+  % Etiqueta Em
+  \node[font=\small\bfseries, azuloscuro] at (4.5,1.0)
+      {En todo momento: $E_m = E_c + E_p = \text{constante}$};
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+\end{center}
+
+\newpage
+
+% ============================================================
+\section{Conservación del Ímpetu (Momento Lineal)}
+% ============================================================
+
+\begin{seccion}
+El ímpetu o momento lineal es otra magnitud conservada en la naturaleza, independiente de la energía. Su conservación es especialmente útil para analizar colisiones, explosiones y sistemas donde no conocemos los detalles de las fuerzas internas.
+\end{seccion}
+
+\subsection{Definición de Ímpetu}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Ímpetu o momento lineal ($\vec{p}$):} Producto de la masa de un objeto por su velocidad. Es una magnitud vectorial.
+\end{definicion}
+
+\begin{ecuacion}
+$$\vec{p} = m\vec{v}$$
+
+donde:
+\begin{itemize}
+    \item $\vec{p}$ = ímpetu o momento lineal (kg$\cdot$m/s)
+    \item $m$ = masa (kg)
+    \item $\vec{v}$ = velocidad (m/s) — magnitud vectorial
+\end{itemize}
+\end{ecuacion}
+
+\begin{nota}
+    \textbf{Diferencia con la energía cinética:} El ímpetu es vectorial (tiene dirección y sentido), mientras que la energía cinética es escalar. Por eso, al analizar colisiones, siempre hay que cuidar los \textit{signos} de las velocidades.
+\end{nota}
+\end{seccion}
+
+\subsection{Ley de Conservación del Ímpetu}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Ley de Conservación del Ímpetu:} Si la fuerza neta externa sobre un sistema es cero, el ímpetu total del sistema se conserva. El ímpetu total antes de una interacción es igual al ímpetu total después.
+\end{definicion}
+
+\begin{ecuacion}
+$$\vec{p}_{\text{total},i} = \vec{p}_{\text{total},f}$$
+$$m_1 v_{1,i} + m_2 v_{2,i} = m_1 v_{1,f} + m_2 v_{2,f}$$
+\end{ecuacion}
+
+\textbf{Tipos de colisión:}
+\begin{itemize}
+    \item \textbf{Elástica:} Se conservan el ímpetu \textit{y} la energía cinética. Ejemplo: bolas de billar.
+    \item \textbf{Inelástica:} Se conserva el ímpetu, pero parte de la energía cinética se convierte en calor o deformación. Ejemplo: choque de autos.
+    \item \textbf{Perfectamente inelástica:} Los objetos quedan unidos tras el choque. El ímpetu se conserva, la energía cinética disminuye al máximo. Ejemplo: bala que se incrusta en un bloque.
+\end{itemize}
+\end{seccion}
+
+\subsection{Ejemplo: Sistema en Reposo}
+
+\begin{seccion}
+\textbf{Problema:} Dos patinadores (A: 70 kg, B: 35 kg) están en reposo sobre hielo sin fricción y se empujan mutuamente. Si B sale con velocidad de 4 m/s, ¿con qué velocidad y en qué dirección sale A?
+
+\textbf{Planteamiento:} El ímpetu total inicial es cero (sistema en reposo):
+$$p_{\text{total},i} = 0$$
+
+Por conservación:
+$$m_A v_A + m_B v_B = 0$$
+$$(70)\,v_A + (35)(4) = 0$$
+$$v_A = \frac{-(35)(4)}{70} = \frac{-140}{70} = -2 \text{ m/s}$$
+
+El signo negativo indica que A sale en dirección \textbf{opuesta} a B, con rapidez de 2 m/s.
+
+\begin{nota}
+    \textbf{Verificación:} $p_A + p_B = (70)(-2) + (35)(4) = -140 + 140 = 0$ ✓
+\end{nota}
+\end{seccion}
+
+\subsubsection{Diagrama: Tipos de colisión}
+
+\begin{center}
+\shorthandoff{>}\shorthandoff{<}
+\begin{tikzpicture}[scale=0.95]
+
+  % ---- Colisión elástica ----
+  \node[font=\small\bfseries, azuloscuro] at (3.5, 3.8) {Colisión elástica};
+  \node[font=\small, gray] at (3.5, 3.4) {(se conservan $\vec{p}$ \textit{y} $E_c$)};
+  % Antes
+  \fill[azuloscuro] (0.5, 2.5) circle (13pt);
+  \node[white, font=\tiny] at (0.5,2.5) {$m_1$};
+  \draw[->, >=Stealth, thick, azuloscuro] (0.85,2.5) -- (1.8,2.5);
+  \fill[azulmedio!60] (2.5,2.5) circle (13pt);
+  \node[white, font=\tiny] at (2.5,2.5) {$m_2$};
+  \node[gray, font=\tiny] at (2.5,2.05) {reposo};
+  % Flecha tiempo
+  \draw[->, >=Stealth, gray, dashed] (3.3,2.5) -- (4.2,2.5)
+      node[above, font=\tiny, gray] {colisión};
+  % Después
+  \fill[azuloscuro] (4.8, 2.5) circle (13pt);
+  \node[white, font=\tiny] at (4.8,2.5) {$m_1$};
+  \node[gray, font=\tiny] at (4.8,2.05) {reposo};
+  \fill[azulmedio!60] (6.0,2.5) circle (13pt);
+  \node[white, font=\tiny] at (6.0,2.5) {$m_2$};
+  \draw[->, >=Stealth, thick, azulmedio] (6.35,2.5) -- (7.2,2.5);
+  \node[verdecorrecto, font=\tiny] at (6.0,3.05) {$E_c$ conservada};
+
+  % ---- Colisión perfectamente inelástica ----
+  \node[font=\small\bfseries, azuloscuro] at (3.5, 1.6) {Colisión perfectamente inelástica};
+  \node[font=\small, gray] at (3.5, 1.2) {(solo se conserva $\vec{p}$)};
+  % Antes
+  \fill[azuloscuro] (0.5, 0.3) circle (13pt);
+  \node[white, font=\tiny] at (0.5,0.3) {$m_1$};
+  \draw[->, >=Stealth, thick, azuloscuro] (0.85,0.3) -- (1.8,0.3);
+  \fill[azulmedio!60] (2.5,0.3) circle (13pt);
+  \node[white, font=\tiny] at (2.5,0.3) {$m_2$};
+  % Flecha tiempo
+  \draw[->, >=Stealth, gray, dashed] (3.3,0.3) -- (4.2,0.3)
+      node[above, font=\tiny, gray] {colisión};
+  % Después: juntos
+  \fill[azuloscuro] (4.9,0.3) circle (13pt);
+  \fill[azulmedio!60] (5.7,0.3) circle (13pt);
+  \draw[thick, red!70!black] (4.5,-0.15) rectangle (6.2,0.75);
+  \draw[->, >=Stealth, thick, black] (6.3,0.3) -- (7.1,0.3)
+      node[right, font=\tiny] {$v_f < v_i$};
+  \node[red!70!black, font=\tiny] at (5.35,-0.45) {$E_c$ \textbf{no} conservada};
+
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+\end{center}
+
+\newpage
+
+% ============================================================
+\section{Procesos Disipativos (Fricción)}
+% ============================================================
+
+\begin{seccion}
+En la vida real, la fricción siempre está presente. Cuando hay fricción, la energía mecánica del sistema no se conserva: parte de ella se convierte en calor. Sin embargo, la energía \textit{total} del universo sí se conserva: la energía no desaparece, se transforma.
+\end{seccion}
+
+\subsection{Energía Mecánica con Fricción}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Proceso disipativo:} Proceso en el que parte de la energía mecánica se convierte en energía interna (calor) debido a la fricción u otras fuerzas no conservativas.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Energía mecánica con fricción:}
+$$E_{m,i} = E_{m,f} + Q_{\text{fricción}}$$
+
+donde el calor generado por la fuerza de fricción $f$ a lo largo de una distancia $d$ es:
+$$Q_{\text{fricción}} = f \cdot d$$
+\end{ecuacion}
+
+\textbf{Interpretación:}
+\begin{itemize}
+    \item $E_{m,i}$ es siempre mayor que $E_{m,f}$ cuando hay fricción.
+    \item La diferencia se convierte en calor: el objeto, la superficie y el aire se calientan ligeramente.
+    \item La energía total (mecánica + calórica) siempre se conserva.
+\end{itemize}
+\end{seccion}
+
+\subsection{Ejemplo: Plano Inclinado con Fricción}
+
+\begin{seccion}
+\textbf{Problema:} Un bloque de 4 kg baja por un plano inclinado de longitud 5 m. La altura del plano es 3 m y la fuerza de fricción es 8 N. ¿Con qué velocidad llega al fondo?
+
+\textbf{Paso 1 --- Energía potencial inicial:}
+$$E_{m,i} = mgh = 4 \times 10 \times 3 = 120 \text{ J}$$
+
+\textbf{Paso 2 --- Calor disipado por fricción:}
+$$Q = f \cdot d = 8 \times 5 = 40 \text{ J}$$
+
+\textbf{Paso 3 --- Energía cinética final:}
+$$E_{c,f} = E_{m,i} - Q = 120 - 40 = 80 \text{ J}$$
+
+\textbf{Paso 4 --- Velocidad final:}
+$$E_{c,f} = \frac{1}{2}mv_f^2 \quad \Rightarrow \quad v_f = \sqrt{\frac{2E_{c,f}}{m}} = \sqrt{\frac{2(80)}{4}} = \sqrt{40} \approx 6.3 \text{ m/s}$$
+\end{seccion}
+
+\subsection{Eficiencia de una Máquina}
+
+\begin{seccion}
+\begin{definicion}
+    \textbf{Eficiencia ($\eta$):} Fracción de la energía de entrada que se convierte en trabajo útil. Ninguna máquina real es 100\% eficiente: siempre hay pérdidas por fricción, calor u otras causas.
+\end{definicion}
+
+\begin{ecuacion}
+$$\eta = \frac{W_{\text{útil}}}{W_{\text{entrada}}} \times 100\%$$
+\end{ecuacion}
+
+\textbf{Ejemplos típicos de eficiencia:}
+\begin{itemize}
+    \item Motor de gasolina: $\approx 25\%$ (75\% se disipa como calor)
+    \item Motor eléctrico: $\approx 85\%$-$95\%$
+    \item Panel solar: $\approx 15\%$-$22\%$
+    \item Músculo humano: $\approx 25\%$
+\end{itemize}
+
+\textbf{Ejemplo:} Un motor consume 10\,000 J y realiza 2\,500 J de trabajo útil.
+$$\eta = \frac{2\,500}{10\,000} \times 100\% = 25\%$$
+\end{seccion}
+
+\subsubsection{Diagrama: Flujo de energía con fricción}
+
+\begin{center}
+\shorthandoff{>}\shorthandoff{<}
+\begin{tikzpicture}[scale=1.0,
+  every node/.style={font=\small},
+  caja/.style={draw, rounded corners=4pt, minimum width=3.0cm,
+               minimum height=1.1cm, align=center, thick}]
+
+  \node[caja, fill=azuloscuro!80, text=white] (Emi) at (0,0)
+      {Energía mecánica\\inicial $E_{m,i}$};
+
+  \draw[->, >=Stealth, very thick, azuloscuro] (Emi.east) -- (4.0,0);
+  \fill[azuloscuro] (4.0,0) circle (3pt);
+
+  \draw[->, >=Stealth, thick, verdecorrecto] (4.0,0) -- (4.0,1.6) -- (6.5,1.6);
+  \node[caja, fill=verdecorrecto!80, text=white] at (8.1,1.6)
+      {Energía mecánica\\final $E_{m,f}$};
+
+  \draw[->, >=Stealth, thick, red!70!black] (4.0,0) -- (4.0,-1.6) -- (6.5,-1.6);
+  \node[caja, fill=red!65!black!80, text=white] at (8.1,-1.6)
+      {Calor generado\\$Q = f \cdot d$};
+
+  \node[red!70!black, font=\small\bfseries] at (5.2,-0.55) {Fricción};
+
+  \node[azuloscuro, font=\small\bfseries, align=center] at (4.0,-3.2)
+      {$E_{m,i} = E_{m,f} + Q$ \quad --- \quad La energía total nunca se destruye};
+\end{tikzpicture}
+\shorthandon{>}\shorthandon{<}
+\end{center}
+
+\newpage
+
+% ============================================================
+\section*{Formulario}
+% ============================================================
+
+\begin{nota}
+\textbf{Trabajo mecánico:}
+$$W = F \cdot d \cdot \cos\theta$$
+
+\vspace{0.3cm}
+
+\textbf{Potencia:}
+$$P = \frac{W}{t} \qquad P = F \cdot v$$
+
+\vspace{0.3cm}
+
+\textbf{Energía cinética:}
+$$E_c = \frac{1}{2}mv^2 \qquad W_{\text{neto}} = \Delta E_c$$
+
+\vspace{0.3cm}
+
+\textbf{Energía potencial:}
+\begin{itemize}
+    \item Gravitatoria: $E_p = mgh$
+    \item Elástica: $E_e = \dfrac{1}{2}kx^2$
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Conservación de la energía mecánica (sin fricción):}
+$$E_{m,i} = E_{m,f} \quad \Rightarrow \quad \frac{1}{2}mv_i^2 + mgh_i = \frac{1}{2}mv_f^2 + mgh_f$$
+
+\vspace{0.3cm}
+
+\textbf{Energía mecánica con fricción:}
+$$E_{m,i} = E_{m,f} + Q_{\text{fricción}} \qquad Q_{\text{fricción}} = f \cdot d$$
+
+\vspace{0.3cm}
+
+\textbf{Conservación del ímpetu:}
+$$\vec{p} = m\vec{v} \qquad m_1v_{1,i} + m_2v_{2,i} = m_1v_{1,f} + m_2v_{2,f}$$
+
+\vspace{0.3cm}
+
+\textbf{Eficiencia:}
+$$\eta = \frac{W_{\text{útil}}}{W_{\text{entrada}}} \times 100\%$$
+\end{nota}
