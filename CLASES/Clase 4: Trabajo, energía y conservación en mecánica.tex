@@ -32,64 +32,67 @@ donde:
 $$1 \text{ J} = 1 \text{ N} \cdot \text{m} = 1 \text{ kg} \cdot \text{m}^2/\text{s}^2$$
 
 \begin{nota}
-    \textbf{Punto clave:} El trabajo es una magnitud \textit{escalar} (no vectorial), aunque depende de vectores (fuerza y desplazamiento). El ángulo $\theta$ determina si el trabajo es positivo, nulo o negativo.
+    \textbf{Importante:} El trabajo es una magnitud \textit{escalar} (no vectorial), aunque depende de vectores (fuerza y desplazamiento). El ángulo $\theta$ determina si el trabajo es positivo, nulo o negativo.
 \end{nota}
 \end{seccion}
 
 \subsection{Tipos de Trabajo según el Ángulo}
 
 \begin{seccion}
-\begin{definicion}
-    \textbf{Trabajo positivo} ($0^\circ \leq \theta < 90^\circ$): La fuerza tiene una componente en el mismo sentido del movimiento. La fuerza \textit{impulsa} al objeto.
-\end{definicion}
+El signo del trabajo lo determina el ángulo $\theta$ entre la fuerza y el movimiento. Una regla práctica: si la fuerza \textit{ayuda} al movimiento, el trabajo es positivo; si lo \textit{frena}, es negativo; si es perpendicular, es cero.
 
-\begin{definicion}
-    \textbf{Trabajo nulo} ($\theta = 90^\circ$): La fuerza es perpendicular al desplazamiento. No hay transferencia de energía al movimiento.
-\end{definicion}
-
-\begin{definicion}
-    \textbf{Trabajo negativo} ($90^\circ < \theta \leq 180^\circ$): La fuerza se opone al movimiento. La fuerza \textit{extrae} energía del objeto (lo frena).
-\end{definicion}
-
-\textbf{Ejemplos:}
-\begin{itemize}
-    \item \textbf{Positivo:} Un motor empuja un auto hacia adelante ($\theta = 0^\circ$, $\cos 0^\circ = 1$).
-    \item \textbf{Nulo:} Cargar una caja caminando horizontalmente. La fuerza es vertical, el movimiento es horizontal ($\theta = 90^\circ$, $\cos 90^\circ = 0$).
-    \item \textbf{Negativo:} La fricción actúa en sentido contrario al movimiento ($\theta = 180^\circ$, $\cos 180^\circ = -1$).
-\end{itemize}
+\begin{center}
+\begin{tabular}{|c|c|l|}
+\hline
+\rowcolor{azulmedio!30}
+\textbf{Ángulo} & \textbf{Trabajo} & \textbf{Ejemplo} \\
+\hline
+$0^\circ \leq \theta < 90^\circ$ & $W > 0$ & Motor empuja auto hacia adelante \\
+\hline
+$\theta = 90^\circ$ & $W = 0$ & Cargar una caja caminando horizontalmente \\
+\hline
+$90^\circ < \theta \leq 180^\circ$ & $W < 0$ & Fricción frenando un objeto \\
+\hline
+\end{tabular}
+\end{center}
 \end{seccion}
 
 \subsubsection{Diagrama: Tipos de trabajo según el ángulo}
 
 \begin{center}
-\shorthandoff{>}\shorthandoff{<}
 \begin{tikzpicture}[scale=1.0]
 
   % --- CASO 1: Trabajo positivo ---
-  \node[font=\small\bfseries, color=azuloscuro] at (2.5, 4.2) {Trabajo positivo ($W > 0$)};
-  \draw[thick, ->, >=Stealth] (0,3.0) -- (5,3.0) node[right, font=\small] {$d$};
-  \draw[very thick, ->, >=Stealth, color=azuloscuro] (0.5,3.0) -- (3.0,4.3) node[above, font=\small] {$\vec{F}$};
-  \draw[color=azulmedio, thin] (1.1,3.0) arc[start angle=0, end angle=27, radius=0.6cm];
-  \node[color=azulmedio, font=\small] at (1.55, 3.18) {$\theta$};
-  \fill[black] (0.5,3.0) circle (2.5pt);
+  % Título arriba del vector, con margen holgado
+  \node[font=\small\bfseries, color=azuloscuro, anchor=west] at (0, 5.2)
+      {Trabajo positivo ($W > 0$)};
+  \draw[thick, ->, >=Stealth] (0,3.5) -- (5,3.5) node[right, font=\small] {$d$};
+  \draw[very thick, ->, >=Stealth, color=azuloscuro] (0.5,3.5) -- (3.2,4.8)
+      node[right, font=\small] {$\vec{F}$};
+  \draw[color=azulmedio, thin] (1.1,3.5) arc[start angle=0, end angle=27, radius=0.6cm];
+  \node[color=azulmedio, font=\small] at (1.6, 3.68) {$\theta$};
+  \fill[black] (0.5,3.5) circle (2.5pt);
 
   % --- CASO 2: Trabajo nulo ---
-  \node[font=\small\bfseries, color=azuloscuro] at (2.5, 2.1) {Trabajo nulo ($W = 0$)};
-  \draw[thick, ->, >=Stealth] (0,1.0) -- (5,1.0) node[right, font=\small] {$d$};
-  \draw[very thick, ->, >=Stealth, color=orange] (0.5,1.0) -- (0.5,2.3) node[left, font=\small] {$\vec{F}$};
-  \draw[color=orange, thin] (0.9,1.0) arc[start angle=0, end angle=90, radius=0.4cm];
-  \node[color=orange, font=\small] at (1.05, 1.25) {$90^\circ$};
-  \fill[black] (0.5,1.0) circle (2.5pt);
+  \node[font=\small\bfseries, color=azuloscuro, anchor=west] at (0, 3.1)
+      {Trabajo nulo ($W = 0$)};
+  \draw[thick, ->, >=Stealth] (0,1.5) -- (5,1.5) node[right, font=\small] {$d$};
+  \draw[very thick, ->, >=Stealth, color=orange] (0.5,1.5) -- (0.5,2.7)
+      node[left, font=\small] {$\vec{F}$};
+  \draw[color=orange, thin] (0.9,1.5) arc[start angle=0, end angle=90, radius=0.4cm];
+  \node[color=orange, font=\small] at (1.2, 1.72) {$90^\circ$};
+  \fill[black] (0.5,1.5) circle (2.5pt);
 
   % --- CASO 3: Trabajo negativo ---
-  \node[font=\small\bfseries, color=azuloscuro] at (2.5, 0.1) {Trabajo negativo ($W < 0$)};
-  \draw[thick, ->, >=Stealth] (0,-1.0) -- (5,-1.0) node[right, font=\small] {$d$};
-  \draw[very thick, ->, >=Stealth, color=red!70!black] (4.5,-1.0) -- (2.0,-1.0) node[above, font=\small] {$\vec{F}$};
-  \fill[black] (0.5,-1.0) circle (2.5pt);
-  \node[color=red!70!black, font=\small] at (3.7,-0.65) {$\theta = 180^\circ$};
+  \node[font=\small\bfseries, color=azuloscuro, anchor=west] at (0, 0.8)
+      {Trabajo negativo ($W < 0$)};
+  \draw[thick, ->, >=Stealth] (0,-0.5) -- (5,-0.5) node[right, font=\small] {$d$};
+  \draw[very thick, ->, >=Stealth, color=red!70!black] (4.5,-0.5) -- (2.0,-0.5)
+      node[above, font=\small] {$\vec{F}$};
+  \fill[black] (0.5,-0.5) circle (2.5pt);
+  \node[color=red!70!black, font=\small] at (3.8,-0.15) {$\theta = 180^\circ$};
 
 \end{tikzpicture}
-\shorthandon{>}\shorthandon{<}
 \end{center}
 
 \subsection{Ejemplo Numérico de Trabajo}
@@ -100,7 +103,7 @@ $$1 \text{ J} = 1 \text{ N} \cdot \text{m} = 1 \text{ kg} \cdot \text{m}^2/\text
 \textbf{Datos:} $F = 100$ N, $d = 5$ m, $\theta = 60^\circ$, $\cos 60^\circ = 0.5$
 
 \textbf{Solución:}
-$$W = F \cdot d \cdot \cos\theta = 100 \times 5 \times 0.5 = 250 \text{ J}$$
+$$W = F \cdot d \cdot \cos\theta = 100\,\text{N} \times 5\,\text{m} \times 0.5 = 250\,\text{J}$$
 
 \textbf{Interpretación:} De los 100 N aplicados, solo la componente horizontal ($F_x = F\cos\theta = 50$ N) realiza trabajo. La componente vertical simplemente levanta parcialmente la caja sin contribuir al avance.
 \end{seccion}
@@ -146,6 +149,7 @@ $$[P] = \frac{\text{J}}{\text{s}} = \text{W (watt)} \qquad 1 \text{ HP (caballo 
 \end{nota}
 \end{seccion}
 
+\newpage
 \subsection{Ejemplos de Potencia}
 
 \begin{seccion}
@@ -158,7 +162,7 @@ A velocidad constante, la fuerza del motor iguala exactamente la fricción:
 $$P = F \cdot v = 400 \text{ N} \times 20 \text{ m/s} = 8\,000 \text{ W} = 8 \text{ kW}$$
 
 \textbf{Ejemplo 3 --- Despeje de velocidad:} Un motor de 500 W aplica una fuerza constante de 250 N. ¿Con qué velocidad se mueve el vehículo?
-$$P = Fv \quad \Rightarrow \quad v = \frac{P}{F} = \frac{500}{250} = 2 \text{ m/s}$$
+$$P = Fv \quad \Rightarrow \quad v = \frac{P}{F} = \frac{500N}{250W} = 2 \text{ m/s}$$
 \end{seccion}
 
 \newpage
@@ -218,13 +222,12 @@ $$W_{\text{neto}} = \Delta E_c = E_{c,f} - E_{c,i} = \frac{1}{2}mv_f^2 - \frac{1
 \end{itemize}
 
 \textbf{Ejemplo:} Un auto de 1\,000 kg pasa de 10 m/s a 20 m/s. ¿Cuánto trabajo realizó el motor?
-$$W = \frac{1}{2}(1000)(20)^2 - \frac{1}{2}(1000)(10)^2 = 200\,000 - 50\,000 = 150\,000 \text{ J}$$
+$$W = \frac{1}{2}(1\,000\,\text{kg})(20\,\text{m/s})^2 - \frac{1}{2}(1\,000\,\text{kg})(10\,\text{m/s})^2 = 200\,000\,\text{J} - 50\,000\,\text{J} = 150\,000\,\text{J}$$
 \end{seccion}
 
 \subsubsection{Gráfica: Energía cinética vs velocidad}
 
 \begin{center}
-\shorthandoff{>}\shorthandoff{<}
 \begin{tikzpicture}
 \begin{axis}[
     width=11cm, height=7cm,
@@ -250,7 +253,6 @@ $$W = \frac{1}{2}(1000)(20)^2 - \frac{1}{2}(1000)(10)^2 = 200\,000 - 50\,000 = 1
 \draw[->, >=Stealth, red!70!black, thin] (axis cs:2,20) -- (axis cs:4,80);
 \end{axis}
 \end{tikzpicture}
-\shorthandon{>}\shorthandon{<}
 \end{center}
 
 \newpage
@@ -277,28 +279,27 @@ donde:
 \begin{itemize}
     \item $E_p$ = energía potencial gravitatoria (J)
     \item $m$ = masa (kg)
-    \item $g$ = aceleración gravitacional ($10 \text{ m/s}^2$)
+    \item $g$ = aceleración gravitacional ($g \approx 10 \text{ m/s}^2$)
     \item $h$ = altura sobre el nivel de referencia (m)
 \end{itemize}
 \end{ecuacion}
 
-\textbf{Punto clave:} $E_p$ solo depende de la \textbf{altura final}, no de la trayectoria seguida para llegar ahí. Un objeto que sube por escaleras, por una rampa o en elevador llega a la misma $E_p$ si alcanza la misma altura.
+\textbf{Recordar que} $E_p$ solo depende de la \textbf{altura final}, no de la trayectoria seguida para llegar ahí. Un objeto que sube por escaleras, por una rampa o en elevador llega a la misma $E_p$ si alcanza la misma altura.
 
 \vspace{0.3cm}
 
 \textbf{Ejemplo:} Una roca de 5 kg a 20 m de altura.
-$$E_p = mgh = 5 \times 10 \times 20 = 1\,000 \text{ J}$$
+$$E_p = mgh = 5\,\text{kg} \times 10\,\text{m/s}^2 \times 20\,\text{m} = 1\,000\,\text{J}$$
 \end{seccion}
 
 \subsubsection{Diagrama: La energía potencial no depende de la trayectoria}
 
 \begin{center}
-\shorthandoff{>}\shorthandoff{<}
 \begin{tikzpicture}[scale=0.9]
   % Suelo
   \fill[black!15] (0,-0.35) rectangle (10,0);
   \draw[thick] (0,0) -- (10,0);
-  \node[font=\small] at (5,-0.6) {Nivel de referencia ($h = 0$, $E_p = 0$)};
+  \node[font=\small] at (5,-1.1) {Nivel de referencia ($h = 0$, $E_p = 0$)};
 
   % Cota h
   \draw[<->, >=Stealth, thin, azuloscuro] (-0.4,0) -- (-0.4,3.0)
@@ -306,29 +307,28 @@ $$E_p = mgh = 5 \times 10 \times 20 = 1\,000 \text{ J}$$
 
   % Trayectoria 1: vertical directa
   \draw[very thick, azuloscuro, ->, >=Stealth] (1.5,0) -- (1.5,3.0);
-  \node[font=\small, azuloscuro, below] at (1.5,-0.15) {Tray. 1};
+  \node[font=\small, azuloscuro] at (1.5,-0.6) {Tray. 1};
 
   % Trayectoria 2: rampa inclinada
   \draw[very thick, azulmedio, ->, >=Stealth] (3.5,0) -- (5.5,3.0);
-  \node[font=\small, azulmedio, below] at (4.5,-0.15) {Tray. 2};
+  \node[font=\small, azulmedio] at (4.5,-0.6) {Tray. 2};
 
   % Trayectoria 3: curva sinuosa
   \draw[very thick, verdecorrecto, ->, >=Stealth]
       (7.0,0) .. controls (8.5,1.0) and (6.5,2.0) .. (8.0,3.0);
-  \node[font=\small, verdecorrecto, below] at (7.5,-0.15) {Tray. 3};
+  \node[font=\small, verdecorrecto] at (7.5,-0.6) {Tray. 3};
 
   % Bloques en la cima
   \foreach \x in {1.5, 5.5, 8.0}{
       \fill[gray!60] (\x-0.3, 3.0) rectangle (\x+0.3, 3.5);
   }
 
-  % Etiqueta
+  % Etiqueta superior
   \node[font=\small\bfseries, azuloscuro] at (5.0, 4.2)
       {$E_p = mgh$ es \textbf{igual} en los tres casos};
 \end{tikzpicture}
-\shorthandon{>}\shorthandon{<}
 \end{center}
-
+\newpage
 \subsection{Energía Potencial Elástica}
 
 \begin{seccion}
@@ -394,14 +394,14 @@ $$\frac{1}{2}mv_i^2 + mgh_i = \frac{1}{2}mv_f^2 + mgh_f$$
 \begin{seccion}
 \textbf{Problema:} Una pelota de 2 kg cae desde 20 m de altura (parte del reposo). ¿Con qué velocidad llega al suelo? \textit{(Usar conservación de energía, no cinemática.)}
 
-\textbf{Datos:} $m = 2$ kg, $h_i = 20$ m, $v_i = 0$, $h_f = 0$, $g = 10$ m/s$^2$
+\textbf{Datos:} $m = 2$ kg, $h_i = 20$ m, $v_i = 0$, $h_f = 0$, $g \approx 10$ m/s$^2$
 
 \textbf{Planteamiento:}
 $$mgh_i + \frac{1}{2}mv_i^2 = mgh_f + \frac{1}{2}mv_f^2$$
 $$mgh_i + 0 = 0 + \frac{1}{2}mv_f^2$$
 
 La masa $m$ se cancela en ambos lados:
-$$gh_i = \frac{1}{2}v_f^2 \quad \Rightarrow \quad v_f = \sqrt{2gh_i} = \sqrt{2(10)(20)} = \sqrt{400} = 20 \text{ m/s}$$
+$$gh_i = \frac{1}{2}v_f^2 \quad \Rightarrow \quad v_f = \sqrt{2gh_i} = \sqrt{2(10\,\text{m/s}^2)(20\,\text{m})} = \sqrt{400\,\text{m}^2/\text{s}^2} = 20\,\text{m/s}$$
 
 \begin{nota}
     \textbf{Resultado importante:} La velocidad de caída no depende de la masa. Una pluma y una roca (sin fricción del aire) alcanzan la misma velocidad al caer desde la misma altura.
@@ -411,7 +411,6 @@ $$gh_i = \frac{1}{2}v_f^2 \quad \Rightarrow \quad v_f = \sqrt{2gh_i} = \sqrt{2(1
 \subsubsection{Diagrama: Conservación de energía en un péndulo}
 
 \begin{center}
-\shorthandoff{>}\shorthandoff{<}
 \begin{tikzpicture}[scale=1.05]
 
   % Punto de suspensión
@@ -422,19 +421,19 @@ $$gh_i = \frac{1}{2}v_f^2 \quad \Rightarrow \quad v_f = \sqrt{2gh_i} = \sqrt{2(1
   \draw[thick, gray!70] (4.5,5.2) -- (2.2,3.0);
   \fill[azuloscuro] (2.2,3.0) circle (11pt);
   \node[white, font=\tiny\bfseries] at (2.2,3.0) {$m$};
-  \node[azuloscuro, font=\small, left=8pt] at (2.2,3.0) {$E_p$ máx\\$E_c = 0$};
+  \node[azuloscuro, font=\small, align=left, left=8pt] at (2.2,3.0) {$E_p$ m\'{a}x \\\\ $E_c{=}0$};
 
   % Cuerda central (fondo)
   \draw[thick, gray!70] (4.5,5.2) -- (4.5,2.2);
   \fill[verdecorrecto] (4.5,2.2) circle (11pt);
   \node[white, font=\tiny\bfseries] at (4.5,2.2) {$m$};
-  \node[verdecorrecto, font=\small, right=8pt] at (4.5,2.2) {$E_c$ máx\\$E_p = 0$};
+  \node[verdecorrecto, font=\small, align=left, right=8pt] at (4.5,2.2) {$E_c$ m\'{a}x \\\\ $E_p{=}0$};
 
   % Cuerda derecha
   \draw[thick, gray!70] (4.5,5.2) -- (6.8,3.0);
   \fill[azuloscuro] (6.8,3.0) circle (11pt);
   \node[white, font=\tiny\bfseries] at (6.8,3.0) {$m$};
-  \node[azuloscuro, font=\small, right=8pt] at (6.8,3.0) {$E_p$ máx\\$E_c = 0$};
+  \node[azuloscuro, font=\small, align=left, right=8pt] at (6.8,3.0) {$E_p$ m\'{a}x \\\\ $E_c{=}0$};
 
   % Flechas de movimiento
   \draw[->, >=Stealth, azulmedio, thick]
@@ -450,7 +449,6 @@ $$gh_i = \frac{1}{2}v_f^2 \quad \Rightarrow \quad v_f = \sqrt{2gh_i} = \sqrt{2(1
   \node[font=\small\bfseries, azuloscuro] at (4.5,1.0)
       {En todo momento: $E_m = E_c + E_p = \text{constante}$};
 \end{tikzpicture}
-\shorthandon{>}\shorthandon{<}
 \end{center}
 
 \newpage
@@ -516,20 +514,19 @@ $$p_{\text{total},i} = 0$$
 
 Por conservación:
 $$m_A v_A + m_B v_B = 0$$
-$$(70)\,v_A + (35)(4) = 0$$
-$$v_A = \frac{-(35)(4)}{70} = \frac{-140}{70} = -2 \text{ m/s}$$
+$$(70\,\text{kg})\,v_A + (35\,\text{kg})(4\,\text{m/s}) = 0$$
+$$v_A = \frac{-(35\,\text{kg})(4\,\text{m/s})}{70\,\text{kg}} = \frac{-140\,\text{kg·m/s}}{70\,\text{kg}} = -2\,\text{m/s}$$
 
 El signo negativo indica que A sale en dirección \textbf{opuesta} a B, con rapidez de 2 m/s.
 
 \begin{nota}
-    \textbf{Verificación:} $p_A + p_B = (70)(-2) + (35)(4) = -140 + 140 = 0$ ✓
+    \textbf{Verificación:} $p_A + p_B = (70)(-2) + (35)(4) = -140 + 140 = 0$ $\checkmark$
 \end{nota}
 \end{seccion}
 
 \subsubsection{Diagrama: Tipos de colisión}
 
 \begin{center}
-\shorthandoff{>}\shorthandoff{<}
 \begin{tikzpicture}[scale=0.95]
 
   % ---- Colisión elástica ----
@@ -575,7 +572,6 @@ El signo negativo indica que A sale en dirección \textbf{opuesta} a B, con rapi
   \node[red!70!black, font=\tiny] at (5.35,-0.45) {$E_c$ \textbf{no} conservada};
 
 \end{tikzpicture}
-\shorthandon{>}\shorthandon{<}
 \end{center}
 
 \newpage
@@ -617,16 +613,16 @@ $$Q_{\text{fricción}} = f \cdot d$$
 \textbf{Problema:} Un bloque de 4 kg baja por un plano inclinado de longitud 5 m. La altura del plano es 3 m y la fuerza de fricción es 8 N. ¿Con qué velocidad llega al fondo?
 
 \textbf{Paso 1 --- Energía potencial inicial:}
-$$E_{m,i} = mgh = 4 \times 10 \times 3 = 120 \text{ J}$$
+$$E_{m,i} = mgh \approx 4\,\text{kg} \times 10\,\text{m/s}^2 \times 3\,\text{m} = 120\,\text{J}$$
 
 \textbf{Paso 2 --- Calor disipado por fricción:}
-$$Q = f \cdot d = 8 \times 5 = 40 \text{ J}$$
+$$Q = f \cdot d = 8\,\text{N} \times 5\,\text{m} = 40\,\text{J}$$
 
 \textbf{Paso 3 --- Energía cinética final:}
-$$E_{c,f} = E_{m,i} - Q = 120 - 40 = 80 \text{ J}$$
+$$E_{c,f} = E_{m,i} - Q = 120\,\text{J} - 40\,\text{J} = 80\,\text{J}$$
 
 \textbf{Paso 4 --- Velocidad final:}
-$$E_{c,f} = \frac{1}{2}mv_f^2 \quad \Rightarrow \quad v_f = \sqrt{\frac{2E_{c,f}}{m}} = \sqrt{\frac{2(80)}{4}} = \sqrt{40} \approx 6.3 \text{ m/s}$$
+$$E_{c,f} = \frac{1}{2}mv_f^2 \quad \Rightarrow \quad v_f = \sqrt{\frac{2E_{c,f}}{m}} = \sqrt{\frac{2(80\,\text{J})}{4\,\text{kg}}} = \sqrt{40\,\text{m}^2/\text{s}^2} \approx 6.3\,\text{m/s}$$
 \end{seccion}
 
 \subsection{Eficiencia de una Máquina}
@@ -655,7 +651,6 @@ $$\eta = \frac{2\,500}{10\,000} \times 100\% = 25\%$$
 \subsubsection{Diagrama: Flujo de energía con fricción}
 
 \begin{center}
-\shorthandoff{>}\shorthandoff{<}
 \begin{tikzpicture}[scale=1.0,
   every node/.style={font=\small},
   caja/.style={draw, rounded corners=4pt, minimum width=3.0cm,
@@ -673,14 +668,13 @@ $$\eta = \frac{2\,500}{10\,000} \times 100\% = 25\%$$
 
   \draw[->, >=Stealth, thick, red!70!black] (4.0,0) -- (4.0,-1.6) -- (6.5,-1.6);
   \node[caja, fill=red!65!black!80, text=white] at (8.1,-1.6)
-      {Calor generado\\$Q = f \cdot d$};
+      {Calor generado \\\\ $Q=f\cdot d$};
 
   \node[red!70!black, font=\small\bfseries] at (5.2,-0.55) {Fricción};
 
   \node[azuloscuro, font=\small\bfseries, align=center] at (4.0,-3.2)
       {$E_{m,i} = E_{m,f} + Q$ \quad --- \quad La energía total nunca se destruye};
 \end{tikzpicture}
-\shorthandon{>}\shorthandon{<}
 \end{center}
 
 \newpage
