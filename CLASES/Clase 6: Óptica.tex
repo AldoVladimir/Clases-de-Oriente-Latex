@@ -1,0 +1,467 @@
+\renewcommand{\tema}{Lección: Óptica}
+
+% ============================================================
+%  SECCIÓN 1: LA LUZ Y SUS MODELOS
+% ============================================================
+
+\section{La Luz y sus Modelos}
+
+\begin{seccion}
+La naturaleza de la luz ha sido una de las preguntas más persistentes de la física. Durante siglos, dos modelos rivales explicaron sus comportamientos de formas incompatibles entre sí. La resolución de esa tensión llevó, en el siglo XX, a uno de los conceptos más profundos de la física moderna: el fotón.
+\end{seccion}
+
+\subsection{Modelo corpuscular de Newton}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Modelo corpuscular (Newton, siglo XVII):} La luz está formada por pequeñas partículas llamadas \textit{corpúsculos} que viajan en línea recta a gran velocidad. Cada color corresponde a corpúsculos de diferente tamaño o velocidad.
+\end{definicion}
+
+Este modelo explica con elegancia la propagación rectilínea de la luz y la formación de sombras nítidas. También predice la reflexión de forma natural: los corpúsculos rebotan en las superficies como pelotas elásticas.
+
+\textbf{Éxitos del modelo:}
+\begin{itemize}
+    \item Propagación en línea recta.
+    \item Reflexión (rebote de partículas).
+    \item Separación de colores al pasar por un prisma.
+\end{itemize}
+
+\textbf{Limitación principal:} Predice que la luz debería viajar \textit{más rápido} en medios densos como el agua, lo cual resultó ser falso al medirse experimentalmente.
+\end{seccion}
+
+\subsection{Modelo ondulatorio de Huygens}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Modelo ondulatorio (Huygens, siglo XVII):} La luz es una onda que se propaga en el espacio. Cada punto de un frente de onda actúa como fuente de ondas secundarias esféricas; la envolvente de estas ondas secundarias forma el nuevo frente de onda.
+\end{definicion}
+
+Este modelo, conocido como \textbf{principio de Huygens}, explica fenómenos que el modelo corpuscular no puede: la difracción (la luz se dobla alrededor de obstáculos), la interferencia (dos haces de luz pueden cancelarse) y la refracción correcta (la luz va \textit{más lento} en medios densos).
+
+\textbf{Éxitos del modelo:}
+\begin{itemize}
+    \item Difracción e interferencia.
+    \item Refracción con la velocidad correcta en cada medio.
+    \item Explica la doble refracción en cristales.
+\end{itemize}
+\end{seccion}
+
+\subsubsection{Diagrama: Principio de Huygens}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0]
+
+% Frente de onda original (línea vertical)
+\draw[azuloscuro, very thick] (0, -2.5) -- (0, 2.5);
+\node[left, font=\footnotesize, color=azuloscuro] at (-0.1, 2.7) {frente de onda};
+
+% Fuentes secundarias sobre el frente
+\foreach \y in {-2.0, -1.0, 0.0, 1.0, 2.0} {
+    \fill[azuloscuro] (0, \y) circle (0.07);
+    % Ondas secundarias (círculos pequeños)
+    \draw[azulmedio!60, thin] (0, \y) circle (0.6);
+    \draw[azulmedio!40, thin] (0, \y) circle (1.1);
+}
+
+% Nuevo frente de onda (envolvente)
+\draw[verdecorrecto, very thick] (1.1, -2.5) -- (1.1, 2.5);
+\node[right, font=\footnotesize, color=verdecorrecto] at (1.2, 2.7) {nuevo frente};
+
+% Flechas de propagación
+\foreach \y in {-1.5, 0.0, 1.5} {
+    \draw[-{Stealth}, azuloscuro, thick] (1.15, \y) -- (2.0, \y);
+}
+\node[right, font=\footnotesize, color=azuloscuro] at (2.05, 0) {propagación};
+
+% Etiqueta fuentes secundarias
+\draw[->, thin, gray] (0.7, -2.3) -- (0.05, -2.0);
+\node[right, font=\footnotesize, color=gray] at (0.75, -2.3) {fuentes secundarias};
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{El fotón: síntesis moderna}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Fotón (Einstein, 1905):} La luz está formada por cuantos de energía llamados \textit{fotones}. Cada fotón transporta una energía proporcional a la frecuencia de la radiación:
+$$E = h \cdot f$$
+donde $h = 6.626 \times 10^{-34}$ J$\cdot$s es la constante de Planck y $f$ es la frecuencia.
+\end{definicion}
+
+La física moderna acepta que la luz tiene \textbf{dualidad onda-partícula}: se comporta como onda en fenómenos de interferencia y difracción, y como partícula (fotón) en la interacción con la materia (efecto fotoeléctrico, visión, fotografía).
+
+\begin{nota}
+\textbf{Es importante recordar que} para el examen de admisión solo se requiere saber que la luz es una onda electromagnética transversal, que viaja a $c = 3 \times 10^8$ m/s en el vacío, y que diferentes colores corresponden a diferentes frecuencias (y longitudes de onda). La ecuación del fotón $E = hf$ aparece ocasionalmente en preguntas conceptuales.
+\end{nota}
+\end{seccion}
+
+\subsubsection{Diagrama: Espectro electromagnético visible}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0]
+
+% Barra de colores del espectro (aproximada con degradados por bloques)
+\fill[violet!80]       (0.0, 0) rectangle (1.2, 0.7);
+\fill[blue!70]         (1.2, 0) rectangle (2.4, 0.7);
+\fill[cyan!60!blue]    (2.4, 0) rectangle (3.6, 0.7);
+\fill[green!60]        (3.6, 0) rectangle (4.8, 0.7);
+\fill[yellow!80]       (4.8, 0) rectangle (6.0, 0.7);
+\fill[orange!80]       (6.0, 0) rectangle (7.2, 0.7);
+\fill[red!80]          (7.2, 0) rectangle (8.4, 0.7);
+
+% Borde
+\draw[thick, gray] (0,0) rectangle (8.4, 0.7);
+
+% Etiquetas de colores
+\node[font=\tiny, white] at (0.6,  0.35) {violeta};
+\node[font=\tiny, white] at (1.8,  0.35) {azul};
+\node[font=\tiny, black] at (3.0,  0.35) {cian};
+\node[font=\tiny, black] at (4.2,  0.35) {verde};
+\node[font=\tiny, black] at (5.4,  0.35) {amarillo};
+\node[font=\tiny, black] at (6.6,  0.35) {naranja};
+\node[font=\tiny, white] at (7.8,  0.35) {rojo};
+
+% Eje de longitud de onda
+\draw[-{Stealth}, thick] (0, -0.2) -- (8.6, -0.2)
+    node[right, font=\small] {$\lambda$ (nm)};
+\foreach \x/\lam in {0/380, 1.2/430, 2.4/470, 3.6/500, 4.8/560, 6.0/590, 7.2/620, 8.4/700} {
+    \draw[thin] (\x, -0.15) -- (\x, -0.25);
+    \node[below, font=\tiny] at (\x, -0.25) {\lam};
+}
+
+% Flecha de frecuencia (inversa)
+\draw[-{Stealth}, thick] (8.4, -0.85) -- (0, -0.85)
+    node[left, font=\small] {$f$ (Hz)};
+\node[font=\footnotesize, color=gray] at (4.2, -1.2)
+    {mayor $\lambda$ $\Leftrightarrow$ menor $f$ $\Leftrightarrow$ menor energía};
+
+\end{tikzpicture}
+\end{center}
+
+% ============================================================
+%  SECCIÓN 2: REFLEXIÓN DE LA LUZ
+% ============================================================
+
+\section{Reflexión de la Luz}
+
+\begin{seccion}
+La reflexión es el fenómeno por el cual la luz rebota al incidir sobre una superficie. Es el principio que permite ver los objetos que no emiten luz propia: vemos una silla porque la luz del sol o de una lámpara rebota en ella y llega a nuestros ojos.
+\end{seccion}
+
+\subsection{Reflexión en superficie lisa y rugosa}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Reflexión especular:} Ocurre en superficies lisas (espejo, agua tranquila). Los rayos incidentes paralelos se reflejan de forma paralela, produciendo una imagen nítida.
+\end{definicion}
+
+\begin{definicion}
+\textbf{Reflexión difusa:} Ocurre en superficies rugosas (papel, pared, madera). Los rayos incidentes paralelos se reflejan en múltiples direcciones. No se forma imagen, pero la superficie es visible desde cualquier ángulo.
+\end{definicion}
+
+Es importante recordar que ambos tipos de reflexión obedecen la misma ley de reflexión en cada punto de la superficie. La diferencia es que en la superficie rugosa, la normal varía en cada punto, por lo que los rayos reflejados salen en direcciones distintas.
+\end{seccion}
+
+\subsubsection{Diagrama: Reflexión especular y difusa}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0]
+
+% ---- ESPECULAR (izquierda) ----
+\node[font=\bfseries\small, color=azuloscuro] at (1.5, 3.2) {Reflexión especular};
+
+% Superficie lisa
+\draw[very thick, azuloscuro] (0, 0) -- (3, 0);
+\foreach \x in {0.1, 0.5, ..., 2.9} {
+    \draw[gray!40, thin] (\x, 0) -- (\x-0.2, -0.2);
+}
+
+% Rayos incidentes paralelos
+\foreach \xo/\xi in {0.3/0.8, 0.9/1.4, 1.5/2.0} {
+    \draw[-{Stealth}, azulmedio, thick] (\xo, 2.5) -- (\xi, 0);
+}
+
+% Rayos reflejados paralelos
+\foreach \xi/\xr in {0.8/1.3, 1.4/1.9, 2.0/2.5} {
+    \draw[-{Stealth}, verdecorrecto, thick] (\xi, 0) -- (\xr, 2.5);
+}
+
+% ---- DIFUSA (derecha) ----
+\node[font=\bfseries\small, color=azuloscuro] at (6.5, 3.2) {Reflexión difusa};
+
+% Superficie rugosa (línea irregular)
+\draw[very thick, azuloscuro]
+    (4.0,0) -- (4.4,0.15) -- (4.8,-0.1) -- (5.2,0.2) --
+    (5.6,-0.05) -- (6.0,0.18) -- (6.4,-0.12) -- (6.8,0.1) -- (7.2,0.0) -- (7.5,0);
+\foreach \x in {4.1, 4.5, ..., 7.4} {
+    \draw[gray!40, thin] (\x, -0.05) -- (\x-0.2, -0.25);
+}
+
+% Rayos incidentes paralelos
+\foreach \xo/\xi/\yi in {4.5/5.0/0.12, 5.3/5.7/-0.03, 6.2/6.5/0.14} {
+    \draw[-{Stealth}, azulmedio, thick] (\xo, 2.5) -- (\xi, \yi);
+}
+
+% Rayos reflejados en distintas direcciones
+\draw[-{Stealth}, verdecorrecto, thick] (5.0,0.12) -- (4.4, 2.2);
+\draw[-{Stealth}, verdecorrecto, thick] (5.0,0.12) -- (5.5, 2.4);
+\draw[-{Stealth}, verdecorrecto, thick] (5.7,-0.03) -- (5.0, 2.3);
+\draw[-{Stealth}, verdecorrecto, thick] (5.7,-0.03) -- (6.4, 2.1);
+\draw[-{Stealth}, verdecorrecto, thick] (6.5,0.14) -- (6.0, 2.4);
+\draw[-{Stealth}, verdecorrecto, thick] (6.5,0.14) -- (7.1, 2.2);
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{Ley de reflexión}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Ley de reflexión:} El rayo incidente, la normal a la superficie en el punto de incidencia y el rayo reflejado son coplanares. El ángulo de incidencia es igual al ángulo de reflexión, ambos medidos respecto a la normal.
+\end{definicion}
+
+\begin{ecuacion}
+$$\theta_i = \theta_r$$
+
+donde:
+\begin{itemize}
+    \item $\theta_i$ = ángulo de incidencia (entre el rayo incidente y la normal)
+    \item $\theta_r$ = ángulo de reflexión (entre el rayo reflejado y la normal)
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Consecuencias importantes:}
+\begin{itemize}
+    \item Si el rayo incide perpendicularmente a la superficie ($\theta_i = 0$), se refleja de regreso por el mismo camino.
+    \item El ángulo se mide siempre respecto a la \textbf{normal}, no respecto a la superficie.
+    \item La ley aplica tanto para reflexión especular como para cada punto de una superficie difusa.
+\end{itemize}
+\end{seccion}
+
+\subsubsection{Diagrama: Ley de reflexión}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+
+% Superficie reflectante
+\draw[very thick, azuloscuro] (-3.2, 0) -- (3.2, 0);
+\foreach \x in {-3.0,-2.5,...,3.0} {
+    \draw[gray!40, thin] (\x, 0) -- (\x-0.3, -0.3);
+}
+
+% Normal
+\draw[dashed, gray, thick] (0, -1.0) -- (0, 2.5);
+\node[right, font=\footnotesize, color=gray] at (0.05, 2.3) {normal};
+
+% Rayo incidente
+\draw[-{Stealth}, very thick, azulmedio] (-2.5, 2.2) -- (0, 0);
+\node[left, font=\small, color=azulmedio] at (-1.8, 1.6) {rayo incidente};
+
+% Rayo reflejado
+\draw[-{Stealth}, very thick, verdecorrecto] (0, 0) -- (2.5, 2.2);
+\node[right, font=\small, color=verdecorrecto] at (1.8, 1.6) {rayo reflejado};
+
+% Ángulo incidente
+\draw[azulmedio, thin] (0, 0.8) arc (90:138.8:0.8);
+\node[font=\small, color=azulmedio] at (-0.6, 1.05) {$\theta_i$};
+
+% Ángulo reflejado
+\draw[verdecorrecto, thin] (0, 0.8) arc (90:41.2:0.8);
+\node[font=\small, color=verdecorrecto] at (0.6, 1.05) {$\theta_r$};
+
+% Ecuación
+\node[font=\normalsize, color=azuloscuro] at (0, -0.7) {$\theta_i = \theta_r$};
+
+\end{tikzpicture}
+\end{center}
+
+% ============================================================
+%  SECCIÓN 3: REFRACCIÓN DE LA LUZ — LEY DE SNELL
+% ============================================================
+
+\section{Refracción de la Luz}
+
+\begin{seccion}
+Cuando la luz pasa de un medio a otro con diferente velocidad de propagación, cambia de dirección. Este fenómeno se llama refracción y es responsable de una enorme variedad de efectos cotidianos: desde la cuchara que parece rota en un vaso de agua hasta la formación de arcoíris, el funcionamiento de los lentes de los anteojos y el diseño de las fibras ópticas.
+\end{seccion}
+
+\subsection{Índice de refracción}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Índice de refracción} ($n$): cociente entre la velocidad de la luz en el vacío ($c$) y la velocidad de la luz en el medio ($v$).
+\end{definicion}
+
+\begin{ecuacion}
+$$n = \frac{c}{v}$$
+
+donde:
+\begin{itemize}
+    \item $c = 3 \times 10^8$ m/s (velocidad de la luz en el vacío)
+    \item $v$ = velocidad de la luz en el medio
+    \item $n \geq 1$ siempre (la luz nunca va más rápido que en el vacío)
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Valores de referencia:}
+
+\begin{center}
+\begin{tabular}{lc}
+\hline
+\rowcolor{fondogris}
+\textbf{Medio}   & \textbf{Índice de refracción $n$} \\
+\hline
+Vacío            & 1.000 \\
+Aire             & 1.000 3 $\approx$ 1 \\
+Agua             & 1.33 \\
+Vidrio crown     & 1.52 \\
+Diamante         & 2.42 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{nota}
+\textbf{Nota:} Un índice de refracción mayor significa que la luz viaja más \textit{lento} en ese medio. El diamante tiene el índice más alto de los materiales comunes, lo que produce su característica destellante al doblar la luz con gran ángulo.
+\end{nota}
+\end{seccion}
+
+\subsection{Ley de Snell}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Ley de Snell (o ley de Snell-Descartes):} Al pasar de un medio con índice $n_1$ a uno con índice $n_2$, los ángulos de incidencia y refracción satisfacen:
+\end{definicion}
+
+\begin{ecuacion}
+$$n_1 \cdot \sin\theta_1 = n_2 \cdot \sin\theta_2$$
+
+donde $\theta_1$ y $\theta_2$ se miden respecto a la normal en la superficie de separación.
+\end{ecuacion}
+
+\textbf{Reglas que se deducen directamente de la ley de Snell:}
+\begin{itemize}
+    \item Si $n_2 > n_1$ (pasa a medio más denso): $\theta_2 < \theta_1$ — el rayo \textbf{se acerca} a la normal.
+    \item Si $n_2 < n_1$ (pasa a medio menos denso): $\theta_2 > \theta_1$ — el rayo \textbf{se aleja} de la normal.
+    \item La frecuencia de la luz \textbf{no cambia} al refractarse; solo cambian $v$ y $\lambda$.
+\end{itemize}
+\end{seccion}
+
+\subsubsection{Diagrama: Ley de Snell}
+
+\subsubsection{Diagrama: Refracción de una onda}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.15]
+
+% ---- Medio superior (más rápido, v1) ----
+\fill[azulmedio!8] (-3.5, 0) rectangle (3.5, 3.0);
+\node[font=\small, color=azuloscuro] at (-2.8, 0.6) {Medio 1};
+\node[font=\footnotesize, color=azuloscuro] at (-2.1, 0.2) {(velocidad $v_1$, mayor)};
+
+% ---- Medio inferior (más lento, v2) ----
+\fill[azulmedio!22] (-3.5, -2.8) rectangle (3.5, 0);
+\node[font=\small, color=azuloscuro] at (-2.8, -0.3) {Medio 2};
+\node[font=\footnotesize, color=azuloscuro] at (-2.1, -0.7) {(velocidad $v_2$, menor)};
+
+% ---- Superficie de separación ----
+\draw[very thick, color=azuloscuro] (-3.5, 0) -- (3.5, 0);
+% Rayado de separación
+\foreach \x in {-3.3,-2.9,...,3.3} {
+    \draw[gray!40, thin] (\x, 0) -- (\x+0.3, -0.3);
+}
+
+% ---- Normal ----
+\draw[dashed, gray, thick] (0, -2.6) -- (0, 2.8);
+\node[right, font=\footnotesize, color=gray] at (0.05, 2.5) {normal};
+
+% ---- Rayo incidente ----
+\draw[-{Stealth}, very thick, color=azulmedio]
+    (-2.4, 2.6) -- (0, 0);
+\node[left, font=\small, color=azulmedio] at (-1.7, 1.8) {rayo incidente};
+
+% ---- Rayo reflejado (tenue) ----
+\draw[-{Stealth}, thick, color=azulmedio!50, dashed]
+    (0, 0) -- (2.4, 2.6);
+\node[right, font=\footnotesize, color=azulmedio!70] at (1.8, 1.8) {reflejado};
+
+% ---- Rayo refractado (más cerca de la normal) ----
+\draw[-{Stealth}, very thick, color=verdecorrecto]
+    (0, 0) -- (1.4, -2.6);
+\node[right, font=\small, color=verdecorrecto] at (1.0, -1.6) {rayo refractado};
+
+% ---- Ángulo de incidencia ----
+\draw[color=azulmedio, thin] (0, 0.8) arc (90:132:0.8);
+\node[font=\footnotesize, color=azulmedio] at (-0.55, 1.0) {$\theta_1$};
+
+% ---- Ángulo de refracción ----
+\draw[color=verdecorrecto, thin] (0,-0.8) arc (270:297:0.8);
+\node[font=\footnotesize, color=verdecorrecto] at (0.3, -1.05) {$\theta_2$};
+
+% ---- Nota: ángulo se acerca a la normal ----
+\node[font=\footnotesize, color=gray!80] at (2.5, -0.5)
+    {$\theta_2 < \theta_1$};
+\node[font=\footnotesize, color=gray!80] at (2.5, -0.9)
+    {(medio más lento)};
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{Efectos cotidianos de la refracción}
+
+\begin{seccion}
+\begin{itemize}
+    \item \textbf{Cuchara rota:} Una cuchara sumergida en agua parece doblada en la superficie. La luz que viene de la parte sumergida cambia de dirección al pasar del agua al aire, desplazando aparentemente la imagen.
+    \item \textbf{Arcoíris:} Las gotas de lluvia refractan la luz dos veces (al entrar y al salir) y la reflejan internamente. Dado que el índice de refracción del agua depende de la frecuencia (longitud de onda), cada color se desvía un ángulo distinto, separando la luz blanca en el espectro.
+    \item \textbf{Espejismo:} En carreteras muy calientes, el aire cerca del asfalto está más caliente y tiene menor índice de refracción que el aire frío superior. La luz se curva hacia arriba, produciendo la ilusión de un charco de agua.
+    \item \textbf{Fibra óptica:} La luz viaja confinada dentro de un hilo de vidrio porque al incidir con ángulo rasante sobre la pared, el ángulo es mayor que el ángulo crítico y se produce reflexión total interna — la luz no puede escapar.
+    \item \textbf{Lentes de anteojos:} Las lentes curvan los rayos de luz por refracción para compensar defectos de visión. Una lente convergente acerca los rayos hacia el eje; una divergente los separa.
+\end{itemize}
+\end{seccion}
+
+\subsection{Ejercicios resueltos: ley de Snell e índice de refracción}
+
+\begin{seccion}
+
+\textbf{Ejercicio 1.} Un rayo de luz pasa del aire ($n_1 = 1$) al vidrio ($n_2 = 1.5$) con un ángulo de incidencia de $30^\circ$. ¿Cuál es el ángulo de refracción?
+
+\begin{ecuacion}
+\textbf{Fórmula:} $n_1 \sin\theta_1 = n_2 \sin\theta_2$
+
+\textbf{Sustitución:}
+$$1 \cdot \sin 30^\circ = 1.5 \cdot \sin\theta_2$$
+$$0.5 = 1.5 \cdot \sin\theta_2$$
+$$\sin\theta_2 = \frac{0.5}{1.5} = \frac{1}{3} \approx 0.333$$
+$$\theta_2 = \arcsin(0.333) \approx 19.5^\circ$$
+
+El rayo se acerca a la normal ($\theta_2 < \theta_1$) al pasar a un medio más denso.
+\end{ecuacion}
+
+\vspace{0.4cm}
+
+\textbf{Ejercicio 2.} La velocidad de la luz en cierto plástico es $2 \times 10^8$ m/s. ¿Cuál es su índice de refracción?
+
+\begin{ecuacion}
+\textbf{Fórmula:} $n = \dfrac{c}{v}$
+
+\textbf{Sustitución:}
+$$n = \frac{3 \times 10^8 \text{ m/s}}{2 \times 10^8 \text{ m/s}} = 1.5$$
+\end{ecuacion}
+
+\vspace{0.4cm}
+
+\textbf{Ejercicio 3.} Un rayo pasa del agua ($n_1 = 1.33$) al aire ($n_2 = 1$). Si el ángulo de incidencia es $20^\circ$, ¿hacia dónde se desvía el rayo refractado?
+
+\begin{ecuacion}
+Como $n_2 < n_1$, la luz pasa a un medio menos denso: el rayo refractado \textbf{se aleja de la normal} ($\theta_2 > \theta_1$).
+
+Verificación:
+$$\sin\theta_2 = \frac{n_1}{n_2}\sin\theta_1 = \frac{1.33}{1} \times \sin 20^\circ = 1.33 \times 0.342 = 0.455$$
+$$\theta_2 \approx 27^\circ > 20^\circ \quad \checkmark$$
+\end{ecuacion}
+
+\begin{nota}
+\textbf{Nota:} En el examen de admisión raramente piden calcular $\arcsin$. Lo más común es pedir si el rayo se acerca o se aleja de la normal, o calcular $n$ a partir de velocidades. Memoriza: medio más denso ($n$ mayor) $\Rightarrow$ rayo más cercano a la normal.
+\end{nota}
+
+\end{seccion}
