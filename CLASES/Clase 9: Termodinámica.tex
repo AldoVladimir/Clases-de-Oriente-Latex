@@ -1,0 +1,1107 @@
+% ============================================================
+% LECCIÓN: TERMODINÁMICA
+% Curso de Oriente - CCH Oriente
+% Enero 2026
+% ============================================================
+% INSTRUCCIONES: Pegar este contenido en tu plantilla de Overleaf
+% después de la definición de entornos y antes de \end{document}
+% ============================================================
+\renewcommand{\tema}{Termodinámica}
+% ============================================================
+
+% ============================================================
+\section{Calor y Temperatura}
+% ============================================================
+
+\begin{seccion}
+En el habla cotidiana usamos ``calor'' y ``temperatura'' como si fueran la misma cosa: decimos que un objeto ``tiene mucho calor'' cuando queremos decir que está muy caliente. Sin embargo, en física estas dos magnitudes son conceptualmente distintas y confundirlas lleva a errores graves. Entender esta diferencia es el punto de partida de toda la termodinámica.
+\end{seccion}
+
+\subsection{Temperatura es movimiento de partículas}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Temperatura ($T$):} magnitud escalar que mide la agitación cinética promedio de las partículas de un cuerpo. A mayor temperatura, mayor velocidad media de las moléculas. Es una propiedad \textbf{del sistema}, no de la interacción entre sistemas.
+\end{definicion}
+
+La temperatura no ``fluye'' ni se ``transfiere'': es simplemente un número que describe el estado actual del sistema.
+\end{seccion}
+
+\subsubsection{Diagrama: Temperatura como movimiento de partículas}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1.0, font=\small]
+
+% ---- Cuerpo FRÍO ----
+\draw[azuloscuro, very thick, rounded corners=4pt] (0,0) rectangle (4.2,3.5);
+\fill[cyan!15, rounded corners=4pt] (0,0) rectangle (4.2,3.5);
+\node[azuloscuro, font=\bfseries] at (2.1, 3.85) {Cuerpo frío --- $T$ baja};
+\node[azuloscuro, font=\small] at (2.1, -0.35) {Partículas poco agitadas};
+
+\foreach \x/\y/\dx/\dy in {
+    0.6/0.6/0.15/0.10,  1.5/0.7/-0.12/0.08,  2.4/0.5/0.10/-0.13,
+    3.3/0.8/-0.15/0.07, 0.8/1.5/0.13/-0.09,  1.9/1.6/-0.10/0.11,
+    3.0/1.4/0.14/0.08,  0.6/2.5/0.09/0.13,   1.7/2.6/-0.13/-0.08,
+    2.8/2.4/0.11/-0.12, 3.6/2.7/-0.10/0.09}{
+    \fill[azulmedio] (\x,\y) circle (0.13);
+    \draw[-{Stealth}, azulmedio, thick] (\x,\y) -- +(\dx,\dy);
+}
+
+% ---- Cuerpo CALIENTE ----
+\draw[red!70, very thick, rounded corners=4pt] (5.8,0) rectangle (10.0,3.5);
+\fill[red!10, rounded corners=4pt] (5.8,0) rectangle (10.0,3.5);
+\node[red!70!black, font=\bfseries] at (7.9, 3.85) {Cuerpo caliente --- $T$ alta};
+\node[red!70!black, font=\small] at (7.9, -0.35) {Partículas muy agitadas};
+
+\foreach \x/\y/\dx/\dy in {
+    6.3/0.6/0.40/0.30,  7.2/0.7/-0.35/0.38,  8.2/0.5/0.32/-0.40,
+    9.1/0.9/-0.42/0.28, 6.5/1.6/0.38/-0.32,  7.7/1.5/-0.30/0.40,
+    8.8/1.7/0.42/0.25,  6.3/2.6/0.28/0.38,   7.5/2.7/-0.40/-0.30,
+    8.6/2.5/0.35/-0.38, 9.4/2.8/-0.30/0.35}{
+    \fill[red!65] (\x,\y) circle (0.13);
+    \draw[-{Stealth}, red!65, thick] (\x,\y) -- +(\dx,\dy);
+}
+
+\node[font=\normalsize] at (4.9, 1.75) {$\longleftrightarrow$};
+\node[gray, font=\small\itshape] at (4.9, 1.2) {mide};
+\node[gray, font=\small\itshape] at (4.9, 0.75) {agitación};
+
+\end{tikzpicture}
+
+\end{center}
+
+\subsection{Calor es transferencia de energía}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Calor ($Q$):} energía en tránsito que se transfiere entre dos sistemas debido a una diferencia de temperatura. El calor no es una propiedad que los cuerpos ``poseen''; existe únicamente mientras dura la transferencia.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Dirección del flujo de calor:}
+$$Q: T_{\text{alto}} \longrightarrow T_{\text{bajo}}$$
+El calor siempre fluye espontáneamente del cuerpo más caliente al más frío, nunca al revés.
+\end{ecuacion}
+
+\textbf{Diferencias clave:}
+\begin{itemize}
+    \item La temperatura es una propiedad del sistema (estado). El calor es energía en movimiento (proceso).
+    \item Un cuerpo no ``tiene calor''; tiene energía interna.
+    \item Un cuerpo grande a baja temperatura puede transferir más energía total que uno pequeño a alta temperatura.
+\end{itemize}
+\end{seccion}
+
+\subsubsection{Diagrama: El calor como transferencia de energía entre cuerpos}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1.0, font=\small]
+
+% Estado INICIAL
+\node[font=\bfseries, azuloscuro] at (3.0, 5.3) {Estado inicial};
+
+\draw[red!70, very thick, rounded corners=4pt] (0, 3.2) rectangle (2.6, 4.8);
+\fill[red!20, rounded corners=4pt] (0, 3.2) rectangle (2.6, 4.8);
+\node[red!80!black, font=\bfseries] at (1.3, 4.4) {Cuerpo A};
+\node[red!80!black] at (1.3, 3.8) {$T_A = 80^\circ$C};
+
+\draw[azuloscuro, very thick, rounded corners=4pt] (3.4, 3.2) rectangle (6.0, 4.8);
+\fill[cyan!20, rounded corners=4pt] (3.4, 3.2) rectangle (6.0, 4.8);
+\node[azuloscuro, font=\bfseries] at (4.7, 4.4) {Cuerpo B};
+\node[azuloscuro] at (4.7, 3.8) {$T_B = 20^\circ$C};
+
+\draw[very thick, gray] (2.6, 4.0) -- (3.4, 4.0);
+
+\foreach \yy in {3.55, 3.85, 4.15, 4.45}{
+    \draw[-{Stealth}, orange!80!red, very thick] (2.6, \yy) -- (3.4, \yy);
+}
+\node[orange!80!red, font=\bfseries] at (3.0, 3.2) {$Q$};
+
+% Estado FINAL
+\node[font=\bfseries, azuloscuro] at (9.7, 5.3) {Estado final (equilibrio)};
+
+\draw[azulmedio, very thick, rounded corners=4pt] (7.0, 3.2) rectangle (9.5, 4.8);
+\fill[azulmedio!15, rounded corners=4pt] (7.0, 3.2) rectangle (9.5, 4.8);
+\node[azulmedio!80!black, font=\bfseries] at (8.25, 4.4) {Cuerpo A};
+\node[azulmedio!80!black] at (8.25, 3.8) {$T = 50^\circ$C};
+
+\draw[azulmedio, very thick, rounded corners=4pt] (9.9, 3.2) rectangle (12.4, 4.8);
+\fill[azulmedio!15, rounded corners=4pt] (9.9, 3.2) rectangle (12.4, 4.8);
+\node[azulmedio!80!black, font=\bfseries] at (11.15, 4.4) {Cuerpo B};
+\node[azulmedio!80!black] at (11.15, 3.8) {$T = 50^\circ$C};
+
+\draw[very thick, gray] (9.5, 4.0) -- (9.9, 4.0);
+\node[verdecorrecto, font=\bfseries\small] at (9.7, 3.0) {$T_A = T_B$};
+
+\draw[-{Stealth}, very thick, gray] (6.3, 4.0) -- (6.85, 4.0);
+\node[gray, font=\small\itshape] at (6.55, 4.4) {tiempo};
+
+\end{tikzpicture}
+
+\end{center}
+
+\subsection{Escalas Termométricas}
+
+\begin{seccion}
+Existen tres escalas de uso común. Para la física, la más importante es la escala Kelvin: parte del cero absoluto y es obligatoria en todas las leyes de los gases ideales.
+
+\begin{ecuacion}
+\textbf{Conversiones entre escalas:}
+$$T(\text{K}) = T(^\circ\text{C}) + 273$$
+$$T(^\circ\text{F}) = \frac{9}{5}\,T(^\circ\text{C}) + 32$$
+$$T(^\circ\text{C}) = \frac{5}{9}\bigl[T(^\circ\text{F}) - 32\bigr]$$
+\end{ecuacion}
+
+\begin{nota}
+\textbf{El cero absoluto (0 K = $-$273$^\circ$C)} es la temperatura más baja posible. A esa temperatura la energía cinética traslacional de las partículas es mínima. Ningún proceso puede enfriar un sistema hasta 0 K exacto (tercera ley).
+\end{nota}
+\end{seccion}
+
+\subsubsection{Diagrama: Comparación de escalas termométricas}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1.0]
+
+\draw[azuloscuro, very thick] (0,0) -- (0,8);
+\node[above, azuloscuro, font=\bfseries] at (0,8.2) {Kelvin};
+
+\draw[azulmedio, very thick] (3,0) -- (3,8);
+\node[above, azulmedio, font=\bfseries] at (3,8.2) {Celsius};
+
+\foreach \val in {0, 273, 310, 373}{
+    \draw[azuloscuro, thick] (-0.2, \val*8/400) -- (0.2, \val*8/400);
+    \node[left, azuloscuro, font=\small] at (-0.25, \val*8/400) {\val};
+}
+
+\draw[azulmedio, thick] (2.8, 273*8/400) -- (3.2, 273*8/400);
+\node[right, azulmedio, font=\small] at (3.25, 273*8/400) {0$^\circ$C};
+
+\draw[azulmedio, thick] (2.8, 310*8/400) -- (3.2, 310*8/400);
+\node[right, azulmedio, font=\small] at (3.25, 310*8/400) {37$^\circ$C};
+
+\draw[azulmedio, thick] (2.8, 373*8/400) -- (3.2, 373*8/400);
+\node[right, azulmedio, font=\small] at (3.25, 373*8/400) {100$^\circ$C};
+
+\draw[azulmedio, thick] (2.8, 0) -- (3.2, 0);
+\node[right, azulmedio, font=\small] at (3.25, 0) {$-$273$^\circ$C};
+
+\draw[gray, dashed] (0, 373*8/400) -- (7.0, 373*8/400);
+\draw[gray, dashed] (0, 310*8/400) -- (7.0, 310*8/400);
+\draw[gray, dashed] (0, 273*8/400) -- (7.0, 273*8/400);
+\draw[gray, dashed] (0, 0)         -- (7.0, 0);
+
+\node[right, font=\small\itshape, verdecorrecto] at (7.1, 373*8/400) {Ebullición del agua};
+\node[right, font=\small\itshape, verdecorrecto] at (7.1, 310*8/400) {Cuerpo humano};
+\node[right, font=\small\itshape, verdecorrecto] at (7.1, 273*8/400) {Fusión del hielo};
+\node[right, font=\small\itshape, verdecorrecto] at (7.1, 0)         {Cero absoluto};
+
+\end{tikzpicture}
+
+\end{center}
+
+\subsubsection*{Ejercicio resuelto --- Conversión de escalas}
+
+\begin{seccion}
+\textbf{Problema:} El nitrógeno líquido se usa en crioterapia a $-196^\circ$C. ¿Cuál es esa temperatura en Kelvin?
+
+\textbf{Solución:}
+$$T(\text{K}) = -196\,^\circ\text{C} + 273 = \mathbf{77\,\text{K}}$$
+
+A 77 K el nitrógeno es líquido. Por encima de esa temperatura (a presión normal) se convierte en gas.
+\end{seccion}
+
+% ============================================================
+\section{Equilibrio Térmico y Ley Cero}
+% ============================================================
+
+\begin{seccion}
+Cuando ponemos en contacto dos cuerpos a distintas temperaturas, el calor fluye del más caliente al más frío hasta que ambos alcanzan la misma temperatura: se alcanza el \textbf{equilibrio térmico}. Este hecho formaliza el concepto de temperatura y da base a la termometría.
+\end{seccion}
+
+\subsection{Ley Cero de la Termodinámica}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Ley Cero:} si dos sistemas $A$ y $B$ están cada uno en equilibrio térmico con un tercer sistema $C$, entonces $A$ y $B$ están en equilibrio térmico entre sí.
+$$T_A = T_C \quad \text{y} \quad T_B = T_C \implies T_A = T_B$$
+\end{definicion}
+
+\begin{nota}
+La ley cero es el fundamento de la \textbf{termometría}: el termómetro ($C$) se equilibra con el cuerpo que medimos ($A$). Cuando la lectura es estable, el termómetro indica la temperatura del cuerpo, sin importar de qué material esté hecho.
+\end{nota}
+\end{seccion}
+
+\subsubsection{Diagrama: Ley cero --- el termómetro como sistema de referencia}
+
+\begin{center}
+
+\begin{tikzpicture}[font=\small, scale=1.0]
+
+\draw[azuloscuro, very thick, rounded corners=5pt] (0,1.2) rectangle (2.8,3.2);
+\fill[azulmedio!20, rounded corners=5pt] (0,1.2) rectangle (2.8,3.2);
+\node[azuloscuro, font=\bfseries] at (1.4, 2.6) {Sistema A};
+\node[azuloscuro] at (1.4, 2.0) {(cuerpo a medir)};
+
+\draw[verdecorrecto!80!black, very thick, rounded corners=5pt] (3.8,0.5) rectangle (6.6,3.9);
+\fill[verdecorrecto!15, rounded corners=5pt] (3.8,0.5) rectangle (6.6,3.9);
+\node[verdecorrecto!80!black, font=\bfseries] at (5.2, 3.4) {Sistema C};
+\node[verdecorrecto!80!black] at (5.2, 2.7) {(termómetro)};
+\node[verdecorrecto!80!black] at (5.2, 2.1) {$T_C = T_A = T_B$};
+
+\draw[red!70, very thick, rounded corners=5pt] (7.6,1.2) rectangle (10.4,3.2);
+\fill[red!15, rounded corners=5pt] (7.6,1.2) rectangle (10.4,3.2);
+\node[red!70!black, font=\bfseries] at (9.0, 2.6) {Sistema B};
+\node[red!70!black] at (9.0, 2.0) {(otro cuerpo)};
+
+\draw[{Stealth}-{Stealth}, very thick, orange!80] (2.8, 2.2) -- (3.8, 2.2);
+\node[orange!80!black, font=\small\itshape] at (3.3, 2.55) {equilibrio};
+
+\draw[{Stealth}-{Stealth}, very thick, orange!80] (6.6, 2.2) -- (7.6, 2.2);
+\node[orange!80!black, font=\small\itshape] at (7.1, 2.55) {equilibrio};
+
+\draw[verdecorrecto!80!black, very thick, dashed]
+    (1.4, 1.2) .. controls (1.4, 0.2) and (9.0, 0.2) .. (9.0, 1.2);
+\node[verdecorrecto!80!black, font=\bfseries\small] at (5.2, -0.05)
+    {$\therefore\; T_A = T_B$ (aunque no estén en contacto directo)};
+
+\end{tikzpicture}
+
+\end{center}
+
+% ============================================================
+\section{Transferencia de Calor}
+% ============================================================
+
+\begin{seccion}
+El calor puede pasar de un cuerpo a otro por tres mecanismos distintos. En la naturaleza suelen ocurrir simultáneamente, pero cada uno tiene una física propia. Identificarlos es indispensable para entender desde el funcionamiento de un radiador hasta por qué el Sol calienta la Tierra a través del vacío.
+\end{seccion}
+
+\subsection{Conducción}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Conducción:} transferencia de calor a través de un medio sólido (o fluido en reposo) por choque directo entre moléculas adyacentes, sin desplazamiento neto de materia.
+\end{definicion}
+
+La \textbf{conductividad calorífica} ($k$) cuantifica qué tan eficientemente conduce el calor un material: los metales tienen $k$ alto; la madera y el aire tienen $k$ bajo.
+
+\begin{ecuacion}
+\textbf{Ley de Fourier:}
+$$\frac{Q}{t} = k \cdot A \cdot \frac{\Delta T}{d}$$
+
+donde $Q/t$ es el flujo de calor (W), $k$ la conductividad (W/m$\cdot$K), $A$ el área (m$^2$), $\Delta T$ la diferencia de temperatura (K) y $d$ el grosor (m).
+\end{ecuacion}
+\end{seccion}
+
+\subsection{Convección}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Convección:} transferencia de calor por movimiento de masas de fluido. Las regiones más calientes se vuelven menos densas, ascienden, y son reemplazadas por fluido más frío, generando corrientes circulares.
+\end{definicion}
+
+\textbf{Ejemplos:} corrientes atmosféricas, hervor del agua, radiadores de agua caliente, corrientes oceánicas.
+\end{seccion}
+
+\subsection{Radiación}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Radiación:} transferencia de calor mediante ondas electromagnéticas (principalmente infrarrojas). No requiere un medio material; se propaga en el vacío.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Ley de Stefan-Boltzmann:}
+$$P = \varepsilon \sigma A T^4$$
+donde $\varepsilon$ es la emisividad, $\sigma = 5.67\times10^{-8}$ W/m$^2$K$^4$, $A$ el área (m$^2$) y $T$ la temperatura absoluta (K).
+\end{ecuacion}
+\end{seccion}
+
+\subsubsection{Diagrama: Los tres mecanismos de transferencia de calor}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=0.92, font=\small]
+
+% CONDUCCIÓN
+\node[font=\bfseries, azuloscuro] at (1.8, 5.8) {CONDUCCIÓN};
+\fill[azulmedio!25, rounded corners=2pt] (0,4.2) rectangle (3.6,5.0);
+\draw[azuloscuro, thick, rounded corners=2pt] (0,4.2) rectangle (3.6,5.0);
+\fill[red!60, rounded corners=2pt] (0,4.2) rectangle (0.9,5.0);
+\node[white, font=\tiny\bfseries] at (0.45, 4.6) {Caliente};
+\fill[cyan!50, rounded corners=2pt] (2.7,4.2) rectangle (3.6,5.0);
+\node[font=\tiny\bfseries] at (3.15, 4.6) {Frío};
+\foreach \x in {1.1, 1.6, 2.1}{
+    \draw[-{Stealth}, red!70, thick] (\x, 4.6) -- (\x+0.4, 4.6);
+}
+\foreach \x/\y in {0.45/4.6, 1.35/4.6, 2.25/4.6, 3.15/4.6}{
+    \fill[azuloscuro!60] (\x, \y) circle (0.12);
+}
+\node[gray, font=\tiny\itshape] at (1.8, 3.95) {Choque entre moléculas};
+
+% CONVECCIÓN
+\node[font=\bfseries, azuloscuro] at (6.5, 5.8) {CONVECCIÓN};
+\draw[azuloscuro, thick] (4.8, 3.6) rectangle (8.2, 5.5);
+\fill[cyan!15] (4.8, 3.6) rectangle (8.2, 5.5);
+\fill[orange!90] (5.8,3.2) -- (6.1,3.7) -- (6.4,3.2) -- (6.7,3.7) -- (7.0,3.2) -- (6.4,3.0) -- cycle;
+\node[orange!80!black, font=\tiny\bfseries] at (6.4, 2.85) {calor};
+\draw[-{Stealth}, red!70, very thick] (5.8, 3.9) -- (5.8, 5.2);
+\draw[-{Stealth}, red!40, thick]      (5.8, 5.2) -- (7.2, 5.2);
+\draw[-{Stealth}, azulmedio, very thick] (7.2, 5.2) -- (7.2, 3.9);
+\draw[-{Stealth}, azulmedio!50, thick]  (7.2, 3.9) -- (5.8, 3.9);
+\node[red!70!black, font=\tiny] at (5.45, 4.55) {sube};
+\node[azulmedio,    font=\tiny] at (7.55, 4.55) {baja};
+
+% RADIACIÓN
+\node[font=\bfseries, azuloscuro] at (11.2, 5.8) {RADIACIÓN};
+\fill[orange!90] (9.8, 4.65) circle (0.45);
+\node[white, font=\tiny\bfseries] at (9.8, 4.65) {Sol};
+\foreach \ang in {0, 45, 90, 135, 180, 225, 270, 315}{
+    \draw[orange!70, thick]
+        ({9.8+0.5*cos(\ang)},{4.65+0.5*sin(\ang)})
+        -- ({9.8+0.9*cos(\ang)},{4.65+0.9*sin(\ang)});
+}
+\draw[-{Stealth}, orange!80, very thick, decorate,
+      decoration={snake, amplitude=2pt, segment length=8pt}]
+    (10.7, 4.65) -- (12.3, 4.65);
+\fill[verdecorrecto!70] (12.7, 4.65) circle (0.38);
+\node[white, font=\tiny\bfseries] at (12.7, 4.65) {Tierra};
+\node[gray, font=\tiny\itshape] at (11.5, 5.15) {vacío};
+\draw[gray, dashed, thin] (10.6, 3.9) rectangle (12.4, 5.0);
+\node[gray, font=\tiny\itshape] at (11.5, 3.75) {no hay medio};
+
+\end{tikzpicture}
+
+\end{center}
+
+% ============================================================
+\section{Calor, Caloría y Capacidad Calorífica}
+% ============================================================
+
+\begin{seccion}
+Cuando suministramos calor a un objeto, su temperatura sube. La magnitud del aumento depende de la masa y del tipo de material. No es lo mismo calentar un kilogramo de agua que uno de hierro: el agua requiere mucho más calor para subir la misma cantidad de grados. Esta diferencia se cuantifica con el \textbf{calor específico}.
+\end{seccion}
+
+\subsection{La Caloría y su Equivalencia}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Caloría (cal):} cantidad de calor necesaria para elevar 1 g de agua pura de 14.5$^\circ$C a 15.5$^\circ$C a presión de 1 atm.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Equivalente mecánico del calor:}
+$$1\,\text{cal} = 4.186\,\text{J} \approx 4.2\,\text{J}$$
+$$1\,\text{kcal} = 4{,}186\,\text{J} = 4.186\,\text{kJ}$$
+\end{ecuacion}
+
+\begin{nota}
+Las ``calorías'' de las etiquetas nutricionales son kilocalorías (kcal). Una dona de 300 Cal contiene 300 kcal $= 1{,}255{,}800$ J de energía química.
+\end{nota}
+\end{seccion}
+
+\subsection{Calor Específico y Capacidad Calorífica}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Calor específico ($c$):} cantidad de calor necesaria para elevar 1 g de una sustancia en 1$^\circ$C. Es propiedad del material, no de la cantidad.
+\end{definicion}
+
+\begin{definicion}
+\textbf{Capacidad calorífica ($C$):} calor necesario para elevar \textbf{todo el objeto} en 1$^\circ$C. Depende del material y de la masa: $C = m \cdot c$.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Fórmula del calor:}
+$$Q = m \cdot c \cdot \Delta T$$
+
+donde:
+\begin{itemize}
+    \item $Q$ = calor transferido (cal o J)
+    \item $m$ = masa del cuerpo (g o kg)
+    \item $c$ = calor específico $\bigl[\text{cal/(g·}^\circ\text{C)}\bigr]$
+    \item $\Delta T = T_f - T_i$ = variación de temperatura
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Valores de calor específico:}
+
+\vspace{0.3cm}
+\begin{center}
+\begin{tabular}{lcc}
+\hline
+\rowcolor{azuloscuro!15}
+\textbf{Material} & \textbf{$c$ (cal/g$\cdot^\circ$C)} & \textbf{$c$ (J/kg$\cdot$K)} \\
+\hline
+Agua              & 1.000 & 4186 \\
+\rowcolor{fondogris}
+Hielo             & 0.500 & 2090 \\
+Aluminio          & 0.215 & 900  \\
+\rowcolor{fondogris}
+Hierro            & 0.113 & 473  \\
+Cobre             & 0.093 & 390  \\
+\rowcolor{fondogris}
+Plomo             & 0.031 & 128  \\
+\hline
+\end{tabular}
+\end{center}
+\vspace{0.3cm}
+\end{seccion}
+
+\subsubsection*{Ejercicio resuelto 1 --- Calentamiento de agua}
+
+\begin{seccion}
+\textbf{Problema:} Un deportista calienta 1.5 kg de agua desde 20$^\circ$C hasta 80$^\circ$C. ¿Cuántas kilocalorías requiere?
+
+\textbf{Datos:} $m = 1500$ g, $c = 1$ cal/(g$\cdot^\circ$C), $\Delta T = 60\,^\circ$C.
+
+\textbf{Solución:}
+$$Q = 1500\,\text{g} \times 1\,\frac{\text{cal}}{\text{g}\cdot^\circ\text{C}} \times 60\,^\circ\text{C} = 90{,}000\,\text{cal} = \mathbf{90\,\text{kcal}}$$
+\end{seccion}
+
+\subsubsection*{Ejercicio resuelto 2 --- Enfriamiento de cobre}
+
+\begin{seccion}
+\textbf{Problema:} Una pieza de cobre de 800 g sale del horno a 320$^\circ$C y se enfría hasta 20$^\circ$C. ¿Cuántas kilocalorías cedió? ($c_{\text{Cu}} = 0.093$ cal/(g$\cdot^\circ$C))
+
+\textbf{Datos:} $m = 800$ g, $c = 0.093$ cal/(g$\cdot^\circ$C), $\Delta T = 300\,^\circ$C.
+
+\textbf{Solución:}
+$$Q = 800\,\text{g} \times 0.093\,\frac{\text{cal}}{\text{g}\cdot^\circ\text{C}} \times 300\,^\circ\text{C} = 22{,}320\,\text{cal} = \mathbf{22.3\,\text{kcal}}$$
+\end{seccion}
+
+\subsubsection*{Ejercicio resuelto 3 --- Conversión cal a joules}
+
+\begin{seccion}
+\textbf{Problema:} Un panel solar suministra 500 kcal en un día. ¿Cuántos kilojoules equivalen?
+
+\textbf{Solución:}
+$$Q = 500\,\text{kcal} \times 4.186\,\frac{\text{kJ}}{\text{kcal}} = \mathbf{2{,}093\,\text{kJ}}$$
+\end{seccion}
+
+% ============================================================
+\section{Leyes de la Termodinámica}
+% ============================================================
+
+\begin{seccion}
+La termodinámica se construye sobre tres leyes que describen cómo se conserva la energía, en qué dirección ocurren los procesos naturales y qué límite impone la naturaleza a la temperatura mínima alcanzable. Son la base de toda la ingeniería de motores, refrigeradores y sistemas de potencia.
+\end{seccion}
+
+\subsection{Primera Ley: Conservación de la Energía}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Primera ley de la termodinámica:} la variación de energía interna de un sistema es igual al calor que absorbe menos el trabajo que realiza.
+\end{definicion}
+
+\begin{ecuacion}
+$$\Delta U = Q - W$$
+
+donde:
+\begin{itemize}
+    \item $\Delta U$ = variación de energía interna (J)
+    \item $Q$ = calor absorbido por el sistema ($Q > 0$ si entra, $Q < 0$ si sale)
+    \item $W$ = trabajo realizado \textbf{por} el sistema ($W > 0$ si el gas se expande)
+\end{itemize}
+\end{ecuacion}
+
+Esta ley prohíbe los motores que ``crean'' energía de la nada: toda la energía que sale tuvo que haber entrado de alguna forma.
+\end{seccion}
+
+\subsubsection{Diagrama: Primera ley --- flujo de energía en un motor térmico}
+
+\begin{center}
+
+\begin{tikzpicture}[font=\small, scale=1.0]
+
+% Fuente caliente
+\fill[red!25, rounded corners=6pt] (3.0, 5.0) rectangle (7.0, 6.5);
+\draw[red!70, very thick, rounded corners=6pt] (3.0, 5.0) rectangle (7.0, 6.5);
+\node[red!80!black, font=\bfseries] at (5.0, 5.9) {Fuente caliente ($T_H$)};
+\node[red!80!black, font=\small] at (5.0, 5.4) {combustión, caldera, Sol\ldots};
+
+% Motor
+\fill[azulmedio!20, rounded corners=8pt] (3.5, 2.8) rectangle (6.5, 4.5);
+\draw[azuloscuro, very thick, rounded corners=8pt] (3.5, 2.8) rectangle (6.5, 4.5);
+\node[azuloscuro, font=\bfseries] at (5.0, 3.85) {MOTOR};
+\node[azuloscuro, font=\small] at (5.0, 3.3) {$\Delta U = Q - W$};
+
+% Sumidero frío
+\fill[cyan!20, rounded corners=6pt] (3.0, 0.8) rectangle (7.0, 2.3);
+\draw[azuloscuro, very thick, rounded corners=6pt] (3.0, 0.8) rectangle (7.0, 2.3);
+\node[azuloscuro, font=\bfseries] at (5.0, 1.7) {Sumidero frío ($T_C$)};
+\node[azuloscuro, font=\small] at (5.0, 1.2) {escape, ambiente};
+
+% Flechas de energía
+\draw[-{Stealth}, red!70, line width=2.5pt] (5.0, 5.0) -- (5.0, 4.5);
+\node[red!70!black, font=\bfseries, right] at (5.1, 4.75) {$Q_H$ (calor absorbido)};
+
+\draw[-{Stealth}, verdecorrecto!80!black, line width=2.5pt] (6.5, 3.65) -- (8.0, 3.65);
+\node[verdecorrecto!80!black, font=\bfseries] at (8.6, 3.65) {$W$ (trabajo útil)};
+
+\draw[-{Stealth}, azulmedio, line width=2.5pt] (5.0, 2.8) -- (5.0, 2.3);
+\node[azulmedio, font=\bfseries, right] at (5.1, 2.55) {$Q_C$ (calor residual)};
+
+\node[gray, font=\small\itshape] at (5.0, 0.3) {$Q_H = W + Q_C$ \quad (la energía se conserva)};
+
+\end{tikzpicture}
+
+\end{center}
+
+\subsubsection*{Ejercicio resuelto --- Primera ley}
+
+\begin{seccion}
+\textbf{Problema:} Un gas en un cilindro absorbe 800 J de calor y realiza un trabajo de 500 J al empujar el émbolo. ¿Cuál es la variación de energía interna?
+
+\textbf{Datos:} $Q = +800$ J, $W = +500$ J.
+
+\textbf{Solución:}
+$$\Delta U = Q - W = 800\,\text{J} - 500\,\text{J} = \mathbf{+300\,\text{J}}$$
+
+La energía interna aumentó en 300 J: parte del calor absorbido se convirtió en trabajo y el resto incrementó la temperatura del gas.
+\end{seccion}
+
+\subsection{Segunda Ley: Dirección de los Procesos}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Segunda ley de la termodinámica:} el calor fluye espontáneamente solo del cuerpo más caliente al más frío. La \textbf{entropía} (medida del desorden) de un sistema aislado tiende a aumentar o permanecer constante, nunca a disminuir.
+\end{definicion}
+
+\begin{nota}
+La segunda ley impone que ningún motor térmico puede convertir \textbf{todo} el calor absorbido en trabajo. Siempre hay calor residual que se cede al ambiente. Por eso la eficiencia de los motores reales es siempre menor al 100\%.
+\end{nota}
+\end{seccion}
+
+\subsubsection{Diagrama: Segunda ley --- irreversibilidad de los procesos}
+
+\begin{center}
+
+\begin{tikzpicture}[font=\small, scale=1.0]
+
+% Proceso espontáneo
+\node[verdecorrecto!80!black, font=\bfseries] at (2.5, 5.5) {Proceso espontáneo};
+\node[verdecorrecto!80!black, font=\small\itshape] at (2.5, 5.1) {(ocurre en la naturaleza)};
+
+\fill[red!25, rounded corners=4pt] (0, 3.5) rectangle (2.0, 4.8);
+\draw[red!60, thick, rounded corners=4pt] (0, 3.5) rectangle (2.0, 4.8);
+\node[red!70!black, font=\bfseries] at (1.0, 4.35) {A};
+\node[red!70!black, font=\tiny] at (1.0, 3.85) {$T = 80^\circ$C};
+
+\draw[-{Stealth}, orange!80, very thick] (2.0, 4.15) -- (3.0, 4.15);
+\node[orange!80!black, font=\bfseries] at (2.5, 4.5) {$Q$};
+
+\fill[cyan!25, rounded corners=4pt] (3.0, 3.5) rectangle (5.0, 4.8);
+\draw[azuloscuro, thick, rounded corners=4pt] (3.0, 3.5) rectangle (5.0, 4.8);
+\node[azuloscuro, font=\bfseries] at (4.0, 4.35) {B};
+\node[azuloscuro, font=\tiny] at (4.0, 3.85) {$T = 20^\circ$C};
+
+\node[verdecorrecto!80!black, font=\Large] at (2.5, 3.0) {\checkmark};
+
+% Proceso no espontáneo
+\node[red!70!black, font=\bfseries] at (9.5, 5.5) {Proceso no espontáneo};
+\node[red!70!black, font=\small\itshape] at (9.5, 5.1) {(viola la segunda ley)};
+
+\fill[cyan!25, rounded corners=4pt] (7.0, 3.5) rectangle (9.0, 4.8);
+\draw[azuloscuro, thick, rounded corners=4pt] (7.0, 3.5) rectangle (9.0, 4.8);
+\node[azuloscuro, font=\bfseries] at (8.0, 4.35) {B};
+\node[azuloscuro, font=\tiny] at (8.0, 3.85) {$T = 20^\circ$C};
+
+\draw[-{Stealth}, orange!80, very thick] (9.0, 4.15) -- (10.0, 4.15);
+\node[orange!80!black, font=\bfseries] at (9.5, 4.5) {$Q$};
+
+\fill[red!25, rounded corners=4pt] (10.0, 3.5) rectangle (12.0, 4.8);
+\draw[red!60, thick, rounded corners=4pt] (10.0, 3.5) rectangle (12.0, 4.8);
+\node[red!70!black, font=\bfseries] at (11.0, 4.35) {A};
+\node[red!70!black, font=\tiny] at (11.0, 3.85) {$T = 80^\circ$C};
+
+\draw[red!80, very thick] (9.5, 2.6) circle (0.38);
+\draw[red!80, very thick] (9.16, 2.93) -- (9.84, 2.27);
+\node[red!80, font=\bfseries\small] at (9.5, 2.0) {Imposible};
+
+\end{tikzpicture}
+
+\end{center}
+
+\subsection{Tercera Ley: El Cero Absoluto}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Tercera ley de la termodinámica:} es imposible alcanzar el cero absoluto (0 K) mediante un número finito de procesos. A medida que un sistema se acerca a 0 K, su entropía tiende a un valor mínimo constante.
+\end{definicion}
+
+En el laboratorio se han alcanzado temperaturas del orden de $10^{-9}$ K, pero 0 K exacto es un límite inalcanzable.
+\end{seccion}
+
+\subsubsection{Diagrama: Tercera ley --- la entropía hacia el cero absoluto}
+
+\begin{center}
+
+\begin{tikzpicture}
+\begin{axis}[
+    width=10cm,
+    height=6.5cm,
+    axis lines=left,
+    xlabel={$T$ (K)},
+    ylabel={Entropía $S$},
+    xmin=0, xmax=500,
+    ymin=0, ymax=5,
+    grid=major,
+    grid style={gray!25},
+    thick,
+    ytick={0,1,2,3,4,5},
+    yticklabels={$S_{\min}$,,,,},
+    xtick={0,100,200,273,300,400,500},
+    every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+    every axis y label/.style={at={(current axis.above origin)},anchor=south}
+]
+
+\addplot[azuloscuro, very thick, domain=1:500, samples=150]
+    {2.5*ln(x)/ln(500) + 0.3};
+
+\addplot[red!60, dashed, thick, domain=0:500] {0.3};
+\node[red!70!black, font=\small, right] at (axis cs: 300, 0.5)
+    {$S \to S_{\min}$ cuando $T \to 0$\,K};
+
+\draw[-{Stealth}, gray, thick] (axis cs: 60, 3.5) -- (axis cs: 8, 0.5);
+\node[gray, font=\small] at (axis cs: 115, 3.75) {Imposible llegar a 0\,K};
+
+\addplot[only marks, mark=*, mark size=3pt, color=red!70]
+    coordinates {(0, 0.3)};
+\node[red!70!black, font=\small, right] at (axis cs: 5, 0.18) {0\,K (inalcanzable)};
+
+\end{axis}
+\end{tikzpicture}
+
+\end{center}
+
+% ============================================================
+\section{Teoría Cinética de los Gases y Propiedades de la Materia}
+% ============================================================
+
+\begin{seccion}
+A escala microscópica, la temperatura es la manifestación de algo concreto: el movimiento incesante de las partículas que forman la materia. La teoría cinética conecta este nivel microscópico con las magnitudes macroscópicas (presión, volumen, temperatura) que medimos en el laboratorio.
+\end{seccion}
+
+\subsection{Estructura de la Materia y Teoría Cinética}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Teoría cinética:} la materia está formada por partículas en movimiento constante y aleatorio. La temperatura es proporcional a la energía cinética promedio de esas partículas.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Temperatura y energía cinética media:}
+$$\bar{E}_k = \frac{3}{2}\,k_B T$$
+
+donde $k_B = 1.38 \times 10^{-23}$ J/K (constante de Boltzmann) y $T$ es la temperatura absoluta (K).
+\end{ecuacion}
+
+\begin{nota}
+Si $T = 0$ K entonces $\bar{E}_k = 0$: las partículas estarían completamente en reposo. Por eso la escala Kelvin es la correcta para los gases.
+\end{nota}
+\end{seccion}
+
+\subsection{Propiedades Generales de la Materia}
+
+\begin{seccion}
+Compartidas por toda la materia:
+
+\begin{itemize}
+    \item \textbf{Porosidad:} espacios vacíos entre partículas. Explica por qué los gases son comprimibles.
+    \item \textbf{Impenetrabilidad:} dos porciones de materia no pueden ocupar el mismo espacio a la vez.
+    \item \textbf{Elasticidad:} capacidad de recuperar la forma original al cesar la fuerza deformante.
+    \item \textbf{Divisibilidad:} la materia puede subdividirse hasta el límite del átomo o molécula.
+\end{itemize}
+\end{seccion}
+
+\subsection{Propiedades Específicas de la Materia}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Densidad ($\rho$):} masa por unidad de volumen.
+$$\rho = \frac{m}{V} \qquad \left[\frac{\text{kg}}{\text{m}^3}\right]$$
+\end{definicion}
+
+\begin{definicion}
+\textbf{Punto de fusión:} temperatura a la que una sustancia pasa de sólido a líquido a presión constante (el agua funde a 0$^\circ$C; el hierro, a 1538$^\circ$C).
+\end{definicion}
+
+\begin{definicion}
+\textbf{Punto de ebullición:} temperatura a la que una sustancia pasa de líquido a gaseoso a presión constante (el agua hierve a 100$^\circ$C a nivel del mar).
+\end{definicion}
+
+\begin{nota}
+En la Ciudad de México (altitud $\approx 2240$ m) la presión es menor, por lo que el agua hierve a $\approx 93^\circ$C. Los alimentos tardan más en cocerse porque el agua hierve a menor temperatura.
+\end{nota}
+\end{seccion}
+
+\subsubsection*{Ejercicio resuelto --- Densidad}
+
+\begin{seccion}
+\textbf{Problema:} Una esfera de aluminio tiene masa de 540 g y volumen de 200 cm$^3$. ¿Cuál es su densidad en kg/m$^3$?
+
+\textbf{Datos:} $m = 0.540$ kg, $V = 200\,\text{cm}^3 = 2\times10^{-4}\,\text{m}^3$.
+
+\textbf{Solución:}
+$$\rho = \frac{m}{V} = \frac{0.540\,\text{kg}}{2\times10^{-4}\,\text{m}^3} = \mathbf{2700\,\text{kg/m}^3}$$
+
+Coincide con la densidad tabulada del aluminio.
+\end{seccion}
+
+% ============================================================
+\section{Ecuación de Estado de los Gases Ideales}
+% ============================================================
+
+\begin{seccion}
+Un \textbf{gas ideal} es un modelo en el que las partículas no tienen volumen propio y no interactúan entre sí excepto en colisiones elásticas. El modelo describe con gran precisión el comportamiento de gases a bajas presiones y altas temperaturas.
+\end{seccion}
+
+\subsection{Ley General de los Gases Ideales}
+
+\begin{seccion}
+\begin{ecuacion}
+\textbf{Ecuación de estado:}
+$$PV = nRT$$
+
+donde $P$ es la presión (Pa o atm), $V$ el volumen (m$^3$ o L), $n$ la cantidad de gas (mol), $R = 0.082$ atm$\cdot$L/(mol$\cdot$K) y $T$ la temperatura absoluta (K).
+\end{ecuacion}
+
+Para cantidad fija de gas ($n$ constante):
+
+\begin{ecuacion}
+\textbf{Ley combinada:}
+$$\frac{P_1 V_1}{T_1} = \frac{P_2 V_2}{T_2}$$
+\end{ecuacion}
+\end{seccion}
+
+\subsection{Ley de Boyle --- Proceso Isotérmico ($T$ constante)}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Ley de Boyle:} a temperatura constante, la presión y el volumen de un gas son inversamente proporcionales.
+\end{definicion}
+
+\begin{ecuacion}
+$$P_1 V_1 = P_2 V_2 \qquad (T = \text{constante})$$
+\end{ecuacion}
+\end{seccion}
+
+\subsubsection{Diagrama: Ley de Boyle --- compresión isotérmica}
+
+\begin{center}
+
+\begin{tikzpicture}[font=\small, scale=1.0]
+
+% Estado 1: volumen grande, presión baja
+\node[azuloscuro, font=\bfseries] at (1.8, 5.2) {Estado 1};
+\node[azuloscuro, font=\small] at (1.8, 4.85) {$P_1$ baja, $V_1$ grande};
+
+\draw[azuloscuro, very thick] (0.3, 0.5) rectangle (3.3, 4.5);
+\fill[azulmedio!10] (0.3, 0.5) rectangle (3.3, 4.5);
+\fill[gray!60] (0.3, 4.1) rectangle (3.3, 4.5);
+\draw[gray!80, thick] (0.3, 4.1) rectangle (3.3, 4.5);
+\node[gray!40, font=\tiny] at (1.8, 4.3) {émbolo};
+
+\foreach \x/\y in {0.8/1.0, 1.5/0.8, 2.5/1.1, 0.7/1.9, 1.8/2.0,
+                   2.8/1.8, 0.9/3.0, 1.6/3.2, 2.6/2.9, 1.2/3.8, 2.2/3.6}{
+    \fill[azulmedio] (\x, \y) circle (0.10);
+}
+\foreach \x in {0.8, 1.3, 1.8, 2.3, 2.8}{
+    \draw[-{Stealth}, red!60, thick] (\x, 3.85) -- (\x, 4.1);
+}
+\node[red!70, font=\small] at (1.8, 0.25) {$P_1 = 1$ atm};
+
+% Flecha de compresión
+\draw[-{Stealth}, very thick, orange!80] (3.5, 2.5) -- (4.5, 2.5);
+\node[orange!80!black, font=\bfseries] at (4.0, 2.9) {Comprime};
+\node[orange!80!black, font=\small] at (4.0, 2.15) {$T = $ cte};
+
+% Estado 2: volumen pequeño, presión alta
+\node[azuloscuro, font=\bfseries] at (6.8, 5.2) {Estado 2};
+\node[azuloscuro, font=\small] at (6.8, 4.85) {$P_2$ alta, $V_2$ pequeño};
+
+\draw[azuloscuro, very thick] (4.8, 2.2) rectangle (8.8, 4.5);
+\fill[azulmedio!10] (4.8, 2.2) rectangle (8.8, 4.5);
+\fill[gray!60] (4.8, 4.1) rectangle (8.8, 4.5);
+\draw[gray!80, thick] (4.8, 4.1) rectangle (8.8, 4.5);
+
+\foreach \x/\y in {5.2/2.5, 5.9/2.4, 6.7/2.6, 7.5/2.5, 8.2/2.4,
+                   5.1/3.1, 5.9/3.3, 6.6/3.0, 7.4/3.2, 8.1/3.1,
+                   5.3/3.8, 6.2/3.7, 7.0/3.9, 7.8/3.7}{
+    \fill[azulmedio] (\x, \y) circle (0.10);
+}
+\foreach \x in {5.3, 5.8, 6.3, 6.8, 7.3, 7.8, 8.3}{
+    \draw[-{Stealth}, red!60, thick] (\x, 3.65) -- (\x, 4.1);
+}
+\node[red!70, font=\small] at (6.8, 2.0) {$P_2 = 2$ atm, $V_2 = V_1/2$};
+
+\end{tikzpicture}
+
+\end{center}
+
+\subsubsection*{Ejercicio resuelto --- Ley de Boyle}
+
+\begin{seccion}
+\textbf{Problema:} Un buzo lleva un tanque de aire a 200 atm con un volumen de 12 L. Al vaciarlo a presión atmosférica (1 atm) a temperatura constante, ¿qué volumen ocupa el aire?
+
+\textbf{Datos:} $P_1 = 200$ atm, $V_1 = 12$ L, $P_2 = 1$ atm.
+
+\textbf{Solución:}
+$$V_2 = \frac{P_1 V_1}{P_2} = \frac{200\,\text{atm} \times 12\,\text{L}}{1\,\text{atm}} = \mathbf{2{,}400\,\text{L}}$$
+
+El aire comprimido ocupa el equivalente a una habitación de 2.4 m$^3$.
+\end{seccion}
+
+\subsection{Ley de Charles --- Proceso Isobárico ($P$ constante)}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Ley de Charles:} a presión constante, el volumen de un gas es directamente proporcional a su temperatura absoluta.
+\end{definicion}
+
+\begin{ecuacion}
+$$\frac{V_1}{T_1} = \frac{V_2}{T_2} \qquad (P = \text{constante})$$
+\end{ecuacion}
+
+Un globo aerostático asciende al calentar el aire interior: al aumentar $T$, el volumen crece, la densidad del aire caliente baja y el globo flota.
+\end{seccion}
+
+\subsubsection{Diagrama: Ley de Charles --- volumen vs.\ temperatura}
+
+\begin{center}
+
+\begin{tikzpicture}
+\begin{axis}[
+    width=10cm,
+    height=6.5cm,
+    axis lines=left,
+    xlabel={$T$ (K)},
+    ylabel={$V$ (L)},
+    xmin=0, xmax=600,
+    ymin=0, ymax=6,
+    grid=major,
+    grid style={gray!25},
+    thick,
+    xtick={0,100,200,300,400,500,600},
+    every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+    every axis y label/.style={at={(current axis.above origin)},anchor=south},
+    legend pos=north west,
+    legend style={font=\small}
+]
+
+\addplot[azuloscuro, very thick, domain=0:600, samples=2]
+    {0.008*x};
+\addlegendentry{$V \propto T$ a $P$ constante}
+
+\addplot[only marks, mark=*, mark size=4pt, color=red!70]
+    coordinates {(300, 2.4) (450, 3.6) (150, 1.2)};
+
+\node[azuloscuro, font=\small] at (axis cs: 310, 2.0) {$(300\text{ K},\; 2.4\text{ L})$};
+\node[azuloscuro, font=\small] at (axis cs: 460, 3.2) {$(450\text{ K},\; 3.6\text{ L})$};
+
+\end{axis}
+\end{tikzpicture}
+
+\end{center}
+
+\subsubsection*{Ejercicio resuelto --- Ley de Charles}
+
+\begin{seccion}
+\textbf{Problema:} Un globo meteorológico contiene 8 L de helio a 27$^\circ$C. Al ascender, la temperatura baja a $-73^\circ$C a presión constante. ¿Cuál es el nuevo volumen?
+
+\textbf{Datos:} $V_1 = 8$ L, $T_1 = 300$ K, $T_2 = 200$ K.
+
+\textbf{Solución:}
+$$V_2 = V_1 \cdot \frac{T_2}{T_1} = 8\,\text{L} \times \frac{200\,\text{K}}{300\,\text{K}} = \mathbf{5.3\,\text{L}}$$
+
+Al enfriarse, el globo se contrae de 8 L a 5.3 L.
+\end{seccion}
+
+\subsection{Ley de Gay-Lussac --- Proceso Isocórico ($V$ constante)}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Ley de Gay-Lussac:} a volumen constante, la presión de un gas es directamente proporcional a su temperatura absoluta.
+\end{definicion}
+
+\begin{ecuacion}
+$$\frac{P_1}{T_1} = \frac{P_2}{T_2} \qquad (V = \text{constante})$$
+\end{ecuacion}
+
+\begin{nota}
+Las llantas de un automóvil aumentan su presión al calentarse durante el viaje. Por eso se mide la presión en frío. Un recipiente cerrado que se calienta en exceso puede explotar si la presión supera el límite del material.
+\end{nota}
+\end{seccion}
+
+\subsubsection{Diagrama: Ley de Gay-Lussac --- aumento de presión a volumen fijo}
+
+\begin{center}
+
+\begin{tikzpicture}[font=\small, scale=1.0]
+
+% Recipiente frío
+\node[azuloscuro, font=\bfseries] at (1.8, 5.4) {$T_1$ baja, $P_1$ moderada};
+
+\draw[azuloscuro, very thick, line width=2pt] (0.3, 0.8) rectangle (3.3, 4.8);
+\fill[cyan!10] (0.3, 0.8) rectangle (3.3, 4.8);
+
+\foreach \x/\y in {0.8/1.2, 1.6/1.0, 2.6/1.3, 0.7/2.2,
+                   1.9/2.1, 2.8/2.0, 0.9/3.2, 1.7/3.4, 2.7/3.1, 1.3/4.1, 2.3/4.0}{
+    \fill[azulmedio] (\x, \y) circle (0.12);
+}
+\foreach \y in {1.5, 2.5, 3.5, 4.3}{
+    \draw[-{Stealth}, red!50, thick] (2.9, \y) -- (3.3, \y);
+    \draw[-{Stealth}, red!50, thick] (0.7, \y) -- (0.3, \y);
+}
+\node[red!60, font=\small] at (1.8, 0.5) {$P_1 = 3$ atm, $T_1 = 300$ K};
+
+% Flecha
+\draw[-{Stealth}, very thick, orange!80] (3.5, 2.8) -- (4.5, 2.8);
+\node[orange!80!black, font=\bfseries] at (4.0, 3.2) {Calienta};
+\node[orange!80!black, font=\small]    at (4.0, 2.45) {$V = $ cte};
+
+% Recipiente caliente
+\node[red!70!black, font=\bfseries] at (7.3, 5.4) {$T_2$ alta, $P_2$ mayor};
+
+\draw[red!70, very thick, line width=2pt] (4.8, 0.8) rectangle (9.8, 4.8);
+\fill[red!8] (4.8, 0.8) rectangle (9.8, 4.8);
+
+\foreach \x/\y in {5.3/1.2, 6.3/1.0, 7.3/1.3, 8.3/1.1, 9.1/1.4,
+                   5.1/2.2, 6.2/2.0, 7.4/2.3, 8.5/2.1, 9.2/2.4,
+                   5.4/3.2, 6.5/3.4, 7.5/3.1, 8.6/3.3, 9.0/3.0,
+                   5.2/4.0, 6.4/4.2, 7.6/4.0, 8.7/4.3}{
+    \fill[red!65] (\x, \y) circle (0.12);
+}
+\foreach \y in {1.2, 1.8, 2.4, 3.0, 3.6, 4.2}{
+    \draw[-{Stealth}, red!70, very thick] (9.2, \y) -- (9.8, \y);
+    \draw[-{Stealth}, red!70, very thick] (5.4, \y) -- (4.8, \y);
+}
+\node[red!70, font=\small] at (7.3, 0.5) {$P_2 = 4$ atm, $T_2 = 400$ K};
+
+\end{tikzpicture}
+
+\end{center}
+
+\subsubsection*{Ejercicio resuelto --- Ley de Gay-Lussac}
+
+\begin{seccion}
+\textbf{Problema:} Una olla de presión contiene vapor a 1 atm y 100$^\circ$C. Al continuar calentando hasta 150$^\circ$C con la válvula cerrada, ¿cuál es la nueva presión?
+
+\textbf{Datos:} $P_1 = 1$ atm, $T_1 = 373$ K, $T_2 = 423$ K.
+
+\textbf{Solución:}
+$$P_2 = P_1 \cdot \frac{T_2}{T_1} = 1\,\text{atm} \times \frac{423\,\text{K}}{373\,\text{K}} \approx \mathbf{1.13\,\text{atm}}$$
+
+La presión sube $\approx 13\%$. Por eso las ollas de presión requieren válvulas de seguridad.
+\end{seccion}
+
+\subsubsection{Diagrama: Los tres procesos en el plano $P$-$V$}
+
+\begin{center}
+
+\begin{tikzpicture}
+\begin{axis}[
+    width=10cm,
+    height=7cm,
+    axis lines=left,
+    xlabel={$V$ (L)},
+    ylabel={$P$ (atm)},
+    xmin=0, xmax=6,
+    ymin=0, ymax=6,
+    grid=major,
+    grid style={gray!25},
+    thick,
+    legend pos=north east,
+    legend style={font=\small},
+    every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+    every axis y label/.style={at={(current axis.above origin)},anchor=south}
+]
+
+\addplot[azuloscuro, very thick, domain=0.8:5.5, samples=100]
+    {4/x};
+\addlegendentry{Boyle --- isotérmica ($T$ cte)}
+
+\addplot[verdecorrecto!80!black, very thick, domain=1.0:5.0]
+    {2.5};
+\addlegendentry{Charles --- isobárica ($P$ cte)}
+
+\addplot[red!70, very thick]
+    coordinates {(3, 0.5) (3, 5.5)};
+\addlegendentry{Gay-Lussac --- isocórica ($V$ cte)}
+
+\addplot[only marks, mark=*, mark size=4pt, color=black]
+    coordinates {(3, 1.333)};
+\node[font=\small, right] at (axis cs: 3.05, 1.5) {Estado de referencia};
+
+\end{axis}
+\end{tikzpicture}
+
+\end{center}
+
+\begin{seccion}
+\textbf{Lectura del diagrama $P$-$V$:}
+\begin{itemize}
+    \item \textbf{Isoterma (azul, Boyle):} hipérbola. Al comprimir ($V$ baja), $P$ sube para mantener $PV = \text{cte}$.
+    \item \textbf{Isobara (verde, Charles):} línea horizontal. Presión fija; si $V$ aumentó, fue porque $T$ subió.
+    \item \textbf{Isocora (roja, Gay-Lussac):} línea vertical. Volumen fijo; si $P$ cambia, fue porque $T$ cambió.
+\end{itemize}
+\end{seccion}
+
+% ============================================================
+\section*{Formulario}
+% ============================================================
+
+\begin{nota}
+\textbf{Escalas de temperatura:}
+$$T(\text{K}) = T(^\circ\text{C}) + 273 \qquad T(^\circ\text{F}) = \tfrac{9}{5}\,T(^\circ\text{C}) + 32$$
+
+\vspace{0.3cm}
+
+\textbf{Calor transferido:}
+$$Q = m \cdot c \cdot \Delta T$$
+
+\vspace{0.3cm}
+
+\textbf{Equivalente calórico:}
+$$1\,\text{cal} = 4.186\,\text{J} \qquad 1\,\text{kcal} = 4{,}186\,\text{J}$$
+
+\vspace{0.3cm}
+
+\textbf{Primera ley:}
+$$\Delta U = Q - W$$
+
+\vspace{0.3cm}
+
+\textbf{Energía cinética media (teoría cinética):}
+$$\bar{E}_k = \frac{3}{2}\,k_B T$$
+
+\vspace{0.3cm}
+
+\textbf{Densidad:}
+$$\rho = \frac{m}{V}$$
+
+\vspace{0.3cm}
+
+\textbf{Ecuación de estado del gas ideal:}
+$$PV = nRT$$
+
+\vspace{0.3cm}
+
+\textbf{Ley combinada:}
+$$\frac{P_1 V_1}{T_1} = \frac{P_2 V_2}{T_2}$$
+
+\vspace{0.3cm}
+
+\textbf{Boyle} ($T$ cte): $\;P_1 V_1 = P_2 V_2$
+
+\vspace{0.3cm}
+
+\textbf{Charles} ($P$ cte): $\;\dfrac{V_1}{T_1} = \dfrac{V_2}{T_2}$
+
+\vspace{0.3cm}
+
+\textbf{Gay-Lussac} ($V$ cte): $\;\dfrac{P_1}{T_1} = \dfrac{P_2}{T_2}$
+\end{nota}
