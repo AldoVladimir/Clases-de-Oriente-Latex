@@ -1,0 +1,783 @@
+% ============================================================
+% LECCIÓN: ELECTROMAGNETISMO
+% Curso de Oriente - CCH Oriente
+% Enero 2026
+% ============================================================
+% INSTRUCCIONES: Pegar este contenido en tu plantilla de Overleaf
+% después de la definición de entornos y antes de \end{document}
+% ============================================================
+
+\renewcommand{\tema}{Electromagnetismo}
+
+% ============================================================
+\section{Electrostática y Ley de Coulomb}
+% ============================================================
+
+\begin{seccion}
+La electricidad es uno de los fenómenos más fundamentales de la naturaleza y el sustento tecnológico de la civilización moderna. Para entenderla desde sus bases, debemos comenzar con la \textbf{carga eléctrica}: la propiedad intrínseca de la materia que da origen a todas las interacciones eléctricas y magnéticas.
+\end{seccion}
+
+\subsection{Carga eléctrica}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Carga eléctrica ($q$):} Propiedad fundamental de la materia que determina cómo interactúa con campos eléctricos y magnéticos. Se mide en \textbf{coulombs (C)}.
+\end{definicion}
+
+Existen dos tipos de carga:
+\begin{itemize}
+    \item \textbf{Positiva (+):} asociada con protones.
+    \item \textbf{Negativa (--):} asociada con electrones.
+\end{itemize}
+
+La carga del electrón es $e = 1.6 \times 10^{-19}$ C. Esta es la \textbf{carga elemental}: la unidad mínima de carga libre en la naturaleza.
+
+\textbf{Principios fundamentales:}
+\begin{itemize}
+    \item Cargas del mismo signo se \textbf{repelen}.
+    \item Cargas de signo opuesto se \textbf{atraen}.
+    \item La carga eléctrica total de un sistema aislado se \textbf{conserva}.
+\end{itemize}
+\end{seccion}
+
+\subsection{Ley de Coulomb}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Ley de Coulomb:} La fuerza eléctrica entre dos cargas puntuales es directamente proporcional al producto de sus magnitudes e inversamente proporcional al cuadrado de la distancia que las separa. La fuerza actúa a lo largo de la línea que une las dos cargas.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Fuerza de Coulomb:}
+$$F = k \frac{|q_1| \cdot |q_2|}{r^2}$$
+
+donde:
+\begin{itemize}
+    \item $F$ = fuerza eléctrica (N)
+    \item $k = 9 \times 10^9$ N$\cdot$m$^2$/C$^2$ = constante de Coulomb
+    \item $q_1, q_2$ = magnitudes de las cargas (C)
+    \item $r$ = distancia entre las cargas (m)
+\end{itemize}
+\end{ecuacion}
+
+\begin{nota}
+\textbf{Analogía con la gravitación:} La Ley de Coulomb y la Ley de Gravitación Universal de Newton tienen la misma forma matemática ($\propto 1/r^2$). La diferencia esencial es que la gravedad siempre es atractiva, mientras que la fuerza eléctrica puede ser atractiva o repulsiva según el signo de las cargas.
+\end{nota}
+
+\textbf{Ejemplo:} Dos cargas de $q_1 = 2 \times 10^{-6}$ C y $q_2 = 3 \times 10^{-6}$ C separadas por $r = 0.1$ m. ¿Cuál es la fuerza entre ellas?
+
+$$F = (9 \times 10^9) \cdot \frac{(2 \times 10^{-6})(3 \times 10^{-6})}{(0.1)^2} = (9 \times 10^9) \cdot \frac{6 \times 10^{-12}}{10^{-2}} = 5.4 \text{ N}$$
+
+Como ambas cargas son positivas, la fuerza es \textbf{repulsiva}.
+\end{seccion}
+
+\subsubsection{Diagrama: Interacción entre cargas}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1.2]
+  % Cargas iguales - repulsión
+  \node[circle, draw=azuloscuro, fill=azulmedio!30, minimum size=0.8cm, thick] (q1a) at (0,1.5) {$+$};
+  \node[circle, draw=azuloscuro, fill=azulmedio!30, minimum size=0.8cm, thick] (q2a) at (3,1.5) {$+$};
+  \draw[-{Stealth[length=3mm]}, thick, red] (q1a) -- (-1,1.5) node[left] {$\vec{F}$};
+  \draw[-{Stealth[length=3mm]}, thick, red] (q2a) -- (4,1.5) node[right] {$\vec{F}$};
+  \draw[dashed, gray] (q1a) -- (q2a) node[midway, above] {$r$};
+  \node at (1.5, 2.2) {\textbf{Repulsión (cargas iguales)}};
+
+  % Cargas opuestas - atracción
+  \node[circle, draw=azuloscuro, fill=azulmedio!30, minimum size=0.8cm, thick] (q1b) at (0,-0.2) {$+$};
+  \node[circle, draw=red!70, fill=red!20, minimum size=0.8cm, thick] (q2b) at (3,-0.2) {$-$};
+  \draw[-{Stealth[length=3mm]}, thick, azuloscuro] (q1b) -- (1.3,-0.2) node[midway, above] {$\vec{F}$};
+  \draw[-{Stealth[length=3mm]}, thick, azuloscuro] (q2b) -- (1.7,-0.2);
+  \draw[dashed, gray] (0.4,-0.2) -- (2.6,-0.2) node[midway, below] {$r$};
+  \node at (1.5, -1.0) {\textbf{Atracción (cargas opuestas)}};
+\end{tikzpicture}
+
+\end{center}
+
+\subsection{Campo eléctrico}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Campo eléctrico ($\vec{E}$):} Región del espacio donde una carga eléctrica experimenta una fuerza. Se define como la fuerza por unidad de carga que actuaría sobre una carga de prueba positiva colocada en ese punto. Se mide en N/C (equivalente a V/m).
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Campo eléctrico de una carga puntual:}
+$$E = k \frac{|q|}{r^2}$$
+
+\textbf{Relación entre campo eléctrico y fuerza:}
+$$\vec{F} = q \cdot \vec{E}$$
+
+donde:
+\begin{itemize}
+    \item $E$ = magnitud del campo eléctrico (N/C)
+    \item $q$ = carga que genera el campo (C)
+    \item $r$ = distancia al punto de interés (m)
+    \item $\vec{F}$ = fuerza sobre una carga de prueba (N)
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Líneas de campo eléctrico:} Son curvas que representan la dirección del campo en cada punto. Por convención:
+\begin{itemize}
+    \item Salen de las cargas \textbf{positivas} y entran a las cargas \textbf{negativas}.
+    \item La densidad de líneas es proporcional a la \textbf{intensidad} del campo.
+    \item Las líneas nunca se cruzan entre sí.
+\end{itemize}
+\end{seccion}
+
+\subsubsection{Diagrama: Líneas de campo eléctrico}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1.0]
+  % Carga positiva - líneas salen
+  \foreach \angle in {0, 45, 90, 135, 180, 225, 270, 315} {
+    \draw[-{Stealth[length=2.5mm]}, azuloscuro, thick]
+      ({0.4*cos(\angle)}, {0.4*sin(\angle)}) --
+      ({1.6*cos(\angle)}, {1.6*sin(\angle)});
+  }
+  \node[circle, fill=azulmedio, text=white, minimum size=0.7cm, font=\bfseries] at (0,0) {$+$};
+  \node[below=1.8cm] at (0,0) {Carga positiva};
+
+  % Carga negativa - líneas entran
+  \foreach \angle in {0, 45, 90, 135, 180, 225, 270, 315} {
+    \draw[-{Stealth[length=2.5mm]}, red!70!black, thick]
+      ({5+1.6*cos(\angle)}, {1.6*sin(\angle)}) --
+      ({5+0.4*cos(\angle)}, {0.4*sin(\angle)});
+  }
+  \node[circle, fill=red!70, text=white, minimum size=0.7cm, font=\bfseries] at (5,0) {$-$};
+  \node[below=1.8cm] at (5,0) {Carga negativa};
+\end{tikzpicture}
+
+\end{center}
+
+% ============================================================
+\section{Corriente Eléctrica, Ley de Ohm y Potencia}
+% ============================================================
+
+\begin{seccion}
+Una vez comprendida la carga estática, el siguiente paso es estudiar qué ocurre cuando las cargas se \textit{mueven}. El movimiento ordenado de cargas eléctricas constituye la \textbf{corriente eléctrica}, el fenómeno que hace funcionar desde una linterna hasta una red de suministro nacional.
+\end{seccion}
+
+\subsection{Corriente eléctrica y voltaje}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Corriente eléctrica ($I$):} Flujo de carga eléctrica a través de un conductor por unidad de tiempo. Se mide en \textbf{amperes (A)}.
+$$I = \frac{q}{t}$$
+donde $q$ es la carga que pasa (C) y $t$ es el tiempo (s).
+\end{definicion}
+
+\begin{definicion}
+\textbf{Voltaje o diferencia de potencial ($V$):} Energía por unidad de carga que impulsa el movimiento de los electrones a través de un circuito. Se mide en \textbf{volts (V)}.
+\end{definicion}
+
+\begin{nota}
+\textbf{Analogía hidráulica:} La corriente eléctrica es análoga al caudal de agua en una tubería. El voltaje corresponde a la presión que impulsa el flujo, y la resistencia es equivalente al diámetro o la rugosidad de la tubería.
+\end{nota}
+\end{seccion}
+
+\subsection{Resistencia eléctrica y Ley de Ohm}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Resistencia eléctrica ($R$):} Oposición que presenta un material al paso de la corriente eléctrica. Se mide en \textbf{ohms ($\Omega$)}.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Ley de Ohm:}
+$$V = I \cdot R$$
+
+donde:
+\begin{itemize}
+    \item $V$ = voltaje (V)
+    \item $I$ = corriente (A)
+    \item $R$ = resistencia ($\Omega$)
+\end{itemize}
+
+\textbf{Despejes útiles:}
+$$I = \frac{V}{R} \qquad R = \frac{V}{I}$$
+\end{ecuacion}
+
+\textbf{Ejemplo:} Una lámpara tiene una resistencia de 240 $\Omega$ y está conectada a 120 V. ¿Cuánta corriente circula?
+
+$$I = \frac{V}{R} = \frac{120 \text{ V}}{240 \text{ }\Omega} = 0.5 \text{ A}$$
+\end{seccion}
+
+\subsection{Potencia eléctrica}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Potencia eléctrica ($P$):} Energía eléctrica disipada o transferida por unidad de tiempo. Se mide en \textbf{watts (W)}.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Fórmulas de potencia eléctrica:}
+$$P = V \cdot I = I^2 \cdot R = \frac{V^2}{R}$$
+
+donde:
+\begin{itemize}
+    \item $P$ = potencia (W)
+    \item $V$ = voltaje (V)
+    \item $I$ = corriente (A)
+    \item $R$ = resistencia ($\Omega$)
+\end{itemize}
+\end{ecuacion}
+
+\begin{nota}
+\textbf{Conversión de unidades de energía:} La energía eléctrica consumida se expresa frecuentemente en \textbf{kilowatt-hora (kWh)}.
+$$1 \text{ kWh} = 1000 \text{ W} \times 3600 \text{ s} = 3.6 \times 10^6 \text{ J}$$
+El recibo de luz factura en kWh.
+\end{nota}
+
+\textbf{Ejemplo:} Una plancha de 1200 W opera durante 30 minutos. ¿Cuánta energía consume en joules?
+
+$$E = P \cdot t = 1200 \text{ W} \times (30 \times 60 \text{ s}) = 1200 \times 1800 = 2{,}160{,}000 \text{ J} = 2.16 \times 10^6 \text{ J}$$
+\end{seccion}
+
+\subsubsection{Diagrama: Circuito eléctrico básico con sus magnitudes}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1.3,
+  bateria/.style={rectangle, draw=azuloscuro, fill=azulmedio!20, minimum width=0.6cm, minimum height=1.2cm},
+  resistor/.style={rectangle, draw=red!70!black, fill=red!10, minimum width=1.2cm, minimum height=0.5cm, rounded corners=2pt}
+]
+  % Nodos del circuito
+  \coordinate (A) at (0,2);
+  \coordinate (B) at (3,2);
+  \coordinate (C) at (3,0);
+  \coordinate (D) at (0,0);
+
+  % Alambres
+  \draw[very thick, azuloscuro] (A) -- (B);
+  \draw[very thick, azuloscuro] (B) -- (C);
+  \draw[very thick, azuloscuro] (C) -- (D);
+  \draw[very thick, azuloscuro] (D) -- (A);
+
+  % Batería (lado izquierdo)
+  \node[bateria] at (0,1) {};
+  \draw[very thick, azuloscuro] (0,1.3) -- (0,1.6);
+  \draw[very thick, azuloscuro] (0,0.4) -- (0,0.7);
+  \node[right=3pt] at (0,1.5) {\small $+$};
+  \node[right=3pt] at (0,0.5) {\small $-$};
+  \node[left=5pt] at (0,1) {$V$};
+
+  % Resistor (arriba)
+  \node[resistor] at (1.5,2) {$R$};
+
+  % Flecha de corriente
+  \draw[-{Stealth[length=3mm]}, verdecorrecto, very thick] (2.2,2.15) -- (1.0,2.15);
+  \node[above] at (1.5, 2.35) {\small\textcolor{verdecorrecto}{$I$}};
+
+  % Etiqueta voltaje
+  \draw[{Stealth[length=2.5mm]}-{Stealth[length=2.5mm]}, gray] (-0.7, 0.1) -- (-0.7, 1.9);
+  \node[left] at (-0.7,1) {\small $V$};
+
+  % Etiqueta potencia
+  \node[below=0.3cm] at (1.5, 0) {\small $P = V \cdot I = I^2 R = V^2/R$};
+\end{tikzpicture}
+
+\end{center}
+
+% ============================================================
+\section{Circuitos de Resistencias}
+% ============================================================
+
+\begin{seccion}
+En la práctica, los circuitos eléctricos raramente contienen un solo elemento. El comportamiento del circuito depende críticamente de \textit{cómo} se conectan los componentes. Las dos configuraciones fundamentales son la conexión en \textbf{serie} y la conexión en \textbf{paralelo}.
+\end{seccion}
+
+\subsection{Resistencias en serie}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Circuito en serie:} Los componentes se conectan uno tras otro, formando un único camino para la corriente. La misma corriente atraviesa todos los elementos.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Resistencia equivalente en serie:}
+$$R_{eq} = R_1 + R_2 + R_3 + \cdots + R_n$$
+
+\textbf{Propiedades del circuito en serie:}
+\begin{itemize}
+    \item La corriente es igual en todos los elementos: $I_1 = I_2 = I_3 = I$
+    \item El voltaje total se distribuye: $V_{total} = V_1 + V_2 + V_3$
+    \item $R_{eq}$ siempre es mayor que cualquier resistencia individual
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Ejemplo:} Tres resistencias de 4 $\Omega$, 6 $\Omega$ y 2 $\Omega$ en serie, conectadas a 24 V. ¿Cuánta corriente circula?
+
+$$R_{eq} = 4 + 6 + 2 = 12 \text{ }\Omega \qquad I = \frac{V}{R_{eq}} = \frac{24 \text{ V}}{12 \text{ }\Omega} = 2 \text{ A}$$
+\end{seccion}
+
+\subsection{Resistencias en paralelo}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Circuito en paralelo:} Los componentes comparten los mismos terminales, de modo que cada uno tiene el mismo voltaje. La corriente total se divide entre las ramas.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Resistencia equivalente en paralelo:}
+$$\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3} + \cdots$$
+
+\textbf{Caso especial — dos resistencias en paralelo:}
+$$R_{eq} = \frac{R_1 \cdot R_2}{R_1 + R_2}$$
+
+\textbf{Propiedades del circuito en paralelo:}
+\begin{itemize}
+    \item El voltaje es igual en todas las ramas: $V_1 = V_2 = V_3 = V$
+    \item La corriente total se distribuye: $I_{total} = I_1 + I_2 + I_3$
+    \item $R_{eq}$ siempre es \textbf{menor} que la resistencia más pequeña del grupo
+\end{itemize}
+\end{ecuacion}
+
+\begin{nota}
+\textbf{Aplicación práctica:} Los aparatos eléctricos en un hogar están conectados en \textbf{paralelo}. Esto garantiza que cada aparato reciba el mismo voltaje (127 V o 220 V según la región) y que apagar uno no afecte a los demás.
+\end{nota}
+
+\textbf{Ejemplo:} Dos resistencias de 6 $\Omega$ y 12 $\Omega$ en paralelo.
+
+$$R_{eq} = \frac{6 \times 12}{6 + 12} = \frac{72}{18} = 4 \text{ }\Omega$$
+\end{seccion}
+
+\subsubsection{Diagrama: Serie vs paralelo}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1.1]
+  % --- SERIE ---
+  \node[above] at (1.5, 1.8) {\textbf{Serie}};
+  % Alambres horizontales
+  \draw[very thick, azuloscuro] (0,1) -- (0.5,1);
+  \draw[very thick, azuloscuro] (1.1,1) -- (1.9,1);
+  \draw[very thick, azuloscuro] (2.5,1) -- (3,1);
+  % R1
+  \draw[thick, red!70!black] (0.5,0.75) rectangle (1.1,1.25);
+  \node at (0.8,1) {\small $R_1$};
+  % R2
+  \draw[thick, red!70!black] (1.9,0.75) rectangle (2.5,1.25);
+  \node at (2.2,1) {\small $R_2$};
+  % Flecha corriente
+  \draw[-{Stealth[length=3mm]}, verdecorrecto, thick] (0.1,1.35) -- (2.9,1.35);
+  \node[above] at (1.5,1.35) {\small\textcolor{verdecorrecto}{$I$ (igual en todo el circuito)}};
+  % Etiqueta Req
+  \node[below] at (1.5,0.6) {\small $R_{eq} = R_1 + R_2$};
+
+  % --- PARALELO ---
+  \node[above] at (6.5, 1.8) {\textbf{Paralelo}};
+  % Nodos
+  \coordinate (PL) at (5,1);
+  \coordinate (PR) at (8,1);
+  % Alambre izquierdo y derecho
+  \draw[very thick, azuloscuro] (4.5,1) -- (5,1);
+  \draw[very thick, azuloscuro] (8,1) -- (8.5,1);
+  % Rama superior
+  \draw[very thick, azuloscuro] (5,1) -- (5,1.6) -- (5.5,1.6);
+  \draw[thick, red!70!black] (5.5,1.35) rectangle (7,1.85);
+  \node at (6.25,1.6) {\small $R_1$};
+  \draw[very thick, azuloscuro] (7,1.6) -- (8,1.6) -- (8,1);
+  % Rama inferior
+  \draw[very thick, azuloscuro] (5,1) -- (5,0.4) -- (5.5,0.4);
+  \draw[thick, red!70!black] (5.5,0.15) rectangle (7,0.65);
+  \node at (6.25,0.4) {\small $R_2$};
+  \draw[very thick, azuloscuro] (7,0.4) -- (8,0.4) -- (8,1);
+  % Etiqueta Req
+  \node[below] at (6.5,0.6) {\small $\frac{1}{R_{eq}} = \frac{1}{R_1}+\frac{1}{R_2}$};
+  % Flechas corriente
+  \draw[-{Stealth[length=2.5mm]}, verdecorrecto, thick] (5.6,1.75) -- (6.9,1.75);
+  \node[above] at (6.25,1.75) {\tiny\textcolor{verdecorrecto}{$I_1$}};
+  \draw[-{Stealth[length=2.5mm]}, verdecorrecto, thick] (5.6,0.55) -- (6.9,0.55);
+  \node[above] at (6.25,0.55) {\tiny\textcolor{verdecorrecto}{$I_2$}};
+\end{tikzpicture}
+
+\end{center}
+
+% ============================================================
+\section{Circuitos de Condensadores}
+% ============================================================
+
+\begin{seccion}
+Los condensadores (también llamados capacitores) son dispositivos que almacenan energía en forma de campo eléctrico. A diferencia de las resistencias, que disipan energía como calor, los condensadores la guardan y la liberan cuando se necesita. Son esenciales en filtros de señal, fuentes de alimentación y sistemas de comunicación.
+\end{seccion}
+
+\subsection{Capacitancia}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Capacitancia ($C$):} Medida de la capacidad de un condensador para almacenar carga eléctrica por unidad de voltaje. Se mide en \textbf{farads (F)}.
+$$C = \frac{q}{V}$$
+donde $q$ es la carga almacenada (C) y $V$ es el voltaje (V).
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Energía almacenada en un condensador:}
+$$U = \frac{1}{2} C V^2$$
+
+donde:
+\begin{itemize}
+    \item $U$ = energía almacenada (J)
+    \item $C$ = capacitancia (F)
+    \item $V$ = voltaje entre las placas (V)
+\end{itemize}
+\end{ecuacion}
+
+\begin{nota}
+En la práctica, 1 farad es una capacitancia enorme. Los condensadores comunes se expresan en microfarads ($\mu$F $= 10^{-6}$ F) o picofarads (pF $= 10^{-12}$ F).
+\end{nota}
+\end{seccion}
+
+\subsection{Condensadores en serie y en paralelo}
+
+\begin{seccion}
+\begin{ecuacion}
+\textbf{Condensadores en serie:}
+$$\frac{1}{C_{eq}} = \frac{1}{C_1} + \frac{1}{C_2} + \frac{1}{C_3} + \cdots$$
+
+\textbf{Condensadores en paralelo:}
+$$C_{eq} = C_1 + C_2 + C_3 + \cdots$$
+\end{ecuacion}
+
+\begin{nota}
+\textbf{Importante:} Las fórmulas de condensadores son \textbf{inversas} a las de resistencias. La combinación en paralelo de condensadores \textit{suma} directamente, mientras que en serie se calcula como la inversa de la suma de inversos.
+
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor{azulmedio!20}
+\textbf{Componente} & \textbf{Serie} & \textbf{Paralelo} \\
+\hline
+Resistencias & $R_{eq} = R_1 + R_2$ & $\dfrac{1}{R_{eq}} = \dfrac{1}{R_1} + \dfrac{1}{R_2}$ \\[6pt]
+\hline
+Condensadores & $\dfrac{1}{C_{eq}} = \dfrac{1}{C_1} + \dfrac{1}{C_2}$ & $C_{eq} = C_1 + C_2$ \\[6pt]
+\hline
+\end{tabular}
+\end{center}
+\end{nota}
+
+\textbf{Ejemplo:} Dos condensadores de 4 $\mu$F y 12 $\mu$F en paralelo.
+
+$$C_{eq} = 4 + 12 = 16 \text{ }\mu\text{F}$$
+
+Si en cambio están en serie:
+
+$$\frac{1}{C_{eq}} = \frac{1}{4} + \frac{1}{12} = \frac{3}{12} + \frac{1}{12} = \frac{4}{12} \implies C_{eq} = 3 \text{ }\mu\text{F}$$
+\end{seccion}
+
+\subsubsection{Diagrama: Condensadores en serie y en paralelo}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1.1]
+  % --- SERIE ---
+  \node[above] at (1.5,2.0) {\textbf{Condensadores en serie}};
+  \draw[very thick, azuloscuro] (0,1) -- (0.7,1);
+  % C1
+  \draw[very thick, azulmedio] (0.7,0.6) -- (0.7,1.4);
+  \draw[very thick, azulmedio] (1.0,0.6) -- (1.0,1.4);
+  \node[above] at (0.85,1.4) {\small $C_1$};
+  \draw[very thick, azuloscuro] (1.0,1) -- (1.8,1);
+  % C2
+  \draw[very thick, azulmedio] (1.8,0.6) -- (1.8,1.4);
+  \draw[very thick, azulmedio] (2.1,0.6) -- (2.1,1.4);
+  \node[above] at (1.95,1.4) {\small $C_2$};
+  \draw[very thick, azuloscuro] (2.1,1) -- (3,1);
+  \node[below] at (1.5,0.4) {\small $\frac{1}{C_{eq}} = \frac{1}{C_1}+\frac{1}{C_2}$};
+
+  % --- PARALELO ---
+  \node[above] at (6.0,2.0) {\textbf{Condensadores en paralelo}};
+  \draw[very thick, azuloscuro] (4.5,1) -- (5,1);
+  \draw[very thick, azuloscuro] (5,1) -- (5,1.8) -- (5.5,1.8);
+  \draw[very thick, azulmedio] (5.5,1.4) -- (5.5,2.2);
+  \draw[very thick, azulmedio] (5.8,1.4) -- (5.8,2.2);
+  \node[above] at (5.65,2.2) {\small $C_1$};
+  \draw[very thick, azuloscuro] (5.8,1.8) -- (7,1.8) -- (7,1);
+  \draw[very thick, azuloscuro] (5,1) -- (5,0.2) -- (5.5,0.2);
+  \draw[very thick, azulmedio] (5.5,-0.2) -- (5.5,0.6);
+  \draw[very thick, azulmedio] (5.8,-0.2) -- (5.8,0.6);
+  \node[above] at (5.65,0.6) {\small $C_2$};
+  \draw[very thick, azuloscuro] (5.8,0.2) -- (7,0.2) -- (7,1);
+  \draw[very thick, azuloscuro] (7,1) -- (7.5,1);
+  \node[below] at (6.0,0.4) {\small $C_{eq} = C_1 + C_2$};
+\end{tikzpicture}
+
+\end{center}
+
+% ============================================================
+\section{Campo Magnético e Inducción Electromagnética}
+% ============================================================
+
+\begin{seccion}
+El campo magnético es la contraparte dinámica del campo eléctrico. Mientras que las cargas en reposo generan campos eléctricos, las \textit{cargas en movimiento} —es decir, las corrientes eléctricas— generan campos magnéticos. Esta relación profunda entre electricidad y magnetismo es el corazón del electromagnetismo.
+\end{seccion}
+
+\subsection{Campo magnético}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Campo magnético ($\vec{B}$):} Región del espacio donde un imán o una corriente eléctrica ejerce una fuerza sobre otras cargas en movimiento o sobre otros imanes. Se mide en \textbf{teslas (T)}.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Campo magnético generado por un conductor rectilíneo largo:}
+$$B = \frac{\mu_0 \, I}{2\pi r}$$
+
+donde:
+\begin{itemize}
+    \item $B$ = campo magnético (T)
+    \item $\mu_0 = 4\pi \times 10^{-7}$ T$\cdot$m/A = permeabilidad del vacío
+    \item $I$ = corriente en el conductor (A)
+    \item $r$ = distancia al conductor (m)
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Regla de la mano derecha:} Para determinar la dirección del campo magnético alrededor de un conductor, se apunta el pulgar derecho en la dirección de la corriente convencional; los demás dedos se curvan en la dirección del campo.
+\end{seccion}
+
+\subsection{Campo magnético inducido por espira, bobina y solenoide}
+
+\begin{seccion}
+\begin{ecuacion}
+\textbf{Campo en el centro de una espira circular:}
+$$B = \frac{\mu_0 \, I}{2 R}$$
+
+donde $R$ es el radio de la espira (m).
+
+\vspace{0.3cm}
+
+\textbf{Campo en el interior de un solenoide:}
+$$B = \mu_0 \, n \, I$$
+
+donde $n = N/L$ es el número de espiras por unidad de longitud (vueltas/m), $N$ es el número total de vueltas y $L$ es la longitud del solenoide (m).
+\end{ecuacion}
+
+\begin{nota}
+\textbf{Solenoide ideal:} El campo en el interior de un solenoide largo es \textbf{uniforme y paralelo} al eje, y prácticamente nulo en el exterior. Esta propiedad lo hace ideal para construir electroimanes, inductores y núcleos de motores.
+\end{nota}
+
+\textbf{Ejemplo:} Un solenoide de 500 vueltas, 25 cm de longitud, recorre por una corriente de 2 A. ¿Cuál es el campo magnético interior?
+
+$$n = \frac{500}{0.25 \text{ m}} = 2000 \text{ vueltas/m}$$
+$$B = \mu_0 \, n \, I = (4\pi \times 10^{-7})(2000)(2) = 4\pi \times 10^{-7} \times 4000 \approx 5.03 \times 10^{-3} \text{ T}$$
+\end{seccion}
+
+\subsubsection{Diagrama: Solenoide y campo magnético interior}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1.1]
+  % Cuerpo del solenoide (elipses representando espiras)
+  \foreach \x in {0.3, 0.9, 1.5, 2.1, 2.7, 3.3, 3.9, 4.5} {
+    \draw[thick, azulmedio] (\x, -0.6) arc[start angle=-90, end angle=90, x radius=0.15cm, y radius=0.6cm];
+    \draw[dashed, azulmedio!50] (\x, 0.6) arc[start angle=90, end angle=270, x radius=0.15cm, y radius=0.6cm];
+  }
+  % Líneas conductoras superior e inferior
+  \draw[very thick, azuloscuro] (0.3, 0.6) -- (4.5, 0.6);
+  \draw[very thick, azuloscuro] (0.3,-0.6) -- (4.5,-0.6);
+  % Flechas de campo interno
+  \foreach \x in {0.8, 1.6, 2.4, 3.2, 4.0} {
+    \draw[-{Stealth[length=3mm]}, red!80!black, very thick] (\x, 0) -- (\x+0.6, 0);
+  }
+  \node[red!80!black, right] at (4.7, 0) {$\vec{B}$};
+  % Etiquetas
+  \node[below=0.9cm] at (2.4, -0.6) {\small $L$};
+  \draw[{Stealth[length=2pt]}-{Stealth[length=2pt]}, gray] (0.3,-1.0) -- (4.5,-1.0);
+  \node[below] at (2.4,-1.05) {\small $B = \mu_0 n I$ (interior uniforme)};
+  % Corriente
+  \draw[-{Stealth[length=3mm]}, verdecorrecto, thick] (0.3,0.75) -- (0.9,0.75);
+  \node[above] at (0.6,0.75) {\small\textcolor{verdecorrecto}{$I$}};
+\end{tikzpicture}
+
+\end{center}
+
+\subsection{Ley de Ampère}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Ley de Ampère:} La integral de línea del campo magnético a lo largo de una trayectoria cerrada es igual al producto de la permeabilidad del vacío por la corriente total encerrada por esa trayectoria.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Ley de Ampère:}
+$$\oint \vec{B} \cdot d\vec{l} = \mu_0 \, I_{enc}$$
+
+Para configuraciones simétricas (conductor rectilíneo largo):
+$$B \cdot (2\pi r) = \mu_0 \, I \implies B = \frac{\mu_0 I}{2\pi r}$$
+\end{ecuacion}
+
+\begin{nota}
+La Ley de Ampère permite calcular el campo magnético en situaciones con simetría sin necesidad de integrar sobre la distribución de corriente. Es el análogo magnético de la Ley de Gauss para campos eléctricos.
+\end{nota}
+\end{seccion}
+
+% ============================================================
+\section{Ley de Faraday e Inducción de Campos}
+% ============================================================
+
+\begin{seccion}
+Si las corrientes generan campos magnéticos, ¿puede un campo magnético generar una corriente? La respuesta es sí, pero con una condición: el campo debe ser \textit{variable en el tiempo}. Este es el principio de la \textbf{inducción electromagnética}, descubierto por Michael Faraday en 1831, y es el fundamento de los generadores eléctricos y los transformadores.
+\end{seccion}
+
+\subsection{Flujo magnético}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Flujo magnético ($\Phi_B$):} Medida de la cantidad de campo magnético que atraviesa una superficie. Se mide en \textbf{webers (Wb)}.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Flujo magnético:}
+$$\Phi_B = B \cdot A \cdot \cos\theta$$
+
+donde:
+\begin{itemize}
+    \item $\Phi_B$ = flujo magnético (Wb)
+    \item $B$ = magnitud del campo magnético (T)
+    \item $A$ = área de la superficie (m$^2$)
+    \item $\theta$ = ángulo entre $\vec{B}$ y la normal a la superficie
+\end{itemize}
+\end{ecuacion}
+\end{seccion}
+
+\subsection{Ley de Faraday}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Ley de Faraday:} La fuerza electromotriz (fem) inducida en una espira es directamente proporcional a la rapidez con que cambia el flujo magnético a través de ella. El signo negativo (Ley de Lenz) indica que la corriente inducida se opone al cambio que la generó.
+\end{definicion}
+
+\begin{ecuacion}
+\textbf{Ley de Faraday:}
+$$\mathcal{E} = -N \frac{\Delta\Phi_B}{\Delta t}$$
+
+donde:
+\begin{itemize}
+    \item $\mathcal{E}$ = fem inducida (V)
+    \item $N$ = número de vueltas de la bobina
+    \item $\Delta\Phi_B$ = cambio en el flujo magnético (Wb)
+    \item $\Delta t$ = intervalo de tiempo (s)
+\end{itemize}
+\end{ecuacion}
+
+\begin{nota}
+\textbf{Ley de Lenz:} El signo negativo en la Ley de Faraday expresa que la corriente inducida genera un campo magnético que se \textbf{opone} al cambio de flujo que la produjo. Es una manifestación del principio de conservación de energía.
+\end{nota}
+
+\textbf{Ejemplo:} Una bobina de 200 vueltas experimenta un cambio de flujo de 0.05 Wb en 0.1 s. ¿Cuál es la fem inducida?
+
+$$|\mathcal{E}| = N \frac{|\Delta\Phi_B|}{\Delta t} = 200 \times \frac{0.05 \text{ Wb}}{0.1 \text{ s}} = 200 \times 0.5 = 100 \text{ V}$$
+\end{seccion}
+
+\subsection{Relación entre el campo eléctrico y el campo magnético}
+
+\begin{seccion}
+\begin{seccion}
+La inducción electromagnética revela la conexión profunda entre ambos campos:
+\begin{itemize}
+    \item Un \textbf{campo magnético variable} genera un \textbf{campo eléctrico} (Ley de Faraday).
+    \item Una \textbf{corriente eléctrica} (campo eléctrico que mueve cargas) genera un \textbf{campo magnético} (Ley de Ampère).
+\end{itemize}
+
+Esta simetría fue completada por James Clerk Maxwell, quien añadió que una \textbf{corriente de desplazamiento} —es decir, un campo eléctrico variable— también genera campo magnético. Las ecuaciones de Maxwell unificaron toda la teoría clásica del electromagnetismo y predijeron la existencia de las \textbf{ondas electromagnéticas} (luz, radio, microondas, rayos X).
+\end{seccion}
+\end{seccion}
+
+\subsubsection{Diagrama: Inducción electromagnética — espira en campo variable}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1.2]
+  % Imán (izquierda)
+  \draw[fill=azulmedio!30, draw=azuloscuro, thick, rounded corners=4pt] (0,0.5) rectangle (1.2,1.0);
+  \draw[fill=red!30, draw=red!70!black, thick, rounded corners=4pt] (0,-0.5) rectangle (1.2,0.0);
+  \node at (0.6, 0.75) {\textbf{N}};
+  \node[red!70!black] at (0.6,-0.25) {\textbf{S}};
+
+  % Líneas de campo del imán
+  \foreach \y in {0.2, 0.5, 0.8} {
+    \draw[-{Stealth[length=2.5mm]}, azuloscuro!60, dashed] (1.2,\y) -- (2.5,\y);
+  }
+  \node[above] at (1.85,0.9) {\small\textcolor{azuloscuro}{$\vec{B}$}};
+
+  % Espira (derecha)
+  \draw[very thick, azulmedio] (2.5,-0.3) rectangle (4.0, 1.3);
+  % Flecha de movimiento del imán
+  \draw[-{Stealth[length=4mm]}, red!80!black, very thick] (1.35, 0.25) -- (1.9,0.25);
+  \node[below] at (1.6,0.15) {\small movimiento};
+
+  % Corriente inducida en la espira
+  \draw[-{Stealth[length=3mm]}, verdecorrecto, thick] (2.5,1.3) -- (4.0,1.3);
+  \draw[-{Stealth[length=3mm]}, verdecorrecto, thick] (4.0,1.3) -- (4.0,-0.3);
+  \draw[-{Stealth[length=3mm]}, verdecorrecto, thick] (4.0,-0.3) -- (2.5,-0.3);
+  \draw[-{Stealth[length=3mm]}, verdecorrecto, thick] (2.5,-0.3) -- (2.5,1.3);
+  \node[right=0.3cm] at (4.0,0.5) {\textcolor{verdecorrecto}{$I_{ind}$}};
+
+  % Etiqueta
+  \node[below=0.5cm] at (2.5,-0.3) {\small $\mathcal{E} = -N\dfrac{\Delta\Phi_B}{\Delta t}$};
+\end{tikzpicture}
+
+\end{center}
+
+% ============================================================
+\section*{Formulario}
+% ============================================================
+
+\begin{nota}
+\textbf{Ley de Coulomb:}
+$$F = k \frac{|q_1| \cdot |q_2|}{r^2} \qquad k = 9 \times 10^9 \text{ N}\cdot\text{m}^2/\text{C}^2$$
+
+\vspace{0.3cm}
+
+\textbf{Campo eléctrico:}
+$$E = k \frac{|q|}{r^2} \qquad \vec{F} = q\,\vec{E}$$
+
+\vspace{0.3cm}
+
+\textbf{Ley de Ohm y Potencia:}
+$$V = IR \qquad I = \frac{V}{R} \qquad R = \frac{V}{I}$$
+$$P = VI = I^2 R = \frac{V^2}{R}$$
+
+\vspace{0.3cm}
+
+\textbf{Resistencias en serie:}
+$$R_{eq} = R_1 + R_2 + \cdots + R_n$$
+
+\textbf{Resistencias en paralelo:}
+$$\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots$$
+
+\vspace{0.3cm}
+
+\textbf{Condensadores:}
+$$C = \frac{q}{V} \qquad U = \frac{1}{2}CV^2$$
+
+\textbf{Condensadores en paralelo:} $C_{eq} = C_1 + C_2 + \cdots$
+
+\textbf{Condensadores en serie:} $\dfrac{1}{C_{eq}} = \dfrac{1}{C_1} + \dfrac{1}{C_2} + \cdots$
+
+\vspace{0.3cm}
+
+\textbf{Campo magnético — conductor recto:}
+$$B = \frac{\mu_0 I}{2\pi r} \qquad \mu_0 = 4\pi \times 10^{-7} \text{ T}\cdot\text{m/A}$$
+
+\textbf{Campo en el centro de una espira:}
+$$B = \frac{\mu_0 I}{2R}$$
+
+\textbf{Campo en el interior de un solenoide:}
+$$B = \mu_0 n I \qquad n = \frac{N}{L}$$
+
+\vspace{0.3cm}
+
+\textbf{Ley de Ampère:}
+$$\oint \vec{B} \cdot d\vec{l} = \mu_0 I_{enc}$$
+
+\vspace{0.3cm}
+
+\textbf{Flujo magnético:}
+$$\Phi_B = B A \cos\theta$$
+
+\textbf{Ley de Faraday:}
+$$\mathcal{E} = -N\frac{\Delta\Phi_B}{\Delta t}$$
+\end{nota}

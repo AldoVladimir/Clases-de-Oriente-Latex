@@ -51,29 +51,23 @@ Este modelo, conocido como \textbf{principio de Huygens}, explica fenómenos que
 \begin{center}
 \begin{tikzpicture}[scale=1.0]
 
-% Frente de onda original (línea vertical)
 \draw[azuloscuro, very thick] (0, -2.5) -- (0, 2.5);
 \node[left, font=\footnotesize, color=azuloscuro] at (-0.1, 2.7) {frente de onda};
 
-% Fuentes secundarias sobre el frente
 \foreach \y in {-2.0, -1.0, 0.0, 1.0, 2.0} {
     \fill[azuloscuro] (0, \y) circle (0.07);
-    % Ondas secundarias (círculos pequeños)
     \draw[azulmedio!60, thin] (0, \y) circle (0.6);
     \draw[azulmedio!40, thin] (0, \y) circle (1.1);
 }
 
-% Nuevo frente de onda (envolvente)
 \draw[verdecorrecto, very thick] (1.1, -2.5) -- (1.1, 2.5);
 \node[right, font=\footnotesize, color=verdecorrecto] at (1.2, 2.7) {nuevo frente};
 
-% Flechas de propagación
 \foreach \y in {-1.5, 0.0, 1.5} {
     \draw[-{Stealth}, azuloscuro, thick] (1.15, \y) -- (2.0, \y);
 }
 \node[right, font=\footnotesize, color=azuloscuro] at (2.05, 0) {propagación};
 
-% Etiqueta fuentes secundarias
 \draw[->, thin, gray] (0.7, -2.3) -- (0.05, -2.0);
 \node[right, font=\footnotesize, color=gray] at (0.75, -2.3) {fuentes secundarias};
 
@@ -101,7 +95,6 @@ La física moderna acepta que la luz tiene \textbf{dualidad onda-partícula}: se
 \begin{center}
 \begin{tikzpicture}[scale=1.0]
 
-% Barra de colores del espectro (aproximada con degradados por bloques)
 \fill[violet!80]       (0.0, 0) rectangle (1.2, 0.7);
 \fill[blue!70]         (1.2, 0) rectangle (2.4, 0.7);
 \fill[cyan!60!blue]    (2.4, 0) rectangle (3.6, 0.7);
@@ -110,10 +103,8 @@ La física moderna acepta que la luz tiene \textbf{dualidad onda-partícula}: se
 \fill[orange!80]       (6.0, 0) rectangle (7.2, 0.7);
 \fill[red!80]          (7.2, 0) rectangle (8.4, 0.7);
 
-% Borde
 \draw[thick, gray] (0,0) rectangle (8.4, 0.7);
 
-% Etiquetas de colores
 \node[font=\tiny, white] at (0.6,  0.35) {violeta};
 \node[font=\tiny, white] at (1.8,  0.35) {azul};
 \node[font=\tiny, black] at (3.0,  0.35) {cian};
@@ -122,7 +113,6 @@ La física moderna acepta que la luz tiene \textbf{dualidad onda-partícula}: se
 \node[font=\tiny, black] at (6.6,  0.35) {naranja};
 \node[font=\tiny, white] at (7.8,  0.35) {rojo};
 
-% Eje de longitud de onda
 \draw[-{Stealth}, thick] (0, -0.2) -- (8.6, -0.2)
     node[right, font=\small] {$\lambda$ (nm)};
 \foreach \x/\lam in {0/380, 1.2/430, 2.4/470, 3.6/500, 4.8/560, 6.0/590, 7.2/620, 8.4/700} {
@@ -130,7 +120,6 @@ La física moderna acepta que la luz tiene \textbf{dualidad onda-partícula}: se
     \node[below, font=\tiny] at (\x, -0.25) {\lam};
 }
 
-% Flecha de frecuencia (inversa)
 \draw[-{Stealth}, thick] (8.4, -0.85) -- (0, -0.85)
     node[left, font=\small] {$f$ (Hz)};
 \node[font=\footnotesize, color=gray] at (4.2, -1.2)
@@ -168,29 +157,23 @@ Es importante recordar que ambos tipos de reflexión obedecen la misma ley de re
 \begin{center}
 \begin{tikzpicture}[scale=1.0]
 
-% ---- ESPECULAR (izquierda) ----
 \node[font=\bfseries\small, color=azuloscuro] at (1.5, 3.2) {Reflexión especular};
 
-% Superficie lisa
 \draw[very thick, azuloscuro] (0, 0) -- (3, 0);
 \foreach \x in {0.1, 0.5, ..., 2.9} {
     \draw[gray!40, thin] (\x, 0) -- (\x-0.2, -0.2);
 }
 
-% Rayos incidentes paralelos
 \foreach \xo/\xi in {0.3/0.8, 0.9/1.4, 1.5/2.0} {
     \draw[-{Stealth}, azulmedio, thick] (\xo, 2.5) -- (\xi, 0);
 }
 
-% Rayos reflejados paralelos
 \foreach \xi/\xr in {0.8/1.3, 1.4/1.9, 2.0/2.5} {
     \draw[-{Stealth}, verdecorrecto, thick] (\xi, 0) -- (\xr, 2.5);
 }
 
-% ---- DIFUSA (derecha) ----
 \node[font=\bfseries\small, color=azuloscuro] at (6.5, 3.2) {Reflexión difusa};
 
-% Superficie rugosa (línea irregular)
 \draw[very thick, azuloscuro]
     (4.0,0) -- (4.4,0.15) -- (4.8,-0.1) -- (5.2,0.2) --
     (5.6,-0.05) -- (6.0,0.18) -- (6.4,-0.12) -- (6.8,0.1) -- (7.2,0.0) -- (7.5,0);
@@ -198,12 +181,10 @@ Es importante recordar que ambos tipos de reflexión obedecen la misma ley de re
     \draw[gray!40, thin] (\x, -0.05) -- (\x-0.2, -0.25);
 }
 
-% Rayos incidentes paralelos
 \foreach \xo/\xi/\yi in {4.5/5.0/0.12, 5.3/5.7/-0.03, 6.2/6.5/0.14} {
     \draw[-{Stealth}, azulmedio, thick] (\xo, 2.5) -- (\xi, \yi);
 }
 
-% Rayos reflejados en distintas direcciones
 \draw[-{Stealth}, verdecorrecto, thick] (5.0,0.12) -- (4.4, 2.2);
 \draw[-{Stealth}, verdecorrecto, thick] (5.0,0.12) -- (5.5, 2.4);
 \draw[-{Stealth}, verdecorrecto, thick] (5.7,-0.03) -- (5.0, 2.3);
@@ -244,33 +225,26 @@ donde:
 \begin{center}
 \begin{tikzpicture}[scale=1.2]
 
-% Superficie reflectante
 \draw[very thick, azuloscuro] (-3.2, 0) -- (3.2, 0);
 \foreach \x in {-3.0,-2.5,...,3.0} {
     \draw[gray!40, thin] (\x, 0) -- (\x-0.3, -0.3);
 }
 
-% Normal
 \draw[dashed, gray, thick] (0, -1.0) -- (0, 2.5);
 \node[right, font=\footnotesize, color=gray] at (0.05, 2.3) {normal};
 
-% Rayo incidente
 \draw[-{Stealth}, very thick, azulmedio] (-2.5, 2.2) -- (0, 0);
 \node[left, font=\small, color=azulmedio] at (-1.8, 1.6) {rayo incidente};
 
-% Rayo reflejado
 \draw[-{Stealth}, very thick, verdecorrecto] (0, 0) -- (2.5, 2.2);
 \node[right, font=\small, color=verdecorrecto] at (1.8, 1.6) {rayo reflejado};
 
-% Ángulo incidente
 \draw[azulmedio, thin] (0, 0.8) arc (90:138.8:0.8);
 \node[font=\small, color=azulmedio] at (-0.6, 1.05) {$\theta_i$};
 
-% Ángulo reflejado
 \draw[verdecorrecto, thin] (0, 0.8) arc (90:41.2:0.8);
 \node[font=\small, color=verdecorrecto] at (0.6, 1.05) {$\theta_r$};
 
-% Ecuación
 \node[font=\normalsize, color=azuloscuro] at (0, -0.7) {$\theta_i = \theta_r$};
 
 \end{tikzpicture}
@@ -313,7 +287,7 @@ donde:
 \textbf{Medio}   & \textbf{Índice de refracción $n$} \\
 \hline
 Vacío            & 1.000 \\
-Aire             & 1.000 3 $\approx$ 1 \\
+Aire             & 1.0003 $\approx$ 1 \\
 Agua             & 1.33 \\
 Vidrio crown     & 1.52 \\
 Diamante         & 2.42 \\
@@ -349,60 +323,42 @@ donde $\theta_1$ y $\theta_2$ se miden respecto a la normal en la superficie de 
 
 \subsubsection{Diagrama: Ley de Snell}
 
-\subsubsection{Diagrama: Refracción de una onda}
-
 \begin{center}
 \begin{tikzpicture}[scale=1.15]
 
-% ---- Medio superior (más rápido, v1) ----
 \fill[azulmedio!8] (-3.5, 0) rectangle (3.5, 3.0);
 \node[font=\small, color=azuloscuro] at (-2.8, 0.6) {Medio 1};
 \node[font=\footnotesize, color=azuloscuro] at (-2.1, 0.2) {(velocidad $v_1$, mayor)};
 
-% ---- Medio inferior (más lento, v2) ----
 \fill[azulmedio!22] (-3.5, -2.8) rectangle (3.5, 0);
 \node[font=\small, color=azuloscuro] at (-2.8, -0.3) {Medio 2};
 \node[font=\footnotesize, color=azuloscuro] at (-2.1, -0.7) {(velocidad $v_2$, menor)};
 
-% ---- Superficie de separación ----
 \draw[very thick, color=azuloscuro] (-3.5, 0) -- (3.5, 0);
-% Rayado de separación
 \foreach \x in {-3.3,-2.9,...,3.3} {
     \draw[gray!40, thin] (\x, 0) -- (\x+0.3, -0.3);
 }
 
-% ---- Normal ----
 \draw[dashed, gray, thick] (0, -2.6) -- (0, 2.8);
 \node[right, font=\footnotesize, color=gray] at (0.05, 2.5) {normal};
 
-% ---- Rayo incidente ----
-\draw[-{Stealth}, very thick, color=azulmedio]
-    (-2.4, 2.6) -- (0, 0);
+\draw[-{Stealth}, very thick, color=azulmedio] (-2.4, 2.6) -- (0, 0);
 \node[left, font=\small, color=azulmedio] at (-1.7, 1.8) {rayo incidente};
 
-% ---- Rayo reflejado (tenue) ----
-\draw[-{Stealth}, thick, color=azulmedio!50, dashed]
-    (0, 0) -- (2.4, 2.6);
+\draw[-{Stealth}, thick, color=azulmedio!50, dashed] (0, 0) -- (2.4, 2.6);
 \node[right, font=\footnotesize, color=azulmedio!70] at (1.8, 1.8) {reflejado};
 
-% ---- Rayo refractado (más cerca de la normal) ----
-\draw[-{Stealth}, very thick, color=verdecorrecto]
-    (0, 0) -- (1.4, -2.6);
+\draw[-{Stealth}, very thick, color=verdecorrecto] (0, 0) -- (1.4, -2.6);
 \node[right, font=\small, color=verdecorrecto] at (1.0, -1.6) {rayo refractado};
 
-% ---- Ángulo de incidencia ----
 \draw[color=azulmedio, thin] (0, 0.8) arc (90:132:0.8);
 \node[font=\footnotesize, color=azulmedio] at (-0.55, 1.0) {$\theta_1$};
 
-% ---- Ángulo de refracción ----
 \draw[color=verdecorrecto, thin] (0,-0.8) arc (270:297:0.8);
 \node[font=\footnotesize, color=verdecorrecto] at (0.3, -1.05) {$\theta_2$};
 
-% ---- Nota: ángulo se acerca a la normal ----
-\node[font=\footnotesize, color=gray!80] at (2.5, -0.5)
-    {$\theta_2 < \theta_1$};
-\node[font=\footnotesize, color=gray!80] at (2.5, -0.9)
-    {(medio más lento)};
+\node[font=\footnotesize, color=gray!80] at (2.5, -0.5) {$\theta_2 < \theta_1$};
+\node[font=\footnotesize, color=gray!80] at (2.5, -0.9) {(medio más lento)};
 
 \end{tikzpicture}
 \end{center}
@@ -465,3 +421,441 @@ $$\theta_2 \approx 27^\circ > 20^\circ \quad \checkmark$$
 \end{nota}
 
 \end{seccion}
+
+% ============================================================
+%  SECCIÓN 4: ESPEJOS PLANOS Y ESFÉRICOS
+% ============================================================
+
+\section{Espejos Planos y Esféricos}
+
+\begin{seccion}
+Los espejos son superficies pulidas que reflejan la luz de forma especular. Según su geometría, forman imágenes con características muy distintas. Los espejos planos producen imágenes del mismo tamaño que el objeto; los espejos curvos pueden ampliar, reducir, invertir o hacer que la imagen sea virtual, dependiendo de dónde se coloque el objeto.
+\end{seccion}
+
+\subsection{Espejos planos}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Espejo plano:} Superficie reflectante plana. La imagen formada es \textit{virtual} (no se puede proyectar en una pantalla), \textit{derecha} (no invertida verticalmente), del \textit{mismo tamaño} que el objeto, y se forma a la misma distancia detrás del espejo que la distancia del objeto frente a él.
+\end{definicion}
+
+\textbf{Propiedades de la imagen en espejo plano:}
+\begin{itemize}
+    \item Virtual y derecha.
+    \item Mismo tamaño que el objeto ($m = 1$).
+    \item Distancia imagen = distancia objeto ($d_i = d_o$).
+    \item Lateralmente invertida (la mano derecha aparece como izquierda).
+\end{itemize}
+\end{seccion}
+
+\subsection{Espejos esféricos: elementos}
+
+\begin{seccion}
+Un espejo esférico es una sección de una esfera hueca cuya superficie interior (cóncava) o exterior (convexa) está pulida.
+
+\begin{definicion}
+\textbf{Espejo cóncavo:} La superficie reflectante es el interior de la esfera. Converge los rayos paralelos en un punto. Se usa en telescopios, faros de automóviles y espejos de maquillaje.
+\end{definicion}
+
+\begin{definicion}
+\textbf{Espejo convexo:} La superficie reflectante es el exterior de la esfera. Diverge los rayos reflejados. Se usa en espejos de seguridad y retrovisores.
+\end{definicion}
+
+\textbf{Elementos de un espejo esférico:}
+\begin{itemize}
+    \item \textbf{Centro de curvatura} ($C$): centro de la esfera de la que es parte el espejo. Distancia al espejo: $R$.
+    \item \textbf{Foco} ($F$): punto donde convergen los rayos paralelos al eje (espejo cóncavo) o desde donde parecen provenir (espejo convexo). Distancia focal: $f = R/2$.
+    \item \textbf{Vértice} ($V$): punto central del espejo.
+    \item \textbf{Eje principal}: línea que pasa por $C$, $F$ y $V$.
+\end{itemize}
+\end{seccion}
+
+\subsubsection{Diagrama: Elementos de un espejo esférico}
+\begin{center}
+    \includegraphics[width=0.70\textwidth]{CLASES/IMAGENES/espejos_esfericos.png}
+\end{center}
+
+\subsection{Ecuaciones del espejo esférico}
+
+\begin{seccion}
+\begin{ecuacion}
+\textbf{Ecuación del espejo:}
+$$\frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i}$$
+
+donde:
+\begin{itemize}
+    \item $f$ = distancia focal (positiva en cóncavo, negativa en convexo)
+    \item $d_o$ = distancia del objeto al espejo (siempre positiva)
+    \item $d_i$ = distancia de la imagen al espejo (positiva si es real, negativa si es virtual)
+\end{itemize}
+\end{ecuacion}
+
+\begin{ecuacion}
+\textbf{Aumento lateral} ($m$):
+$$m = -\frac{d_i}{d_o}$$
+
+\begin{itemize}
+    \item $|m| > 1$: imagen más grande que el objeto.
+    \item $|m| < 1$: imagen más pequeña que el objeto.
+    \item $m > 0$: imagen derecha (virtual).
+    \item $m < 0$: imagen invertida (real).
+\end{itemize}
+\end{ecuacion}
+
+\textbf{Convención de signos:}
+\begin{itemize}
+    \item Espejo \textbf{cóncavo}: $f > 0$
+    \item Espejo \textbf{convexo}: $f < 0$
+    \item Imagen \textbf{real} (frente al espejo): $d_i > 0$
+    \item Imagen \textbf{virtual} (detrás del espejo): $d_i < 0$
+\end{itemize}
+\end{seccion}
+
+\subsubsection{Diagrama: Rayos notables en un espejo cóncavo}
+
+\begin{center}
+    \includegraphics[width=0.70\textwidth]{CLASES/IMAGENES/espejos_concavos.png}
+\end{center}
+
+\subsubsection{Diagrama: Formación de imagenes en espejos cóncavos}
+
+\subsection{Ejercicios resueltos: espejos esféricos}
+
+\begin{seccion}
+
+\textbf{Ejercicio 1.} Un objeto se coloca a 30 cm frente a un espejo cóncavo de distancia focal 10 cm. ¿A qué distancia se forma la imagen? ¿Es real o virtual?
+
+\begin{ecuacion}
+\textbf{Datos:} $d_o = 30$ cm, $f = 10$ cm
+
+\textbf{Fórmula:} $\dfrac{1}{f} = \dfrac{1}{d_o} + \dfrac{1}{d_i}$
+
+\textbf{Despeje:}
+$$\frac{1}{d_i} = \frac{1}{f} - \frac{1}{d_o} = \frac{1}{10} - \frac{1}{30} = \frac{3-1}{30} = \frac{2}{30}$$
+$$d_i = 15 \text{ cm}$$
+
+Como $d_i > 0$, la imagen es \textbf{real} y se forma frente al espejo.
+\end{ecuacion}
+
+\vspace{0.4cm}
+
+\textbf{Ejercicio 2.} Para el mismo sistema, calcula el aumento lateral e interpreta el resultado.
+
+\begin{ecuacion}
+\textbf{Fórmula:} $m = -\dfrac{d_i}{d_o}$
+
+$$m = -\frac{15}{30} = -0.5$$
+
+La imagen es \textbf{invertida} ($m < 0$) y mide la \textbf{mitad} del objeto ($|m| = 0.5$).
+\end{ecuacion}
+
+\vspace{0.4cm}
+
+\textbf{Ejercicio 3.} Un espejo convexo tiene una distancia focal de $-20$ cm. Un objeto se coloca a 60 cm. ¿Dónde se forma la imagen?
+
+\begin{ecuacion}
+\textbf{Datos:} $f = -20$ cm, $d_o = 60$ cm
+
+$$\frac{1}{d_i} = \frac{1}{-20} - \frac{1}{60} = \frac{-3-1}{60} = \frac{-4}{60}$$
+$$d_i = -15 \text{ cm}$$
+
+$d_i < 0$: imagen \textbf{virtual}, detrás del espejo. El espejo convexo siempre forma imágenes virtuales, derechas y más pequeñas que el objeto.
+\end{ecuacion}
+
+\begin{nota}
+\textbf{Nota:} Para el examen, recuerda que el espejo convexo \textit{siempre} produce imagen virtual, derecha y reducida. El espejo cóncavo produce imagen real e invertida cuando el objeto está más allá del foco, e imagen virtual y derecha cuando está entre el foco y el espejo.
+\end{nota}
+
+\end{seccion}
+
+% ============================================================
+%  SECCIÓN 5: LENTES
+% ============================================================
+
+\section{Lentes Convergentes y Divergentes}
+
+\begin{seccion}
+Una lente es un objeto transparente con al menos una superficie curva que refracta la luz para convergerla o divergirla. Las lentes son el componente central de anteojos, microscopios, telescopios, cámaras fotográficas y el ojo humano.
+\end{seccion}
+
+\subsection{Tipos de lentes}
+
+\begin{seccion}
+\begin{definicion}
+\textbf{Lente convergente (convexa):} Más gruesa en el centro que en los bordes. Hace converger los rayos paralelos en el foco. Distancia focal positiva ($f > 0$). Ejemplos: lupa, lente de cámara, cristalino del ojo.
+\end{definicion}
+
+\begin{definicion}
+\textbf{Lente divergente (cóncava):} Más delgada en el centro que en los bordes. Hace divergir los rayos paralelos como si provinieran del foco virtual. Distancia focal negativa ($f < 0$). Ejemplos: lentes para miopía.
+\end{definicion}
+\end{seccion}
+
+\subsubsection{Diagrama: Lente convergente y divergente}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.05]
+
+% ---- LENTE CONVERGENTE (izquierda) — biconvexa ----
+% Forma: dos arcos que se curvan HACIA AFUERA (barriga al exterior)
+% Borde en y=+-1.8, centro más grueso
+\node[font=\bfseries\small, color=azuloscuro] at (1.5, 2.4) {Convergente};
+
+\fill[azulmedio!20]
+    (1.5, 1.8) .. controls (2.5, 0.9) and (2.5,-0.9) .. (1.5,-1.8)
+    .. controls (0.5,-0.9) and (0.5, 0.9) .. (1.5, 1.8);
+\draw[azuloscuro, very thick]
+    (1.5, 1.8) .. controls (2.5, 0.9) and (2.5,-0.9) .. (1.5,-1.8);
+\draw[azuloscuro, very thick]
+    (1.5,-1.8) .. controls (0.5,-0.9) and (0.5, 0.9) .. (1.5, 1.8);
+
+\draw[dashed, gray] (-0.5,0) -- (4.2,0);
+
+\fill[verdecorrecto] (0.3,0) circle (0.08);
+\node[below, font=\footnotesize, color=verdecorrecto] at (0.3,-0.12) {$F$};
+\fill[verdecorrecto] (2.7,0) circle (0.08);
+\node[below, font=\footnotesize, color=verdecorrecto] at (2.7,-0.12) {$F$};
+
+\foreach \y in {-1.3, -0.7, 0.0, 0.7, 1.3} {
+    \draw[-{Stealth}, azulmedio, thick] (-0.4,\y) -- (1.5,\y);
+    \draw[-{Stealth}, azulmedio, thick] (1.5,\y) -- (2.7,0);
+}
+
+% ---- LENTE DIVERGENTE (derecha) — bicóncava ----
+% Forma: dos arcos que se curvan HACIA ADENTRO (barriga al interior)
+% Borde ancho en y=+-1.8, centro más delgado
+\node[font=\bfseries\small, color=azuloscuro] at (7.5, 2.4) {Divergente};
+
+\fill[azulmedio!20]
+    (7.5, 1.8) .. controls (6.7, 0.6) and (6.7,-0.6) .. (7.5,-1.8)
+    .. controls (8.3,-0.6) and (8.3, 0.6) .. (7.5, 1.8);
+\draw[azuloscuro, very thick]
+    (7.5, 1.8) .. controls (6.7, 0.6) and (6.7,-0.6) .. (7.5,-1.8);
+\draw[azuloscuro, very thick]
+    (7.5,-1.8) .. controls (8.3,-0.6) and (8.3, 0.6) .. (7.5, 1.8);
+
+\draw[dashed, gray] (5.5,0) -- (10.2,0);
+
+\fill[red!60!black] (6.3,0) circle (0.08);
+\node[below, font=\footnotesize, color=red!60!black] at (6.3,-0.12) {$F$};
+\fill[red!60!black] (8.7,0) circle (0.08);
+\node[below, font=\footnotesize, color=red!60!black] at (8.7,-0.12) {$F$};
+
+\foreach \y in {-1.3, -0.7, 0.0, 0.7, 1.3} {
+    \draw[-{Stealth}, azulmedio, thick] (5.6,\y) -- (7.5,\y);
+    \pgfmathsetmacro{\yend}{\y * 1.8}
+    \draw[-{Stealth}, azulmedio, thick] (7.5,\y) -- (9.8, \yend);
+    \draw[red!50!black, dashed, thin] (7.5,\y) -- (6.3,0);
+}
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{Ecuación de lentes y formación de imágenes}
+
+\begin{seccion}
+La ecuación de lentes tiene la misma forma que la del espejo:
+
+\begin{ecuacion}
+\textbf{Ecuación de lentes (del fabricante de lentes):}
+$$\frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i}$$
+
+\textbf{Aumento lateral:}
+$$m = -\frac{d_i}{d_o}$$
+
+\textbf{Convención de signos:}
+\begin{itemize}
+    \item $f > 0$: lente convergente. \quad $f < 0$: lente divergente.
+    \item $d_o > 0$ siempre (objeto real, frente a la lente).
+    \item $d_i > 0$: imagen real, al otro lado de la lente.
+    \item $d_i < 0$: imagen virtual, del mismo lado que el objeto.
+\end{itemize}
+\end{ecuacion}
+\end{seccion}
+
+\subsection{Formación de imágenes con lente convergente}
+
+\begin{seccion}
+La posición del objeto respecto al foco determina completamente el tipo de imagen:
+
+\begin{center}
+\begin{tabular}{llll}
+\hline
+\rowcolor{fondogris}
+\textbf{Posición del objeto} & \textbf{Imagen} & \textbf{Orientación} & \textbf{Tamaño} \\
+\hline
+$d_o > 2f$         & Real, más allá de $F'$   & Invertida & Reducida \\
+$d_o = 2f$         & Real, en $2f'$            & Invertida & Igual \\
+$f < d_o < 2f$     & Real, más allá de $2f'$  & Invertida & Amplificada \\
+$d_o = f$          & No se forma imagen        & ---       & ---    \\
+$d_o < f$          & Virtual, mismo lado       & Derecha   & Amplificada \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Aplicaciones por posición:}
+\begin{itemize}
+    \item $d_o > 2f$: cámara fotográfica, ojo humano viendo objetos lejanos.
+    \item $f < d_o < 2f$: proyector de cine, retroproyector.
+    \item $d_o < f$: lupa (imagen virtual amplificada).
+\end{itemize}
+\end{seccion}
+
+\subsubsection{Diagrama: Lupa — objeto entre el foco y la lente}
+
+\begin{center}
+% Lupa: lente en x=4, f=2, objeto en x=3 (do=1), imagen virtual en x=2 (di=-2, m=2)
+% Rayo 1: paralelo al eje (y=1), refractado pasa por F'=(6,0)
+%   prolongación hacia atrás: de (4,1) hacia (-inf), pendiente = (0-1)/(6-4) = -0.5
+%   en x=-0.5: y = 1 + (-0.5)*(-0.5-4) = 1+2.25 = 3.25
+% Rayo 2: por el centro (4,0) sin desviarse, pendiente = (1-0)/(3-4) = -1
+%   para x<4: y = 0 + (-1)*(x-4) = 4-x
+%   en x=-0.5: y=4.5  --- demasiado alto, lo corto en x=0: y=4
+%   para x>4: continúa recto, en x=7: y=0+(-1)*(7-4)=-3
+% Intersección de prolongaciones (imagen): x=2, y=2  (verificado: rayo1: y=1+(-0.5)*(2-4)=2 ✓, rayo2: y=4-2=2 ✓)
+\begin{tikzpicture}[scale=1.05]
+
+% Lente convergente (en x=4)
+\fill[azulmedio!15] (4.0,0) ellipse (0.3 and 2.2);
+\draw[azuloscuro, very thick] (4.0,0) ellipse (0.3 and 2.2);
+
+% Eje óptico
+\draw[dashed, gray] (-0.3,0) -- (8.0,0);
+
+% Focos
+\fill[verdecorrecto] (2.0,0) circle (0.08);
+\node[below, font=\footnotesize, color=verdecorrecto] at (2.0,-0.15) {$F$};
+\fill[verdecorrecto] (6.0,0) circle (0.08);
+\node[below, font=\footnotesize, color=verdecorrecto] at (6.0,-0.15) {$F'$};
+
+% Objeto entre F y lente (x=3, altura=1)
+\draw[-{Stealth}, very thick, orange!80!black] (3.0,0) -- (3.0,1.0);
+\node[left, font=\footnotesize, color=orange!80!black] at (2.85,0.5) {objeto};
+
+% Rayo 1: paralelo al eje hasta la lente, luego pasa por F'
+\draw[-{Stealth}, azulmedio, thick] (3.0,1.0) -- (4.0,1.0);
+\draw[-{Stealth}, azulmedio, thick] (4.0,1.0) -- (6.5,-0.25);
+% Prolongacion hacia atras (imagen virtual): de (4,1) con pendiente -0.5
+% en x=0: y = 1 + (-0.5)*(0-4) = 3.0
+\draw[azulmedio, dashed, thin] (4.0,1.0) -- (0.0,3.0);
+
+% Rayo 2: pasa por el centro de la lente sin desviarse
+% pendiente = (1-0)/(3-4) = -1  =>  y = 4 - x
+% hacia la derecha: en x=7, y=-3
+\draw[-{Stealth}, red!60!black, thick] (3.0,1.0) -- (7.0,-3.0);
+% Prolongacion hacia atras: en x=0, y=4
+\draw[red!60!black, dashed, thin] (3.0,1.0) -- (0.0,4.0);
+
+% Imagen virtual: interseccion de prolongaciones en (2,2)
+\draw[-{Stealth}, very thick, orange!50!red, dashed] (2.0,0) -- (2.0,2.0);
+\node[left, font=\footnotesize, color=orange!50!red] at (1.85,1.5) {imagen};
+\node[left, font=\footnotesize, color=orange!50!red] at (1.85,1.1) {(virtual,};
+\node[left, font=\footnotesize, color=orange!50!red] at (1.85,0.7) {derecha,};
+\node[left, font=\footnotesize, color=orange!50!red] at (1.85,0.3) {amplif.)};
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{Formación de imágenes con lente divergente}
+
+\begin{seccion}
+La lente divergente \textbf{siempre} produce imágenes virtuales, derechas y más pequeñas que el objeto, independientemente de la posición del objeto. Esto la hace útil para corregir la miopía: acerca el punto focal al ojo, compensando el cristalino demasiado convergente.
+\end{seccion}
+
+\subsection{Ejercicios resueltos: ecuación de lentes}
+
+\begin{seccion}
+
+\textbf{Ejercicio 1.} Una lente convergente tiene distancia focal de 15 cm. Un objeto se coloca a 45 cm. ¿Dónde se forma la imagen y cuál es el aumento?
+
+\begin{ecuacion}
+\textbf{Datos:} $f = 15$ cm, $d_o = 45$ cm
+
+$$\frac{1}{d_i} = \frac{1}{f} - \frac{1}{d_o} = \frac{1}{15} - \frac{1}{45} = \frac{3-1}{45} = \frac{2}{45}$$
+$$d_i = 22.5 \text{ cm}$$
+
+$$m = -\frac{d_i}{d_o} = -\frac{22.5}{45} = -0.5$$
+
+Imagen \textbf{real, invertida} y reducida a la mitad. Se forma al otro lado de la lente.
+\end{ecuacion}
+
+\vspace{0.4cm}
+
+\textbf{Ejercicio 2.} La misma lente convergente ($f = 15$ cm). Ahora el objeto se coloca a 10 cm (entre el foco y la lente). ¿Qué tipo de imagen se forma?
+
+\begin{ecuacion}
+\textbf{Datos:} $f = 15$ cm, $d_o = 10$ cm
+
+$$\frac{1}{d_i} = \frac{1}{15} - \frac{1}{10} = \frac{2-3}{30} = -\frac{1}{30}$$
+$$d_i = -30 \text{ cm}$$
+
+$$m = -\frac{-30}{10} = +3$$
+
+$d_i < 0$: imagen \textbf{virtual}, del mismo lado que el objeto. $m = +3$: imagen \textbf{derecha} y \textbf{amplificada} 3 veces. Este es el principio de la lupa.
+\end{ecuacion}
+
+\vspace{0.4cm}
+
+\textbf{Ejercicio 3.} Una lente divergente tiene $f = -20$ cm. El objeto está a 30 cm. ¿Dónde se forma la imagen?
+
+\begin{ecuacion}
+$$\frac{1}{d_i} = \frac{1}{-20} - \frac{1}{30} = \frac{-3-2}{60} = -\frac{5}{60}$$
+$$d_i = -12 \text{ cm}$$
+
+$$m = -\frac{-12}{30} = +0.4$$
+
+Imagen \textbf{virtual, derecha y reducida}: las tres características invariables de la lente divergente.
+\end{ecuacion}
+
+\begin{nota}
+\textbf{Nota:} La ecuación de lentes y la de espejos son idénticas. Lo que cambia es la convención de signos para $f$ y $d_i$. Dominar esta ecuación y sus signos es suficiente para responder cualquier pregunta de óptica geométrica en el examen de admisión.
+\end{nota}
+
+\end{seccion}
+
+% ============================================================
+%  FORMULARIO FINAL
+% ============================================================
+
+\section*{Formulario}
+
+\begin{nota}
+
+\textbf{Velocidad de la luz en un medio:}
+$$v = \frac{c}{n} \qquad (c = 3 \times 10^8 \text{ m/s})$$
+
+\vspace{0.3cm}
+
+\textbf{Índice de refracción:}
+$$n = \frac{c}{v}$$
+
+\vspace{0.3cm}
+
+\textbf{Ley de reflexión:}
+$$\theta_i = \theta_r$$
+
+\vspace{0.3cm}
+
+\textbf{Ley de Snell:}
+$$n_1 \sin\theta_1 = n_2 \sin\theta_2$$
+
+\vspace{0.3cm}
+
+\textbf{Ecuación de espejos y lentes:}
+$$\frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i}$$
+
+\vspace{0.3cm}
+
+\textbf{Aumento lateral:}
+$$m = -\frac{d_i}{d_o}$$
+
+\vspace{0.3cm}
+
+\textbf{Distancia focal — espejo esférico:}
+$$f = \frac{R}{2}$$
+
+\vspace{0.3cm}
+
+\textbf{Energía del fotón:}
+$$E = h \cdot f \qquad (h = 6.626 \times 10^{-34} \text{ J·s})$$
+
+\end{nota}
